@@ -117,9 +117,10 @@ class MigrationCartalystSentinel extends Migration
             $table->date('date_of_birth')->nullable();
             $table->string('religion')->nullable();
             $table->string('doctor_short_summery')->nullable();
+            $table->string('status')->nullable();
+            $table->string('role')->nullable();
             $table->text('permissions')->nullable();
             $table->timestamp('last_login')->nullable();
-            $table->string('status')->nullable();
             $table->timestamps();
 
             $table->engine = 'InnoDB';

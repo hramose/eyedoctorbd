@@ -20,6 +20,9 @@
     <!-- CORE CSS-->    
     <link href="{{asset('admin/css/materialize.min.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
     <link href="{{asset('admin/css/style.min.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
+        {{--  notify css  --}}
+    <link rel="stylesheet" href="{{ asset('admin/css/sweetalert.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <!-- Custome CSS-->    
     <link href="{{asset('admin/css/custom/custom.min.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
         {{-- Page defind css links --}}
@@ -58,6 +61,9 @@
     <script type="text/javascript" src="{{asset('admin/js/plugins/sparkline/sparkline-script.js')}}"></script>
         <!--plugins.js - Some Specific JS codes for Plugin Settings-->
     <script type="text/javascript" src="{{asset('admin/js/plugins.min.js')}}"></script>
+        {{--  notify js  --}}
+    <script src="{{ asset('admin/js/sweetalert-dev.js') }}"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="{{asset('admin/js/custom-script.js')}}"></script>
     @yield('jslink')
