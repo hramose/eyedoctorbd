@@ -13,7 +13,14 @@ class ChambersController extends Controller
       $userId = Sentinel::getUser()->id;
       $chambers = User::find($userId)->chambers;
 
-   	return view('doctor.chambers', compact('chambers'));
+   	return view('doctor.chamber.chambers', compact('chambers'));
+   }
+   public function api()
+   {
+      $userId = Sentinel::getUser()->id;
+      $chambers = User::find($userId)->chambers;      
+      return response(User::find($userId)->chambers);
+  
    }
 
    public function addChamber(Request $request)

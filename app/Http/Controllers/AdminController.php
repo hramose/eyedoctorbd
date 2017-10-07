@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
-        $TDoctor = User::where()->count();
+        $TDoctor = User::where('status','active')->count();
         $ActDoctor = User::where('status','active')->count();
         $InActDoctor = User::where('status','Inactive')->count();
     	return view('admin.dashboard', compact('TDoctor','ActDoctor','InActDoctor'));

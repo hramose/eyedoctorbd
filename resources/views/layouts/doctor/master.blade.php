@@ -70,6 +70,7 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="{{asset('admin/js/custom-script.js')}}"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     @yield('jslink')
   <script type="text/javascript">
     toastr.info('Are you the 6 fingered man?')
