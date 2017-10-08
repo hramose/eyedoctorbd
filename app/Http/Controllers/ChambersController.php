@@ -13,7 +13,7 @@ class ChambersController extends Controller
       $userId = Sentinel::getUser()->id;
       $chambers = User::find($userId)->chambers;
 
-   	return view('doctor.chamber.chambers', compact('chambers'));
+   	return view('doctor.chambers', compact('chambers'));
    }
    public function api()
    {
@@ -56,7 +56,6 @@ class ChambersController extends Controller
    {
       $chamber = Chamber::find($request->id);
       $chamber->delete();
-      // session()->flash('message','Chamber Successfully Deleted.');
       return 'done';
 
    }

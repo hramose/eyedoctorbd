@@ -24,6 +24,7 @@ Route::group(['prefix' => 'search'], function(){
 	Route::get('/{city}/{sub}', 'SearchController@search');
 });
 
+Route::get('contact','ContactController@index')->name('contactus');
 
 Route::group(['middleware' => 'visitors'], function(){
 	Route::get('/register', 'RegistrationController@register')->name('register');

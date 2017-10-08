@@ -58,7 +58,7 @@ All Chambers
         </div>
 
     <div class="row" id="chambers">
-       {{--  @include('doctor.chamber.include.viewchamber')  --}}
+       {{--  Here will show all chmabers with javascipt --}}
    </div>
    </section>
 
