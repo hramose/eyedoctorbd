@@ -52,12 +52,12 @@ class ChambersController extends Controller
    		
    }
 
-   public function deleteChamber($id)    
+   public function deleteChamber(Request $request)    
    {
-      $chamber = Chamber::find($id);
+      $chamber = Chamber::find($request->id);
       $chamber->delete();
-      session()->flash('message','Chamber Successfully Deleted.');
-      return redirect()->back();
+      // session()->flash('message','Chamber Successfully Deleted.');
+      return 'done';
 
    }
 }

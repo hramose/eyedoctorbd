@@ -62,8 +62,9 @@ All Chambers
    </div>
    </section>
 
-  <form method="POST" action="{{ route('addChamber') }}">
+  <form method="POST" action="{{ route('addChamber') }}">  
    {{ csrf_field() }}
+  {{ method_field('DELETE') }}
   <div id="modal1" class="modal modal-fixed-footer">
 
      
@@ -218,6 +219,31 @@ All Chambers
 @section('jslink')
   <script>
     getChambers();
+    
+    function deleteChamber(id) {
+      swal({
+            title: "Are you sure?",
+            text: "You will not be able to recover this data!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel plx!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+            },
+            function(isConfirm){
+            if (isConfirm) {
+              $.post("{{ route('delete.chamber') }}", {'id': id, '_token':$('input[name=_token]').val(),'_method':$('input[name=_method]').val()}, function(data){
+                  swal("Deleted!", "Your data has been deleted.", "success");            
+                  reloadChambers();  
+              });  
+            } else {
+                swal("Cancelled", "Your data is safe :)", "error");
+            }
+        });
+      
+    }
     function reloadChambers(){
       $('#chambers').empty();
       getChambers();
@@ -231,12 +257,14 @@ All Chambers
           for (let key in response.data){
             content = '<div class="col s12 m4 l4" id="remove">';
             content += '<div id="profile-card" class="card">';
+            //content += '<div class="card-image waves-effect waves-block waves-light">';
+            //content += '<img class="activator" src="{{ asset('admin/images/user-bg.jpg') }}" alt="user bg"></div>';
             content += '<div class="card-content">';                     
             content += '<div class="fixed-action-btn " style="position: absolute; display: inline-block; right: 19px;">';
             content += '<a class="btn-floating btn-large red">';
             content += '<i class="mdi-navigation-apps"></i> </a>';
             content += '<ul><li>';
-            content += '<button class="btn-floating red tooltipped" type="submit" data-position="left" data-delay="50" data-tooltip="Delete" href="/doctor/chambers/delete/id"><i class="mdi-action-delete" ></i> </button></li>';
+            content += '<button class="btn-floating red tooltipped" type="submit" data-position="left" data-delay="50" data-tooltip="Delete" onClick="deleteChamber('+ response.data[key].id +')" href="/doctor/chambers/delete/id"><i class="mdi-action-delete" ></i> </button></li>';
             content += '<li><a class="btn-floating yellow darken-1 tooltipped" data-position="left" data-delay="50" data-tooltip="Edit" href="#"><i class="mdi-editor-mode-edit"></i></a></li></ul></div>';
             content += '<span class="card-title activator grey-text text-darken-4">'+ response.data[key].chamber_name +'</span>';
             content += '<p><i class="mdi-maps-pin-drop"></i>'+ response.data[key].chamber_address + '</p>';
