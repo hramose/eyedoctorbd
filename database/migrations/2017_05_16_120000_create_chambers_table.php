@@ -19,11 +19,15 @@ class CreateChambersTable extends Migration
             $table->string('chamber_name')->nullable();
             $table->string('chamber_address')->nullable();
             $table->string('chamber_phone')->nullable();
-            $table->string('app_day')->nullable();
-            $table->string('app_time')->nullable();
+            $table->string('app_day_start')->nullable();
+            $table->string('app_day_end')->nullable();
+            $table->string('app_time_start')->nullable();
+            $table->string('app_time_end')->nullable();
             $table->string('new_patient')->nullable();
             $table->string('returning_patient')->nullable();
             $table->string('followup_report')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
             $table->timestamps();
         });
     }

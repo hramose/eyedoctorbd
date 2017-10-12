@@ -26,30 +26,31 @@ class ChambersController extends Controller
    public function addChamber(Request $request)
    {
        $this->validate($request,[
-        'txt_chamberName' => 'required',
-        'txt_chamberAddress' => 'required',
-        'txt_chamberPhone' => 'required'
+        'chamberName' => 'required',
+        'chamberAddress' => 'required',
+        'chamberPhone' => 'required'
        ]);
        
    		$chamberUserId = Sentinel::getUser()->id;
 
-   		$appDay = $request->opt_day1." TO ".$request->opt_day2;
-      $appTime = $request->txt_time1."". $request->opt_AP1." TO ".$request->txt_time2."".$request->opt_AP2;
-   		
       $chamber = new Chamber;
    		$chamber->user_id = $chamberUserId;
-   		$chamber->chamber_name = $request->txt_chamberName;
-   		$chamber->chamber_address = $request->txt_chamberAddress;
-   		$chamber->chamber_phone = $request->txt_chamberPhone;
-   		$chamber->app_day = $appDay;
-   		$chamber->app_time = $appTime;
-      $chamber->new_patient = $request->txt_newPatient;
-      $chamber->returning_patient = $request->txt_returningPatient;
-      $chamber->followup_report = $request->txt_followupReport;
+   		$chamber->chamber_name = $request->chamberName;
+   		$chamber->chamber_address = $request->chamberAddress;
+   		$chamber->chamber_phone = $request->chamberPhone;
+   		$chamber->app_day_start = $request->dayStart;
+   		$chamber->app_day_end = $request->dayEnd;
+   		$chamber->app_time_start = $request->timeStart;
+   		$chamber->app_time_end = $request->timeEnd;
+      $chamber->new_patient = $request->newPatient;
+      $chamber->returning_patient = $request->returningPatient;
+      $chamber->followup_report = $request->followupReport;
+      $chamber->lat = $request->lat;
+      $chamber->lng = $request->lng;
       $chamber->save();
-      session()->flash('message','New Chamber Successfully Added.');
-      return redirect()->back();
-   		
+      // session()->flash('message','New Chamber Successfully Added.');
+      return response(['message'=>'New Chamber Successfully Added']);
+   		 
    }
 
    public function deleteChamber(Request $request)    

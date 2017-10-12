@@ -1,5 +1,5 @@
 <footer>
-	<div class="block">
+	{{--  <div class="block">
 		<span class="footer-decoration top"></span>
 		<span class="footer-decoration bottom"></span>
 		<div class="container">
@@ -71,7 +71,7 @@
 			<div class="container">
 				<div class="widget-title">
 					<h4>Signup <span>Newsletter</span></h4>
-					<span>Provide Comprehensive</span>
+					<span>Stay with us</span>
 				</div>			
 				<form>
 					<input type="text" placeholder="Enter Your Email Address">
@@ -79,18 +79,18 @@
 				</form>
 			</div>
 		</div>
-	</div>
+	</div>  --}}
 </footer>
 
 <div class="bottom-footer">
 	<div class="container">
-		<p>© 2016 Eye Doctor IS PROUDLY DEVELOPED BY <a href="#" title="">i-SOFT</a> </p>
+		<p>© 2017 Eye Doctor BD All rights reserved. <i class="fa fa-code" aria-hidden="true"></i> with  <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" title="">i-SOFT</a> </p>
 		<ul>
-			<li><a href="{{ route('welcome') }}" title="">Home</a></li>
-			<li><a href="service.html" title="">Medical Services</a></li>
-			<li><a href="appointment.html" title="">Find a Physician</a></li>
-			<li><a href="contact.html" title="">Contact Us</a></li>
-			<li><a href="staff.html" title=""> About Us</a></li>
+			<li><a href="#" title="">Blog</a></li>
+			<li><a href="service.html" title="">Privacy policy</a></li>
+			<li><a href="appointment.html" title="">FAQ</a></li>
+			<li><a href="{{ route('contactus') }}" title="">Contact Us</a></li>
+			<li><a href="#" title=""> About Us</a></li>
 		</ul>
 	</div>
 </div>

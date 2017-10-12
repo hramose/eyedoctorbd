@@ -57,6 +57,6 @@ Route::group(['prefix' => 'doctor', 'middleware' => 'doctor'], function(){
 	// Chamber CURD
 	Route::get('/chambers', 'ChambersController@chambers')->name('chambers');
 	Route::post('/chambers/api', 'ChambersController@api')->name('capi');
-	Route::post('addchamber', 'ChambersController@addChamber')->name('addChamber');
+	Route::post('/chamber/add', 'ChambersController@addChamber')->name('addChamber');
 	Route::delete('/chambers/delete', 'ChambersController@deleteChamber')->name('delete.chamber');
 });

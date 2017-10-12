@@ -56,7 +56,7 @@ Profile
                   <div class="row">                    
                     <div class="col s9 offset-s2">                        
                         <h4 class="card-title grey-text text-darken-4">{{$doctor->name}}</h4>
-                        <p class="medium-small grey-text">{{$doctor->Designation}},&nbsp;Dept. of {{$doctor->Department}},&nbsp;{{$doctor->HospitalName}}</p> 
+                        <p class="medium-small grey-text">{{$doctor->designation}},&nbsp;Dept. of {{$doctor->department}},&nbsp;{{$doctor->hospital_name}}</p> 
                                     
                     </div>
                                       
@@ -73,11 +73,11 @@ Profile
                     </p>
 
                     <p>
-                      <i class="mdi-action-perm-identity cyan-text text-darken-2"></i>{{$doctor->Designation}},&nbsp;Dept. of {{$doctor->Department}}, &nbsp; {{$doctor->HospitalName}}
+                      <i class="mdi-action-perm-identity cyan-text text-darken-2"></i>{{$doctor->designation}},&nbsp;Dept. of {{$doctor->department}}, &nbsp; {{$doctor->hospital_name}}
                     </p>
                     <p>{{$doctor->Speciality}}</p>
                     
-                    <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> +88 {{$doctor->MobileNumber}}/p>
+                    <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> +88 {{ $doctor->mobile_number }}</p>
                     <p><i class="mdi-communication-email cyan-text text-darken-2"></i>{{$doctor->email}}</p>
                 </div>
             </div>
@@ -155,7 +155,7 @@ Profile
                                 </div>
                               </div>
 
-                              <div class="row">
+                              {{--  <div class="row">
                                 <div class="input-field col s12">
                                   <i class="mdi-editor-border-color prefix"></i>
                                   <input type="text" 
@@ -164,7 +164,7 @@ Profile
                                          class="validate">
                                   <label>Job Title</label>
                                 </div>
-                              </div>
+                              </div>  --}}
 
                               <div class="row">
                                 <div class="input-field col s12">
@@ -304,14 +304,14 @@ Profile
                                 </div>
                               </div>
                               
-                              <div class="row">
+                              {{--  <div class="row">
                                 <div class="input-field col s12">
                                   <i class="mdi-maps-navigation prefix"></i>
                                   <textarea class="materialize-textarea" 
                                             name="txt_WorkingAddress">{{ $doctor->working_address }}</textarea>
                                   <label for="Address">Working Address</label>
                                 </div>
-                              </div>
+                              </div>  --}}
 
                               <div class="row">
                                 <div class="input-field col s12">
@@ -355,10 +355,9 @@ Profile
                                 <div class="input-field col s12">
                                   <i class="mdi-social-cake prefix"></i>
                                   <input type="date" 
-                                         class="datepicker" 
                                          name="dat_DateofBirth" 
                                          value="{{ $doctor->date_of_birth }}">
-                                  <label>Date of Birth</label>
+                                  <label class="active">Date of Birth</label>
                                 </div>
                               </div>
 
@@ -667,7 +666,7 @@ Profile
                               </div>
 
                           </div> --}}
-
+    
                           <div class="row">
                             <div class="input-field col s12">
                               <button type="submit" 

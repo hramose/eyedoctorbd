@@ -73,7 +73,7 @@
                                     <p>All Fields With An ( * ) Are Required.</p>
                                 </div>
                                 <div class="input-field col s12">
-                                    <button type="submit"><i class="fa fa-recycle"></i> Check Now</button>
+                                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></i> Search</button>
                                 </div>
                             </div>
                         </form>
@@ -85,85 +85,98 @@
 </section>
 
 <section>
-    <div class="block whitish">
-        <div class="container">
-            <div class="row">
-                
-                    <div class="all-services">
-                        <div class="row">
-                            <div class="col l4 m6 s12">
-                                <div class="service">
-                                    <img src="images/resource/service1.jpg" alt="" />
-                                    <div class="service-hover">
-                                        <i class="icon-hospital"></i>
-                                        <span>Short Term</span>
-                                        <h5>Hospitalization Services</h5>
-                                    </div>
-                                    <a href="service-detail.html" title="">Service Detail <i class="fa fa-caret-right"></i></a>
-                                </div><!-- Service -->
-                            </div>
-                            <div class="col l4 m6 s12">
-                                <div class="service">
-                                    <img src="images/resource/service2.jpg" alt="" />
-                                    <div class="service-hover">
-                                        <i class="icon-medical-list"></i>
-                                        <span>Complete Services of </span>
-                                        <h5>X Ray / Radiology</h5>
-                                    </div>
-                                    <a href="service-detail.html" title="">Service Detail <i class="fa fa-caret-right"></i></a>
-                                </div><!-- Service -->
-                            </div>
-                            <div class="col l4 m6 s12">
-                                <div class="service">
-                                    <img src="images/resource/service3.jpg" alt="" />
-                                    <div class="service-hover">
-                                        <i class="icon-ambulance"></i>
-                                        <span>Pick & Drop by</span>
-                                        <h5>First Class Ambulances</h5>
-                                    </div>
-                                    <a href="service-detail.html" title="">Service Detail <i class="fa fa-caret-right"></i></a>
-                                </div><!-- Service -->
-                            </div>
-                            <div class="col l4 m6 s12">
-                                <div class="service">
-                                    <img src="images/resource/service4.jpg" alt="" />
-                                    <div class="service-hover">
-                                        <i class="icon-molecule"></i>
-                                        <span>General </span>
-                                        <h5>Surgical Services</h5>
-                                    </div>
-                                    <a href="service-detail.html" title="">Service Detail <i class="fa fa-caret-right"></i></a>
-                                </div><!-- Service -->
-                            </div>
-                            <div class="col l4 m6 s12">
-                                <div class="service">
-                                    <img src="images/resource/service5.jpg" alt="" />
-                                    <div class="service-hover">
-                                        <i class="icon-chemicals"></i>
-                                        <span>Surgical Services</span>
-                                        <h5>Laboratory Services</h5>
-                                    </div>
-                                    <a href="service-detail.html" title="">Service Detail <i class="fa fa-caret-right"></i></a>
-                                </div><!-- Service -->
-                            </div>
-                            <div class="col l4 m6 s12">
-                                <div class="service">
-                                    <img src="images/resource/service6.jpg" alt="" />
-                                    <div class="service-hover">
-                                        <i class="icon-blood-group"></i>
-                                        <span>Sterilized & Safe</span>
-                                        <h5>Blood Services</h5>
-                                    </div>
-                                    <a href="service-detail.html" title="">Service Detail <i class="fa fa-caret-right"></i></a>
-                                </div><!-- Service -->
-                            </div>
-                        </div>
-                    </div><!-- All Service -->
-                
-            
-            </div>
-        </div>
-    </div>
+	<div class="block whitish">
+		<div class="container">
+			<div class="row">
+				<div class="col l8 m12 s12 column">
+					<div class="all-services">
+						<div class="row">
+							<div class="col l4 m6 s12">
+								<div class="service">
+									<img src="images/resource/service1.jpg" alt="" />
+									<div class="service-hover">
+										<i class="icon-hospital"></i>
+										<span>Short Term</span>
+										<h5>Hospitalization Services</h5>
+									</div>
+									<a href="service-detail.html" title="">Service Detail <i class="fa fa-caret-right"></i></a>
+								</div><!-- Service -->
+							</div>
+							<div class="col l4 m6 s12">
+								<div class="service">
+									<img src="images/resource/service2.jpg" alt="" />
+									<div class="service-hover">
+										<i class="icon-medical-list"></i>
+										<span>Complete Services of </span>
+										<h5>X Ray / Radiology</h5>
+									</div>
+									<a href="service-detail.html" title="">Service Detail <i class="fa fa-caret-right"></i></a>
+								</div><!-- Service -->
+							</div>
+							<div class="col l4 m6 s12">
+								<div class="service">
+									<img src="images/resource/service3.jpg" alt="" />
+									<div class="service-hover">
+										<i class="icon-ambulance"></i>
+										<span>Pick & Drop by</span>
+										<h5>First Class Ambulances</h5>
+									</div>
+									<a href="service-detail.html" title="">Service Detail <i class="fa fa-caret-right"></i></a>
+								</div><!-- Service -->
+							</div>
+							<div class="col l4 m6 s12">
+								<div class="service">
+									<img src="images/resource/service4.jpg" alt="" />
+									<div class="service-hover">
+										<i class="icon-molecule"></i>
+										<span>General </span>
+										<h5>Surgical Services</h5>
+									</div>
+									<a href="service-detail.html" title="">Service Detail <i class="fa fa-caret-right"></i></a>
+								</div><!-- Service -->
+							</div>
+							<div class="col l4 m6 s12">
+								<div class="service">
+									<img src="images/resource/service5.jpg" alt="" />
+									<div class="service-hover">
+										<i class="icon-chemicals"></i>
+										<span>Surgical Services</span>
+										<h5>Laboratory Services</h5>
+									</div>
+									<a href="service-detail.html" title="">Service Detail <i class="fa fa-caret-right"></i></a>
+								</div><!-- Service -->
+							</div>
+							<div class="col l4 m6 s12">
+								<div class="service">
+									<img src="images/resource/service6.jpg" alt="" />
+									<div class="service-hover">
+										<i class="icon-blood-group"></i>
+										<span>Sterilized & Safe</span>
+										<h5>Blood Services</h5>
+									</div>
+									<a href="service-detail.html" title="">Service Detail <i class="fa fa-caret-right"></i></a>
+								</div><!-- Service -->
+							</div>
+						</div>
+					</div><!-- All Service -->
+				</div>
+				<div class="col l4 m12 s12 column">
+					<div class="timetable">
+						<div class="classic-title">
+							<h2><span>Check Our</span>Ads Section</h2>
+						</div>
+						<p>Suspendisse potenti. Maecenas dapibus ac tellus sed pulvinar. Vestibulum bib volutpat accumsan non laoreet nulla luctus...</p>
+						<ul>
+							<li><span>Monday - Friday</span>--<i>8.00 – 18.00</i></li>
+							<li><span>Saturday</span>--<i>8.00 – 18.00</i></li>
+							<li><span>Sunday</span>--<i>8.00 – 18.00</i></li>
+						</ul>
+						<a class="icon-btn" href="timetable.html" title=""><i class="fa fa-user-md"></i> See Doctors Timetable</a>
+					</div><!-- Timetable -->
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 
 <section>
@@ -339,7 +352,7 @@
             <div class="row">
                 <div class="col l12 m12 s12 column">
                     <div class="parallax-title">
-                        <h2>WAYS TO <span>SUPPORT</span> THE CLINIC</h2>
+                        <h2>WAYS TO <span>SUPPORT</span> US</h2>
                         <p>Gifts of all sizes help the Department of Gynecology and Obstetrics continue our ongoing<br /> efforts as a leader in innovative and compassionate treatment, ground breaking.</p>
                     </div>
                     <div class="support-ways">
@@ -348,7 +361,7 @@
                                 <div class="way">
                                     <span><i class="icon-gift"></i></span>
                                     <div class="way-detail">
-                                        <h3><a class="call-popup popup5" href="#" title="">Cash Gifts</a></h3>
+                                        <h3><a href="#" title="">Cash Gifts</a></h3>
                                         <i>Donate For Help</i>
                                     </div>
                                 </div><!-- Way -->
@@ -357,7 +370,7 @@
                                 <div class="way">
                                     <span><i class="icon-bag"></i></span>
                                     <div class="way-detail">
-                                        <h3><a class="call-popup popup3" href="#" title="">Send Your Gifts</a></h3>
+                                        <h3><a href="#" title="">Send Your Gifts</a></h3>
                                         <i>Show Your Love</i>
                                     </div>
                                 </div><!-- Way -->
@@ -366,7 +379,7 @@
                                 <div class="way">
                                     <span><i class="icon-medicine"></i></span>
                                     <div class="way-detail">
-                                        <h3><a class="call-popup popup3" href="#" title="">Donate Blood</a></h3>
+                                        <h3><a href="#" title="">Donate Blood</a></h3>
                                         <i>Save A Life</i>
                                     </div>
                                 </div><!-- Way -->
@@ -433,12 +446,12 @@
                         <img src="images/resource/links-box.jpg" alt="" />
                         <div class="links-box-overlay">
                             <div class="links-box-inner">
-                                <h3>I WANT TO...</h3>
+                                <h3>Ads Section.</h3>
                                 <p>Our Commitment Is To Provide Compre hensive Quality Care</p>
 
                                 <ul>
                                     <li><a href="refer.html" title=""><i class="icon-broken-arm"></i> Refer a Patient</a></li>
-                                    <li><a class="call-popup popup3" href="#" title=""><i class="icon-gift"></i> Make a Gift</a></li>
+                                    <li><a  href="#" title=""><i class="icon-gift"></i> Make a Gift</a></li>
                                     <li><a href="events.html" title=""><i class="icon-student"></i> Attend a Health Seminar</a></li>
                                     <li><a href="blog.html" title=""><i class="icon-tool"></i> Search Clinical Trails</a></li>
                                     <li><a href="payment.html" title=""><i class="icon-money"></i> Pay my bill</a></li>
@@ -471,8 +484,6 @@
     <script type="text/javascript" src="{{ asset('js/revolution/revolution.initialize2.js') }}"></script>
     
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-    
-    <script src="{{ asset('js/script.js') }}" type="text/javascript"></script>
     
     <script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
     

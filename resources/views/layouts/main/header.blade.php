@@ -37,7 +37,7 @@
 	<div class="responsive-menu">
 		<div class="logo"><a href="{{ route('welcome') }}" title=""><img src="{{ asset('/images/logo.png') }}" alt="" /></a></div>		
 		<div class="responsive-menu-btns">
-			<a class="call-popup popup1" href="#" title=""><i class="fa fa-user-md"></i> Get Free Consultation</a>
+			{{--  <a class="call-popup popup1" href="#" title=""><i class="fa fa-user-md"></i> Get Free Consultation</a>  --}}
 			<a class="open-menu" href="#" title=""><i class="fa fa-list"></i></a>
 		</div>
 	</div><!-- Responsive Menu -->
@@ -75,7 +75,6 @@
 				<a class="twitter" title="" href="#"><i class="fa fa-twitter"></i></a>
 				<a class="skype" title="" href="#"><i class="fa fa-skype"></i></a>
 			</div>
-			<div class="topbar-btn"><a class="call-popup popup1" href="#" title=""><i class="fa fa-user"></i> Get Free Consultation</a></div>
 		</div>
 	</div><!-- Topbar -->
 	<div class="menu-bar-height" style="{{ (Request::is('profile/*')? 'height: 0px;' : '') }}"></div>
@@ -89,7 +88,7 @@
 					<li><a href="blog" title="">Blog</a></li>					
 					<li><a href="gallery" title="">Gallery</a></li>
 					<li><a href="about" title="">About Page</a></li>					
-					<li><a href="contact" title="">Contact</a></li>
+					<li><a href="{{ route('contactus')  }}" title="">Contact</a></li>
 					
 					<li>
 						<a href="login" title="">Doctors Area</a>

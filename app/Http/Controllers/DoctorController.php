@@ -54,7 +54,7 @@ class DoctorController extends Controller
  		$doctor->mobile_number = $request->txt_MobileNumber;
  		$doctor->avatar = $filename;
  		$doctor->designation = $request->txt_Designation;
- 		$doctor->job_title = $request->txt_JobTitle;
+ 		// $doctor->job_title = $request->txt_JobTitle;
  		$doctor->degrees = $request->txt_Degrees;
  		$doctor->bmdc_number = $request->txt_BMDC;
  		$doctor->department = $request->txt_Department;
@@ -62,7 +62,7 @@ class DoctorController extends Controller
  		// $doctor->specialty_details = $request->txt_SpecialtyDetails;
  		$doctor->city = $request->opt_City;
  		$doctor->subarea = $request->opt_SubArea;
- 		$doctor->working_address = $request->txt_WorkingAddress;
+ 		// $doctor->working_address = $request->txt_WorkingAddress;
  		$doctor->hospital_name = $request->txt_HospitalName;
  		$doctor->association = $request->txt_Association;
  		$doctor->gender = $request->opt_Gender;
@@ -75,24 +75,23 @@ class DoctorController extends Controller
  	
  	public function doctorDetail($username)
  	{
+		$allDoctors = User::where('role','doctor')->where('status','active')->inRandomOrder()->get();
+		
  		$doctor = User::where('username',$username)->first();
  		$chambers = User::find($doctor->id)->chambers;
- 		return view('doctorDetail', compact('doctor','chambers'));
- 		// return $chambers;
+ 		return view('doctorDetail', compact('doctor','chambers','allDoctors'));
  	}
 
  	public function allDoctors()
  	{
 
-		 $allDoctors = User::where('status','active')->inRandomOrder()->paginate(10);
+		 $allDoctors = User::where('role','doctor')->where('status','active')->inRandomOrder()->paginate(10);
 		 $allDoctorsCount= $allDoctors->count();
 
-		//  dump($allDoctorsCount);
-
-		 if($allDoctorsCount > 1){
+		 if($allDoctorsCount >= 1){
 			 return view('alldoctors', compact('allDoctors'));
 		}else{
-			dd($allDoctors); 
+			return view('alldoctors',['msg'=>'Opps, no doctor found :)']);
 		}
  	}
 

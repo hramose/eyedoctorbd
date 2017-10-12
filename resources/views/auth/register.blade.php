@@ -96,6 +96,7 @@
                                            placeholder="Confirm Password" 
                                            required/>
                                 </div>
+                                <input type="hidden" value="doctor" name="role">
                                 
 
                                 <div class="input-field col s12">

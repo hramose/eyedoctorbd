@@ -30,6 +30,10 @@
 					<div class="row">
 						<div id="test-list"> 
 							<div class="list">
+							
+							@if(isset($msg))
+								<h1 class="">{{ $msg }}</h1>
+							@else
 
 							@foreach ($allDoctors as $allDoctor)
 								<div class="name col s12 m6 l3">
@@ -47,7 +51,6 @@
 								</div>
 
 							@endforeach
-
 							 </div>
 								<ul class="pagination theme-pagi">
 
@@ -56,8 +59,8 @@
 									
 									<li><a href="#">Next</a></li> --}}
 								</ul><!-- Pagination -->	
+							@endif
 						 </div>
-
 						</div>
 					</div><!-- All Surgeons -->
 									

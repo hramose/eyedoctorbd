@@ -24,6 +24,7 @@ class RegistrationController extends Controller
                 'email' => 'required|email|unique:users',
                 'password' => 'required|min:5|max:20|confirmed',
                 'password_confirmation' => 'required|min:5|max:20',
+                'role' => 'required',
             ]);
         
 		$user = Sentinel::register($request->all());
@@ -34,7 +35,6 @@ class RegistrationController extends Controller
         $this->sendEmail($user,$activation->code);
 		
 		return redirect()->back()->with(['success' => 'Registration successful. Please check your email to activate your account:)']);
-// 		dd($request);
 
     }
 

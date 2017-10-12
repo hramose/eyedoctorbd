@@ -62,7 +62,7 @@ All Chambers
    </div>
    </section>
 
-  <form method="POST" action="{{ route('addChamber') }}">  
+  <form method="POST" id="addForm" action="{{ route('addChamber') }}">  
    {{ csrf_field() }}
   {{ method_field('DELETE') }}
   <div id="modal1" class="modal modal-fixed-footer">
@@ -76,7 +76,7 @@ All Chambers
                           <i class="mdi-maps-my-location prefix"></i>
                           <input type="text" 
                                  class="validate"
-                                 name="txt_chamberName"
+                                 id="txt_chamberName"
                                  required autofocus>
                           <label for="chamber_name">Chamber Name</label>
                         </div>
@@ -88,6 +88,7 @@ All Chambers
                           <textarea class="materialize-textarea validate"
                                     length="120"
                                     name="txt_chamberAddress"
+                                    id="address"
                                     ></textarea>
                           <label for="chamber_address">Chamber Address</label>
                         </div>
@@ -98,7 +99,7 @@ All Chambers
                           <i class="mdi-action-settings-phone prefix"></i>
                           <input type="text"
                                  class="validate"
-                                 name="txt_chamberPhone">
+                                 id="txt_chamberPhone">
                           <label for="chamber_phone">Chamber Phone</label>
                         </div>
                       </div>
@@ -106,7 +107,7 @@ All Chambers
                       <div class="row">
                        <h4 class="header2">Available Days</h4>
                         <div class="input-field col s5">
-                        <select name="opt_day1">
+                        <select id="opt_day_start">
                           <option value="" disabled selected>Choose day</option>
                           <option value="Saturday">Saturday</option>
                           <option value="Sunday">Sunday</option>
@@ -122,7 +123,7 @@ All Chambers
                          <strong class="center-text">TO</strong>
                         </div>
                       <div class="input-field col s5">
-                        <select name="opt_day2">
+                        <select id="opt_day_end">
                           <option value="" disabled selected>Choose day</option>
                           <option value="Saturday">Saturday</option>
                           <option value="Sunday">Sunday</option>
@@ -138,38 +139,24 @@ All Chambers
 
                       <div class="row">
                        <h4 class="header2">Available Time</h4>
-                        <div class="input-field col s3">
+                        <div class="input-field col s5">
                           <i class="mdi-action-alarm prefix"></i>
                             <input type="text"
                                    class="validate"
-                                   name="txt_time1">
+                                   id="txt_time_start">
                             <label>00.00 AM</label>
 
-                        </div>
-                        <div class="input-field col s2">
-                        <select name="opt_AP1">
-                              <option value="AM">AM</option>
-                              <option value="PM">PM</option>
-                            </select>
-                          
                         </div>
                         <div class="col s2">
                          <strong class="center-text">TO</strong>
                         </div>
-                      <div class="input-field col s3">
+                      <div class="input-field col s5">
                           <i class="mdi-action-alarm prefix"></i>
                           <input type="text"
                                  class="validate"
-                                 name="txt_time2">
+                                 id="txt_time_end">
                           <label>00.00 PM</label>
-                      </div>    
-                      <div class="input-field col s2">
-                        <select name="opt_AP2">
-                              <option value="AM">AM</option>
-                              <option value="PM">PM</option>
-                            </select>
-                          
-                        </div>                    
+                      </div>                
                       </div>
 
                       <div class="row">
@@ -177,7 +164,7 @@ All Chambers
                           <i class="mdi-maps-local-pharmacy prefix"></i>
                           <input type="text"
                                  class="validate"
-                                 name="txt_newPatient">
+                                 id="txt_newPatient">
                           <label>New Patient (fees)</label>
                         </div>
                       </div>
@@ -187,7 +174,7 @@ All Chambers
                           <i class="mdi-maps-local-pharmacy prefix"></i>
                           <input type="text"
                                  class="validate"
-                                 name="txt_returningPatient">
+                                 id="txt_returningPatient">
                           <label>Returning Patient (fees)</label>
                         </div>
                       </div>
@@ -197,18 +184,19 @@ All Chambers
                           <i class="mdi-maps-local-pharmacy prefix"></i>
                           <input type="text"
                                  class="validate"
-                                 name="txt_followupReport">
+                                 id="txt_followupReport">
                           <label>Followup Report (fees)</label>
                         </div>
                       </div>             
                   </div>
 
         <div class="modal-footer">
-          <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-          <button class="btn cyan waves-effect waves-light right" 
-                   type="submit">Save
-                   <i class="mdi-content-send right"></i>
-                   </button>
+          <button type="button" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</button>
+          <button class="btn cyan waves-effect waves-light right modal-close" 
+                      type="button"
+                      id="btn">Save
+                      <i class="mdi-content-send right"></i>
+                      </button>
        </div>
       
   </div>
@@ -217,9 +205,67 @@ All Chambers
 @endsection
 
 @section('jslink')
-  <script>
-    getChambers();
-    
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsBE16CUMhihku7nqBldifkvXBO26ksDQ" async defer></script>
+	<script type="text/javascript">
+          
+        getChambers();
+
+        function getLatitudeLongitude(callback, address) {
+            // If adress is not supplied, use default value 'Ferrol, Galicia, Spain'
+            address = address || 'Dhaka';
+            // Initialize the Geocoder
+            geocoder = new google.maps.Geocoder();
+            if (geocoder) {
+                geocoder.geocode({
+                    'address': address
+                }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        callback(results[0]);
+                    }
+                });
+            }
+        }
+
+        var button = document.getElementById('btn');
+
+        button.addEventListener("click", function () {
+            var address = document.getElementById('address').value;
+            getLatitudeLongitude(createChamber, address)
+            
+        });
+
+      function createChamber(result){
+            let lat = result.geometry.location.lat();
+            let lng = result.geometry.location.lng();
+            axios.post('{{ route('addChamber') }}', {
+              _token:$('input[name=_token]').val(),
+              chamberName: $('#txt_chamberName').val(),
+              chamberAddress: $('#address').val(),
+              chamberPhone: $('#txt_chamberPhone').val(),
+              dayStart: $('#opt_day_start').val(),
+              dayEnd: $('#opt_day_end').val(),
+              timeStart: $('#txt_time_start').val(),
+              timeEnd: $('#txt_time_end').val(),
+              newPatient: $('#txt_newPatient').val(),
+              returningPatient: $('#txt_returningPatient').val(),
+              followupReport: $('#txt_followupReport').val(),
+              lat:lat,
+              lng:lng
+            })
+            .then(response => {
+              reloadChambers();
+              toastr.success(response.data.message);
+             $('#addForm')[0].reset();
+            })
+            .catch(error => {
+                console.log(error.response.data.errors)
+                toastr.error(error.response.data.errors.chamberAddress[0]);
+                toastr.error(error.response.data.errors.chamberName[0]);
+                toastr.error(error.response.data.errors.chamberPhone[0]);
+            });
+      }
+
     function deleteChamber(id) {
       swal({
             title: "Are you sure?",
