@@ -13,7 +13,15 @@ class DoctorController extends Controller
  	public function dashboard()
  	{
  		return view('doctor.dashboard');
- 	}
+	 }
+	 public function status(Request $request)
+	 {
+		$getDoctor = Sentinel::getUser()->id;
+		$doctor = User::find($getDoctor);
+		$doctor->status = $request->status;
+		$doctor->save();
+		return response(['message'=>'Your Status Successfully Update']);	
+	 }
  	public function profile()
  	{
  		$doctor  = Sentinel::getUser();

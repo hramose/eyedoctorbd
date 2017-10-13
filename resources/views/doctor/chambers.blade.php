@@ -51,6 +51,24 @@ All Chambers
                 <ol class="breadcrumbs">
                   <a class="waves-effect waves-light btn modal-trigger light-blue" href="#modal1">Add New Chamber</a>
                   <button class="waves-effect waves-light btn light-blue" onclick="reloadChambers()">Reload</button>
+                   <!--Input Switches-->
+            <div id="input-switches" class="section">
+              <h4 class="header">Switches</h4>
+              <div class="row">
+                <div class="col s12 m4 l3">
+                    <p></p>
+                </div>
+                <div class="col s12 m8 l9">
+                  <!-- Switch -->
+                  <div class="switch"> 
+                    <label>
+                      <input type="checkbox" checked >
+                      <span class="lever"></span>Online 
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
                 </ol>
               </div>
             </div>
@@ -315,8 +333,8 @@ All Chambers
             content += '<span class="card-title activator grey-text text-darken-4">'+ response.data[key].chamber_name +'</span>';
             content += '<p><i class="mdi-maps-pin-drop"></i>'+ response.data[key].chamber_address + '</p>';
             content += '<p><i class="mdi-action-perm-phone-msg"></i>'+ response.data[key].chamber_phone +'</p>';
-            content += '<p><i class="mdi-action-event"></i>'+ response.data[key].app_day +'</p>';
-            content += '<p><i class="mdi-action-alarm"></i>'+ response.data[key].app_time +'</p> </div>';
+            content += '<p><i class="mdi-action-event"></i>'+ response.data[key].app_day_start+' To '+ response.data[key].app_day_end +'</p>';
+            content += '<p><i class="mdi-action-alarm"></i>'+ response.data[key].app_time_start +' To '+ response.data[key].app_time_end +'</p> </div>';
             content += '<div class="card-reveal" style="display: none; transform: translateY(0px);">';
             content += '<span class="card-title grey-text text-darken-4">Fees<i class="mdi-navigation-close right"></i></span>';
             content += '<p><i class="mdi-maps-local-hospital"></i>New Patient: '+ response.data[key].new_patient +'.tk</p>';
