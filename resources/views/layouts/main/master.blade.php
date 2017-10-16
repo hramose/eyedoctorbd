@@ -46,6 +46,7 @@
     <script type="text/javascript" src="{{ asset('js/jquery.poptrox.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/smoothscroll.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
+    
 
     
     @yield ('jslink')

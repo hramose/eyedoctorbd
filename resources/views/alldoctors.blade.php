@@ -11,11 +11,11 @@
 @section('content')
 	<div class="pagetop">
 	<div class="container">
-		<span>What We Actually Do?</span>
-		<h1><span>MEDICALIST</span> SURGEONS</h1>
+		{{--  <span>What We Actually Do?</span>  --}}
+		<h1>All <span>Verified</span> Doctors</h1>
 		<ul>
-			<li><a href="index-2.html" title="">Home</a></li>
-			<li>Staff</li>
+			<li><a href="{{ route('welcome') }}" title="">Home</a></li>
+			<li>All Doctors</li>
 		</ul>
 	</div>
 </div>
@@ -38,7 +38,7 @@
 							@foreach ($allDoctors as $allDoctor)
 								<div class="name col s12 m6 l3">
 									<div class="surgeon">
-										<a href="profile/{{ $allDoctor->username }}" title="">
+										<a href="/profile/{{ $allDoctor->username }}" title="">
 											<img src="/doctors/thumb/{{ $allDoctor->avatar }}" alt="profile image"/>
 											<div class="surgeon-info">
 												<div class="surgeon-name">

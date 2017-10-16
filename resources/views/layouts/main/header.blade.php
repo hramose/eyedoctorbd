@@ -45,12 +45,12 @@
 	<div class="responsive-links">
 		<span><i class="fa fa-remove"></i></span>
 		<ul>
-			<li><a href="{{ route('welcome') }}" title="">Home</a></li>
-			<li><a href="{{ route('alldoctors') }}" title="">All Doctors</a></li>
-			<li><a href="blog" title="">Blog</a></li>					
-			<li><a href="gallery" title="">Gallery</a></li>
-			<li><a href="about" title="">About Page</a></li>					
-			<li><a href="contact" title="">Contact</a></li>
+			<li><a href="{{ route('welcome') }}" title="Home">Home</a></li>
+			<li><a href="{{ route('alldoctors') }}" title="All Doctors">All Doctors</a></li>
+			{{--  <li><a href="#" title="Blog">Blog</a></li>					
+			<li><a href="#" title="Gallery">Gallery</a></li>  --}}
+			<li><a href="{{ route('aboutus') }}" title="About Us">About Us</a></li>		
+			<li><a href="{{ route('contactus')  }}" title="Contact Us">Contact</a></li>
 			<li>
 				<a href="login" title="">Doctors Area</a>
 				  <ul>
@@ -66,11 +66,11 @@
 	<div class="topbar style2">
 		<div class="container">
 			<ul class="topbar-info">
-				<li><i class="icon-telephone2"></i> <strong>Call Us Today!</strong>  +88 1913371020</li>
+				<li><i class="icon-telephone2"></i> <strong>Call Us Today!</strong>  +880 1913371020</li>
 				<li><i class="icon-envelope"></i> <strong>Email:</strong>  eyedoctorinfo@gmail.com</li>
 			</ul>
 			<div class="social-icons">
-				<a class="facebook" title="" href="https://www.facebook.com/eyedoctorbd"><i class="fa fa-facebook"></i></a>
+				<a class="facebook" title="Facebook Page" href="https://www.facebook.com/eyedoctorbd"><i class="fa fa-facebook"></i></a>
 				<a class="linkedin" title="" href="#"><i class="fa fa-linkedin"></i></a>
 				<a class="twitter" title="" href="#"><i class="fa fa-twitter"></i></a>
 				<a class="skype" title="" href="#"><i class="fa fa-skype"></i></a>
@@ -83,12 +83,12 @@
 			<div class="logo"><a href="{{ route('welcome') }}" title=""><img src="{{ asset('/images/logo.png') }}" alt="" /></a></div>
 			<nav class="menu">
 				<ul>
-					<li><a href="{{ route('welcome') }}" title="">Home</a></li>
-					<li><a href="{{ route('alldoctors') }}" title="">All Doctors</a></li>
-					<li><a href="blog" title="">Blog</a></li>					
-					<li><a href="gallery" title="">Gallery</a></li>
-					<li><a href="about" title="">About Page</a></li>					
-					<li><a href="{{ route('contactus')  }}" title="">Contact</a></li>
+					<li><a href="{{ route('welcome') }}" title="Home">Home</a></li>
+					<li><a href="{{ route('alldoctors') }}" title="All Doctors">All Doctors</a></li>
+					{{--  <li><a href="#" title="Blog">Blog</a></li>					
+					<li><a href="#" title="Gallery">Gallery</a></li>  --}}
+					<li><a href="{{ route('aboutus') }}" title="About Us">About Us</a></li>		
+					<li><a href="{{ route('contactus')  }}" title="Contact Us">Contact</a></li>
 					
 					<li>
 						<a href="login" title="">Doctors Area</a>

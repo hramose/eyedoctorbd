@@ -11,7 +11,7 @@
 @section('content')
 <div class="pagetop">
 	<div class="container">
-		<h1><span>EYE</span> DOCTOR</h1>
+		<h1><span>EYE</span> DOCTOR BD</h1>
 
 		<div class="row">
 		<form action="{{ route('search') }}" method="POST">
@@ -36,7 +36,6 @@
 			<div class="input-field col s4">
 				<input type="text" 
 					   name="txt_DocORHosName" 
-					   value="DocORHosName" 
 					   placeholder="Doctor Name or Email">
 			</div>
 			<div class="input-field col s2">
@@ -63,7 +62,7 @@
 							@foreach ($Doctors as $Doctor)
 								<div class="name col s12 m6 l3">
 									<div class="surgeon">
-										<a href="profile/{{ $Doctor->username }}" title="">
+										<a href="/profile/{{ $Doctor->username }}" title="">
 											<img src="/doctors/thumb/{{ $Doctor->avatar }}" alt="profile image"/>
 											<div class="surgeon-info">
 												<div class="surgeon-name">

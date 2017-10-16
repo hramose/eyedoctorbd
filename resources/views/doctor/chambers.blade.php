@@ -51,24 +51,6 @@ All Chambers
                 <ol class="breadcrumbs">
                   <a class="waves-effect waves-light btn modal-trigger light-blue" href="#modal1">Add New Chamber</a>
                   <button class="waves-effect waves-light btn light-blue" onclick="reloadChambers()">Reload</button>
-                   <!--Input Switches-->
-            <div id="input-switches" class="section">
-              <h4 class="header">Switches</h4>
-              <div class="row">
-                <div class="col s12 m4 l3">
-                    <p></p>
-                </div>
-                <div class="col s12 m8 l9">
-                  <!-- Switch -->
-                  <div class="switch"> 
-                    <label>
-                      <input type="checkbox" checked >
-                      <span class="lever"></span>Online 
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
                 </ol>
               </div>
             </div>

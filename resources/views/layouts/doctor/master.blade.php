@@ -73,8 +73,34 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     @yield('jslink')
   <script type="text/javascript">
-    toastr.info('Are you the 6 fingered man?')
-
+    function status () {
+           let status = $('#sta').val();
+           if(status == "active"){
+              axios.post('{{ route('status') }}', {
+              _token:$('input[name=_token]').val(),
+              status: "deactive"
+            })
+            .then(response => {
+              toastr.success(response.data.message);
+              $("#divsta").load(location.href + " #divsta");    
+            })
+            .catch(error => {
+                console.log(error.response.data.errors)
+            });
+           }else{
+                axios.post('{{ route('status') }}', {
+              _token:$('input[name=_token]').val(),
+              status: "active"
+            })
+            .then(response => {
+              toastr.success(response.data.message);
+              $("#divsta").load(location.href + " #divsta");
+            })
+            .catch(error => {
+                console.log(error.response.data.errors)
+            });
+           }
+        }
   </script>
 </body>
 </html>

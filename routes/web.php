@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/','MainController@welcome')->name('welcome');
 
 Route::get('profile/{username}', 'DoctorController@doctorDetail')->name('profile');
 
@@ -24,7 +22,8 @@ Route::group(['prefix' => 'search'], function(){
 	Route::get('/{city}/{sub}', 'SearchController@search');
 });
 
-Route::get('contact','ContactController@index')->name('contactus');
+Route::get('contact','PageController@contact')->name('contactus');
+Route::get('about','PageController@about')->name('aboutus');
 
 Route::group(['middleware' => 'visitors'], function(){
 	Route::get('/register', 'RegistrationController@register')->name('register');

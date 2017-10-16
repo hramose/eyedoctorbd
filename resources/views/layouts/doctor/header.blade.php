@@ -25,6 +25,9 @@
                     <ul class="right hide-on-med-and-down">
 
                           <li>
+                          <div id="divsta">
+                              <input type="hidden" id="sta" value="{{Sentinel::getUser()->status}}">
+                          </div>
                             <div class="switch"> 
                                 @if(Sentinel::getUser()->status == "active" )
                                    <label>

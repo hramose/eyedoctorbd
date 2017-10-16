@@ -5,6 +5,12 @@
 @endsection
 
 @section('csslink')
+<style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+</style>
 
 @endsection
 
@@ -87,9 +93,19 @@
 													</div>
 												</div><hr>
 
-												{{-- Starting grabag --}}
- 
-												{{-- Stop grabag --}}
+												{{-- Starting map --}}
+											 <div class="staff-tab-content" style="box-shadow: -1px 2px 24px 0px rgba(127,127,127,1);color: #7F8080;">
+
+												<div class="panel-header" style="text-align: center; color: cornflowerblue;">
+													<h5 style="color: cornflowerblue;">
+														<span>
+															<i class="fa fa-map-marker" aria-hidden="true"></i> Chamber(s) Location(Map)
+														</span>
+													</h5>
+													<div id="map"></div>
+													</div>
+												</div>
+												{{-- Stop map --}}
 												
 											</div>
 											<div class="col s6 m6 16">
@@ -194,7 +210,7 @@
 										<div class="staff-member">
 											<div class="member-img"><img src="/doctors/profile/{{ $doctor->avatar }}" alt="" /></div>
 											<div class="doctor-intro">
-												<strong><a href="staff-detail.html" title="">{{ $doctor->name }}</a></strong>
+												<strong><a href="/profile/{{ $doctor->username }}" title="">{{ $doctor->name }}</a></strong>
 												<i>Orthopaedics</i>
 											</div>
 										</div><!-- Staff Member -->
@@ -217,13 +233,44 @@
 @endsection
 
 @section('jslink')
-	
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyAsBE16CUMhihku7nqBldifkvXBO26ksDQ&sensor=false" 
+          type="text/javascript"></script>
+
+	<script>
+      
+	var locations = [@foreach($chambers as $k => $chamber)
+				['{{ $chamber->chamber_name }}','{{ $chamber->lat }}','{{ $chamber->lng }}',],
+				@endforeach ];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 10,
+      center: new google.maps.LatLng(23.810332, 90.41251809999994),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+    </script>
 
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 
-
   <script type="text/javascript">
-
+	
         jQuery(document).ready(function() {
 
             /* ============  Carousel ================*/

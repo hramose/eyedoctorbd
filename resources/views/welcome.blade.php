@@ -5,7 +5,7 @@
 @endsection
 
 @section('csslink')
-     <!-- REVOLUTION STYLE SHEETS -->
+<!-- REVOLUTION STYLE SHEETS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/revolution/settings.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/revolution/navigation.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/revolution/pe-icon-7-stroke/css/pe-icon-7-stroke.css') }}">
@@ -43,7 +43,7 @@
                     <div class="appointment-form">
                         <div class="simple-title">
                             <h4>Make An Appointment</h4>
-                            <span>A Specialist will Contact You Shortly</span>
+                            <span>Find your nearest eye specialists</span>
                         </div>
                         <form action="{{ route('search') }}" method="POST">
                             {{ csrf_field() }}
@@ -70,7 +70,7 @@
                                 
                                                                                                                                     
                                 <div class="col s12">
-                                    <p>All Fields With An ( * ) Are Required.</p>
+                                    <p>Search with Place or Doctor name</p>
                                 </div>
                                 <div class="input-field col s12">
                                     <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></i> Search</button>
@@ -85,6 +85,110 @@
 </section>
 
 <section>
+    <div class="block grayish">
+        <div class="parallax-container"><div class="parallax"><img src="{{ asset('images/resource/parallax2.jpg') }}" alt="" /></div></div>
+        <div class="container">
+            <div class="row">
+			{{--  <div class="col l6 m12 s12 column">
+                    <div class="doctors-intro overlap">
+                        <div class="doctors-img"><img src="{{ asset('images/resource/doctor-img.png') }}" alt="" /></div>
+                        <div class="doctor-detail">
+                            <div class="doctor-description">
+                                <span>Dr.</span>
+                                <h5>SMILE JOHN</h5>
+                                <i>Neurologiest / CEO</i>
+                                <p>Suspendisse potenti. Maecenas dapibus ac tellus sed pulvinar. Vestibulum bib volutpat accumsan non laoreet.  Quaerat, iste, architecto ullam tenetur quia nemo ratione tempora consectetur...</p>
+                                <a class="coloured-btn" href="staff-detail.html" title="">Read More <i class="fa fa-caret-right"></i></a>
+                            </div>
+                        </div>
+                    </div><!-- Doctors Intro -->
+                </div>  --}}
+			<div class="col 12 m12 s12 column">                
+                    <div class="classic-title center-align">
+                        <h2>Our Specialist Doctor</h2>
+                    </div>
+                    <div class="staff-carousel">
+					@foreach ($allDoctors->chunk(4) as $chunk)
+						<div class="staff-slide">
+                            <div class="row">   
+							@foreach ($chunk as $doctor)
+								<div class="col 6 m3 s3">
+										<div class="staff-member">
+											<div class="member-img"><img src="/doctors/profile/{{ $doctor->avatar }}" alt="" /></div>
+											<div class="doctor-intro">
+												<strong><a href="/profile/{{ $doctor->username }}" title="">{{ $doctor->name }}</a></strong>
+												<i>Orthopaedics</i>
+											</div>
+										</div><!-- Staff Member -->
+									</div>
+							@endforeach
+						 </div>
+                        </div><!-- Staff Slide -->
+					@endforeach
+                    </div><!-- Staff Carousel -->           
+					</div>
+                </div>
+            </div>
+        </div>
+  
+</section>
+
+{{--  <section>
+    <div class="block half-gray no-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col l12 m12 s12 column">
+                    <div class="simple-services">
+                        <div class="col s12 m6 l3">
+                            <div class="simple-service color1">
+                                <div class="simple-service-wrap">
+                                    <i class="icon-dropper"></i>
+                                    <span><i class="count">39</i>+</span>
+                                    <h5>OPERATION THEATRE</h5>
+                                    <p>Provide Comprehensive</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            <div class="simple-service color2">
+                                <div class="simple-service-wrap">
+                                    <i class="icon-thermometer"></i>
+                                    <span><i class="count">24</i>k</span>
+                                    <h5>CANCER SERVICE</h5>
+                                    <p>Provide Comprehensive</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            <div class="simple-service color3">
+                                <div class="simple-service-wrap">
+                                    <i class=" icon-medical-11"></i>
+                                    <span><i class="count">289</i></span>
+                                    <h5>OUTDOOR CHECKUP</h5>
+                                    <p>Provide Comprehensive</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            <div class="simple-service color4">
+                                <div class="simple-service-wrap">
+                                    <i class="icon-blood-group"></i>
+                                    <span><i class="count">480</i>+</span>
+                                    <h5>BLOOD BANKS</h5>
+                                    <p>Provide Comprehensive</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- Simple Service -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>  --}}
+
+
+{{--  <section>
 	<div class="block whitish">
 		<div class="container">
 			<div class="row">
@@ -177,173 +281,7 @@
 			</div>
 		</div>
 	</div>
-</section>
-
-<section>
-    <div class="block half-gray no-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col l12 m12 s12 column">
-                    <div class="simple-services">
-                        <div class="col s12 m6 l3">
-                            <div class="simple-service color1">
-                                <div class="simple-service-wrap">
-                                    <i class="icon-dropper"></i>
-                                    <span><i class="count">39</i>+</span>
-                                    <h5>OPERATION THEATRE</h5>
-                                    <p>Provide Comprehensive</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col s12 m6 l3">
-                            <div class="simple-service color2">
-                                <div class="simple-service-wrap">
-                                    <i class="icon-thermometer"></i>
-                                    <span><i class="count">24</i>k</span>
-                                    <h5>CANCER SERVICE</h5>
-                                    <p>Provide Comprehensive</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col s12 m6 l3">
-                            <div class="simple-service color3">
-                                <div class="simple-service-wrap">
-                                    <i class=" icon-medical-11"></i>
-                                    <span><i class="count">289</i></span>
-                                    <h5>OUTDOOR CHECKUP</h5>
-                                    <p>Provide Comprehensive</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col s12 m6 l3">
-                            <div class="simple-service color4">
-                                <div class="simple-service-wrap">
-                                    <i class="icon-blood-group"></i>
-                                    <span><i class="count">480</i>+</span>
-                                    <h5>BLOOD BANKS</h5>
-                                    <p>Provide Comprehensive</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- Simple Service -->
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section>
-    <div class="block grayish">
-        <div class="parallax-container"><div class="parallax"><img src="images/resource/parallax2.jpg" alt="" /></div></div>
-        <div class="container">
-            <div class="row">
-                <div class="col l6 m12 s12 column">
-                    <div class="doctors-intro overlap">
-                        <div class="doctors-img"><img src="images/resource/doctor-img.png" alt="" /></div>
-                        <div class="doctor-detail">
-                            <div class="doctor-description">
-                                <span>Dr.</span>
-                                <h5>SMILE JOHN</h5>
-                                <i>Neurologiest / CEO</i>
-                                <p>Suspendisse potenti. Maecenas dapibus ac tellus sed pulvinar. Vestibulum bib volutpat accumsan non laoreet.  Quaerat, iste, architecto ullam tenetur quia nemo ratione tempora consectetur...</p>
-                                <a class="coloured-btn" href="staff-detail.html" title="">Read More <i class="fa fa-caret-right"></i></a>
-                            </div>
-                        </div>
-                    </div><!-- Doctors Intro -->
-                </div>
-                <div class="col l6 m12 s12 column">
-                    <div class="classic-title">
-                        <h2><span>Our Experienced</span>Medical Staff</h2>
-                    </div>
-                    <div class="staff-carousel">
-                        <div class="staff-slide">
-                            <div class="row">                               
-                                <div class="col l6 m6 s6">
-                                    <div class="staff-member">
-                                        <div class="member-img"><img src="images/resource/doctor1.jpg" alt="" /></div>
-                                        <div class="doctor-intro">
-                                            <strong><a href="staff-detail.html" title=""><span>Dr.</span>Jacobson Ad</a></strong>
-                                            <i>Orthopaedics</i>
-                                        </div>
-                                    </div><!-- Staff Member -->
-                                </div>
-                                <div class="col l6 m6 s6">
-                                    <div class="staff-member">
-                                        <div class="member-img"><img src="images/resource/doctor2.jpg" alt="" /></div>
-                                        <div class="doctor-intro">
-                                            <strong><a href="staff-detail.html" title=""><span>Dr.</span>John Smith</a></strong>
-                                            <i>Cardiologist</i>
-                                        </div>
-                                    </div><!-- Staff Member -->
-                                </div>
-                                <div class="col l6 m6 s6">
-                                    <div class="staff-member">
-                                        <div class="member-img"><img src="images/resource/doctor3.jpg" alt="" /></div>
-                                        <div class="doctor-intro">
-                                            <strong><a href="staff-detail.html" title=""><span>Dr.</span>Jaka Alex</a></strong>
-                                            <i>Neurologist</i>
-                                        </div>
-                                    </div><!-- Staff Member -->
-                                </div>
-                                <div class="col l6 m6 s6">
-                                    <div class="staff-member">
-                                        <div class="member-img"><img src="images/resource/doctor4.jpg" alt="" /></div>
-                                        <div class="doctor-intro">
-                                            <strong><a href="staff-detail.html" title=""><span>Dr.</span>Alex Hashan</a></strong>
-                                            <i>Haematologist</i>
-                                        </div>
-                                    </div><!-- Staff Member -->
-                                </div>
-                            </div>
-                        </div><!-- Staff Slide -->
-                        <div class="staff-slide">
-                            <div class="row">
-                                <div class="col l6 m6 s6">
-                                    <div class="staff-member">
-                                        <div class="member-img"><img src="images/resource/doctor5.jpg" alt="" /></div>
-                                        <div class="doctor-intro">
-                                            <strong><a href="staff-detail.html" title=""><span>Dr.</span>Jaka Alex</a></strong>
-                                            <i>Neurologist</i>
-                                        </div>
-                                    </div><!-- Staff Member -->
-                                </div>
-                                <div class="col l6 m6 s6">
-                                    <div class="staff-member">
-                                        <div class="member-img"><img src="images/resource/doctor6.jpg" alt="" /></div>
-                                        <div class="doctor-intro">
-                                            <strong><a href="staff-detail.html" title=""><span>Dr.</span>Alex Hashan</a></strong>
-                                            <i>Haematologist</i>
-                                        </div>
-                                    </div><!-- Staff Member -->
-                                </div>
-                                <div class="col l6 m6 s6">
-                                    <div class="staff-member">
-                                        <div class="member-img"><img src="images/resource/doctor7.jpg" alt="" /></div>
-                                        <div class="doctor-intro">
-                                            <strong><a href="staff-detail.html" title=""><span>Dr.</span>John Smith</a></strong>
-                                            <i>Cardiologist</i>
-                                        </div>
-                                    </div><!-- Staff Member -->
-                                </div>
-                                <div class="col l6 m6 s6">
-                                    <div class="staff-member">
-                                        <div class="member-img"><img src="images/resource/doctor8.jpg" alt="" /></div>
-                                        <div class="doctor-intro">
-                                            <strong><a href="staff-detail.html" title=""><span>Dr.</span>Jacobson Ad</a></strong>
-                                            <i>Orthopaedics</i>
-                                        </div>
-                                    </div><!-- Staff Member -->
-                                </div>
-                            </div>
-                        </div><!-- Staff Slide -->
-                    </div><!-- Staff Carousel -->           
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+</section>  --}}
 
 <section>
     <div class="block blackish">
@@ -353,7 +291,7 @@
                 <div class="col l12 m12 s12 column">
                     <div class="parallax-title">
                         <h2>WAYS TO <span>SUPPORT</span> US</h2>
-                        <p>Gifts of all sizes help the Department of Gynecology and Obstetrics continue our ongoing<br /> efforts as a leader in innovative and compassionate treatment, ground breaking.</p>
+                        {{--  <p>Gifts of all sizes help the Department of Gynecology and Obstetrics continue our ongoing<br /> efforts as a leader in innovative and compassionate treatment, ground breaking.</p>  --}}
                     </div>
                     <div class="support-ways">
                         <div class="row">
@@ -464,6 +402,9 @@
         </div>
     </div>
 </section>
+ 
+
+
 @endsection
 
 @section('jslink')
@@ -471,7 +412,7 @@
     <script type="text/javascript" src="{{ asset('js/revolution/jquery.themepunch.tools.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/revolution/jquery.themepunch.revolution.min.js') }}"></script>
 
-    <!-- SLIDER REVOLUTION 5.0 EXTENSIONS -->   
+      <!-- SLIDER REVOLUTION 5.0 EXTENSIONS -->   
     <script type="text/javascript" src="{{ asset('js/revolution/revolution.extension.actions.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/revolution/revolution.extension.carousel.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/revolution/revolution.extension.kenburn.min.js') }}"></script>
@@ -482,17 +423,17 @@
     <script type="text/javascript" src="{{ asset('js/revolution/revolution.extension.slideanims.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/revolution/revolution.extension.video.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/revolution/revolution.initialize2.js') }}"></script>
-    
-    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-    
+  
     <script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
     
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-     
-     
+    
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <!--   City Autocomplete -->
     <script type="text/javascript" src="{{ asset('js/autocomplete.js') }}"></script>
-    <script>
+    
+  <script type="text/javascript">
+	
         jQuery(document).ready(function() {
 
             /* ============  Carousel ================*/
@@ -506,16 +447,14 @@
                 nav:true,
                 margin:0,
                 mouseDrag:true,
-                singleItem:true,
-                items:1,
+                singleItem:false,
+                items:2,
                 autoHeight:true
 
             });     
 
         });
-    </script>
-    <script>
-        jQuery(document).ready(function() {
+         jQuery(document).ready(function() {
             $('.count').counterUp({
                 delay:10,
                 time:1800

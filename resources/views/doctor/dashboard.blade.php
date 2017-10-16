@@ -464,46 +464,14 @@ Dashboard
 
     </div>
     <!--end container-->
-    <div id="divsta">
-        <input type="hidden" id="sta" value="{{Sentinel::getUser()->status}}">
-    </div>
+    
 </section>
 <!-- END CONTENT -->
 
 @endsection
 
 @section('jslink')
-    <!-- chartjs -->
+    {{--  <!-- chartjs -->
     <script type="text/javascript" src="{{asset('admin/js/plugins/chartjs/chart.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('admin/js/plugins/chartjs/chart-script.js')}}"></script>
-    <script>
-        function status () {
-           let status = $('#sta').val();
-           if(status == "active"){
-              axios.post('{{ route('status') }}', {
-              _token:$('input[name=_token]').val(),
-              status: "deactive"
-            })
-            .then(response => {
-              toastr.success(response.data.message);
-              $("#divsta").load(location.href + " #divsta");    
-            })
-            .catch(error => {
-                console.log(error.response.data.errors)
-            });
-           }else{
-                axios.post('{{ route('status') }}', {
-              _token:$('input[name=_token]').val(),
-              status: "active"
-            })
-            .then(response => {
-              toastr.success(response.data.message);
-              $("#divsta").load(location.href + " #divsta");
-            })
-            .catch(error => {
-                console.log(error.response.data.errors)
-            });
-           }
-        }
-    </script>
+    <script type="text/javascript" src="{{asset('admin/js/plugins/chartjs/chart-script.js')}}"></script>  --}}
 @endsection
