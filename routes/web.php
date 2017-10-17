@@ -11,20 +11,27 @@
 |
 */
 
+/*
+/Route For Everyone
+*/
 Route::get('/','MainController@welcome')->name('welcome');
-
-Route::get('profile/{username}', 'DoctorController@doctorDetail')->name('profile');
-
 Route::get('alldoctors', 'DoctorController@alldoctors')->name('alldoctors');
+Route::get('profile/{username}', 'DoctorController@doctorDetail')->name('profile');
+Route::get('about','PageController@about')->name('aboutus');
+Route::get('contact','PageController@contact')->name('contactus');
+Route::post('contact','ContactController@addMessage')->name('post.contact');
 
+/*
+/Search Route
+*/
 Route::group(['prefix' => 'search'], function(){
 	Route::post('/', 'SearchController@index')->name('search');
 	Route::get('/{city}/{sub}', 'SearchController@search');
 });
 
-Route::get('contact','PageController@contact')->name('contactus');
-Route::get('about','PageController@about')->name('aboutus');
-
+/*
+/Route For Only Visitors//
+*/
 Route::group(['middleware' => 'visitors'], function(){
 	Route::get('/register', 'RegistrationController@register')->name('register');
 	Route::post('/register', 'RegistrationController@createDoctor')->name('doRegister');
@@ -43,12 +50,18 @@ Route::group(['middleware' => 'visitors'], function(){
 Route::get('/activation/{email}/{activationCode}', 'ActivationController@activate');
 Route::post('/logout', 'LoginController@logout')->name('logout');
 
+/*
+/Route For Only Admin
+*/
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
 	Route::get('/dashboard', 'AdminController@dashboard')->name('adminDashboard');
 	Route::get('/alldoctors', 'AdminController@alldoctors')->name('adminAllDoctors');
 	Route::get('/alldoctors-tableview', 'AdminController@alldoctorsTableview')->name('amdinAlldoctorsTableview');
+	Route::get('/contact', 'ContactController@viewMessage')->name('viewContactMessage');
 });
-
+/*
+/ Route For Only Doctor
+*/
 Route::group(['prefix' => 'doctor', 'middleware' => 'doctor'], function(){
 	Route::get('/dashboard', 'DoctorController@dashboard')->name('doctorDashboard');
 	Route::get('/profile', 'DoctorController@profile')->name('doctorProfile');

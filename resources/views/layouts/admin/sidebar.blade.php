@@ -42,6 +42,9 @@
 
             <li class="bold {{ Request::is('admin/alldoctors','admin/alldoctors-tableview') ? 'active' : '' }}"><a href="{{ Route('adminAllDoctors') }}" class="waves-effect waves-cyan"><i class="mdi-action-account-circle"></i>All Doctors</a>
             </li>
+
+             <li class="bold {{ Request::is('admin/contact') ? 'active' : '' }}"><a href="{{ Route('viewContactMessage') }}" class="waves-effect waves-cyan"><i class="mdi-communication-forum"></i>Contact Message</a>
+            </li>
         </ul>
         <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>
         </aside>

@@ -1,7 +1,7 @@
 @extends('layouts.admin.master')
 
 @section('title')
-All Doctors Table view
+  <title>All Doctors Table view</title>
 @endsection
 
 @section('csslink')

@@ -256,7 +256,7 @@ All Chambers
             .then(response => {
               reloadChambers();
               toastr.success(response.data.message);
-             $('#addForm')[0].reset();
+              $('#addForm')[0].reset();
             })
             .catch(error => {
                 console.log(error.response.data.errors)

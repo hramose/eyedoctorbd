@@ -92,7 +92,8 @@
 
 				    <div class="contact-form">
 						<div id="message"></div>
-						<form id="contactform" method="post" action="contact.php">
+						<form id="contactform" method="post">
+						   {{ csrf_field() }}
 						    <div class="row">
 								<div class="input-field col s12 m12 l12">
 								    <input name="name" id="name" class="name" type="text" placeholder="Complete Name"/>
@@ -103,19 +104,22 @@
 								    <span></span>
 								</div>
 								<div class="input-field col s12 m6 l6">
-								    <input name="subject" class="subject" type="text" placeholder="Enter a Subject" />
+								    <input name="subject" class="subject" 
+									id="subject"
+									type="text" placeholder="Enter a Subject" />
 								    <span></span>
 								</div>
 								<div class="input-field col s12 m12 l12">
-								    <input name="phone" class="phone" id="txtPhone" type="text"  placeholder="Enter a Phone Number" />
+								    <input name="phone" class="phone" 
+									id="phone" type="text"  placeholder="Enter a Phone Number" />
 								    <span></span>
 								</div>
 								<div class="input-field col s12 m12 l12">
-								    <textarea name="msg" id="comments" class="message" placeholder="Description"></textarea>
+								    <textarea name="msg" id="description" class="message" placeholder="Description"></textarea>
 								    <span></span>
 								</div>
 								<div class="input-field col s12 m12 l12">
-								    <button id="submit" class="coloured-btn submit" type="submit"><i class="fa fa-user-md"></i> CONTACT US NOW</button>
+								    <button id="submit" class="coloured-btn submit" type="button" onClick="sendMessage()"><i class="fa fa-user-md"></i> CONTACT US NOW</button>
 								</div>
 						    </div>
 						</form>
@@ -174,5 +178,29 @@
 			}
 			google.maps.event.addDomListener(window, 'load', initialize);				
 		});
+
+		function sendMessage(){
+			axios.post('{{ route('post.contact') }}', {
+				_token:$('input[name=_token]').val(),
+				name:$('#name').val(),
+				email:$('#email').val(),
+				phone:$('#phone').val(),
+				subject:$('#subject').val(),
+				description:$('#description').val()
+			})
+			.then(response => {              
+				toastr.success(response.data.message);
+				$('#contactform')[0].reset();
+			})
+			.catch(error => {
+				console.log(error.response.data.errors);
+				toastr.error(error.response.data.errors.email[0]);
+				toastr.error(error.response.data.errors.name[0]);
+				toastr.error(error.response.data.errors.phone[0]);
+				toastr.error(error.response.data.errors.subject[0]);
+				toastr.error(error.response.data.errors.description[0]);
+			});
+		}
+
 	</script>
 @endsection
