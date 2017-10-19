@@ -183,7 +183,7 @@
         <div class="parallax-container"><div class="parallax"><img src="{{ asset('images/resource/parallax2.jpg') }}" alt="" /></div></div>
         <div class="container">
             <div class="row">
-			<div class="col l6 m12 s12 column">
+			{{--  <div class="col l6 m12 s12 column">
                     <div class="doctors-intro overlap">
                         <div class="doctors-img"><img src="{{ asset('images/resource/doctor-img.png') }}" alt="" /></div>
                         <div class="doctor-detail">
@@ -196,17 +196,17 @@
                             </div>
                         </div>
                     </div><!-- Doctors Intro -->
-                </div>
-			<div class="col l6 m12 s12 column">                
-                    <div class="classic-title">
-                        <h2><span>Our Experienced</span>Medical Staff</h2>
+                </div>  --}}
+			<div class="col32 m24 s24 column">                
+                    <div class="classic-title center-align">
+                        <h2>Our Specialist Doctor</h2>
                     </div>
                     <div class="staff-carousel">
 					@foreach ($allDoctors->chunk(4) as $chunk)
 						<div class="staff-slide">
                             <div class="row">   
 							@foreach ($chunk as $doctor)
-								<div class="col l6 m6 s6">
+								<div class="col l4 m6 s6">
 										<div class="staff-member">
 											<div class="member-img"><img src="/doctors/profile/{{ $doctor->avatar }}" alt="" /></div>
 											<div class="doctor-intro">

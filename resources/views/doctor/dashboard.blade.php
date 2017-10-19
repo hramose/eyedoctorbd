@@ -1,7 +1,7 @@
 @extends('layouts.doctor.master')
 
 @section('title')
-Dashboard
+    <title>Dashboard</title>
 @endsection
 
 @section('csslink')
@@ -16,9 +16,9 @@ Dashboard
 
 <!-- START CONTENT -->
 <section id="content">
-
+    <h1>Please go to profile to update information.</h1>
     <!--start container-->
-    <div class="container">
+    {{--  <div class="container">
 
         <!--card stats start-->
         <div id="card-stats">
@@ -462,7 +462,7 @@ Dashboard
         </div>
         <!-- Floating Action Button -->
 
-    </div>
+    </div>  --}}
     <!--end container-->
     
 </section>

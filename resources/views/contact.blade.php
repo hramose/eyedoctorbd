@@ -41,9 +41,9 @@
 						<span>Provide Comprehensive Quality Care</span>
 						<h4>Contact Details</h4>
 						<strong>Questions Or Inquiries</strong>
-						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt. Maecenas tempus, tellus eget condimentum rhoncus.</p>
+						{{--  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt. Maecenas tempus, tellus eget condimentum rhoncus.</p>  --}}
 						<p>Please be patient while waiting for response. <strong>(24/7 Support!)</strong> Phone General Inquiries:</p>
-						<i>+1 (022) 319 2687</i>
+						<i> +880 1913371020</i>
 					</div><!-- Contact Details -->
 				</div>
 				<div class="col column s12 m12 l8">
@@ -164,7 +164,7 @@
 			    disableDefaultUI: true,
 			    scrollwheel:true,
 			    center: myLatlng
-			  }
+			  };
 			  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
 			  var image = '{{ asset("/images/pointer.png") }}';

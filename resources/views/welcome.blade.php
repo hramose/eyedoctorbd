@@ -103,7 +103,7 @@
                         </div>
                     </div><!-- Doctors Intro -->
                 </div>  --}}
-			<div class="col 12 m12 s12 column">                
+			<div class="col32 m24 s24 column">                
                     <div class="classic-title center-align">
                         <h2>Our Specialist Doctor</h2>
                     </div>
@@ -112,7 +112,7 @@
 						<div class="staff-slide">
                             <div class="row">   
 							@foreach ($chunk as $doctor)
-								<div class="col 6 m3 s3">
+								<div class="col l4 m6 s6">
 										<div class="staff-member">
 											<div class="member-img"><img src="/doctors/profile/{{ $doctor->avatar }}" alt="" /></div>
 											<div class="doctor-intro">
@@ -283,7 +283,7 @@
 	</div>
 </section>  --}}
 
-<section>
+{{--  <section>
     <div class="block blackish">
         <div class="parallax-container"><div class="parallax"><img src="images/resource/parallax3.jpg" alt="" /></div></div>
         <div class="container">
@@ -291,7 +291,6 @@
                 <div class="col l12 m12 s12 column">
                     <div class="parallax-title">
                         <h2>WAYS TO <span>SUPPORT</span> US</h2>
-                        {{--  <p>Gifts of all sizes help the Department of Gynecology and Obstetrics continue our ongoing<br /> efforts as a leader in innovative and compassionate treatment, ground breaking.</p>  --}}
                     </div>
                     <div class="support-ways">
                         <div class="row">
@@ -328,10 +327,10 @@
             </div>
         </div>
     </div>
-</section>
+</section>  --}}
 
 
-<section>
+{{--  <section>
     <div class="block">
         <div class="container">
             <div class="row">
@@ -402,7 +401,7 @@
         </div>
     </div>
 </section>
- 
+   --}}
 
 
 @endsection

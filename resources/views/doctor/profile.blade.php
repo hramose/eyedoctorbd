@@ -1,7 +1,7 @@
 @extends('layouts.doctor.master')
 
 @section('title')
-Profile
+  <title>Profile</title>
 @endsection
 
 @section('csslink')
@@ -707,16 +707,14 @@ Profile
   <script type="text/javascript" src="{{ asset('admin/js/plugins/dropify/js/dropify.min.js') }}"></script>
   <script>
       $('.datepicker').pickadate({
-    // Escape any “rule” characters with an exclamation mark (!).
     format: 'yyyy/mm/dd',
     formatSubmit: 'yyyy/mm/dd',
     hiddenPrefix: 'prefix__',
     hiddenSuffix: '__suffix'
-  })   
+  }) ;  
   </script>
    <script type="text/javascript">
         $(document).ready(function(){
-            // Basic
             $('.dropify').dropify();
         });
     </script>

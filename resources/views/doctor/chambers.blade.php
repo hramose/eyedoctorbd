@@ -1,7 +1,7 @@
 @extends('layouts.doctor.master')
 
 @section('title')
-All Chambers
+  <title>All Chambers</title>
 @endsection
 
 @section('csslink')
@@ -212,9 +212,7 @@ All Chambers
         getChambers();
 
         function getLatitudeLongitude(callback, address) {
-            // If adress is not supplied, use default value 'Ferrol, Galicia, Spain'
             address = address || 'Dhaka';
-            // Initialize the Geocoder
             geocoder = new google.maps.Geocoder();
             if (geocoder) {
                 geocoder.geocode({
@@ -259,7 +257,7 @@ All Chambers
               $('#addForm')[0].reset();
             })
             .catch(error => {
-                console.log(error.response.data.errors)
+                console.log(error.response.data.errors);
                 toastr.error(error.response.data.errors.chamberAddress[0]);
                 toastr.error(error.response.data.errors.chamberName[0]);
                 toastr.error(error.response.data.errors.chamberPhone[0]);
@@ -303,8 +301,6 @@ All Chambers
           for (let key in response.data){
             content = '<div class="col s12 m4 l4" id="remove">';
             content += '<div id="profile-card" class="card">';
-            //content += '<div class="card-image waves-effect waves-block waves-light">';
-            //content += '<img class="activator" src="{{ asset('admin/images/user-bg.jpg') }}" alt="user bg"></div>';
             content += '<div class="card-content">';                     
             content += '<div class="fixed-action-btn " style="position: absolute; display: inline-block; right: 19px;">';
             content += '<a class="btn-floating btn-large red">';
