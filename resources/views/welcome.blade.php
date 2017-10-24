@@ -26,7 +26,7 @@
                                 <li data-index="rs-1" data-transition="fade" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000" data-title="Slide 1">
                                     <!-- MAIN IMAGE -->
                                     <img   src="images/resource/slider1.jpg"  alt=""  data-bgposition="center center"  data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-                                </li>                           
+                                </li>
 
                                 <li data-index="rs-2" data-transition="fade" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000" data-title="Slide 2">
                                     <!-- MAIN IMAGE -->
@@ -49,26 +49,26 @@
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input type="text" 
-                                           id="City" 
-                                           name="city" 
-                                           placeholder="City" 
+                                    <input type="text"
+                                           id="City"
+                                           name="city"
+                                           placeholder="City"
                                            required="City">
-                                </div>                          
+                                </div>
                                 <div class="input-field col s12">
-                                    <input type="text" 
-                                           id="Subarea" 
-                                           name="subarea" 
-                                           placeholder="Subarea" 
+                                    <input type="text"
+                                           id="Subarea"
+                                           name="subarea"
+                                           placeholder="Subarea"
                                            required="Subarea">
-                                </div>                          
+                                </div>
                                 <div class="input-field col s12">
-                                    <input type="text" 
-                                           name="txt_DocORHosName" 
+                                    <input type="text"
+                                           name="txt_DocORHosName"
                                            placeholder="Doctor Name or Email">
-                                </div>  
-                                
-                                                                                                                                    
+                                </div>
+
+
                                 <div class="col s12">
                                     <p>Search with Place or Doctor name</p>
                                 </div>
@@ -77,10 +77,10 @@
                                 </div>
                             </div>
                         </form>
-                    </div><!-- Appointment Form -->                 
+                    </div><!-- Appointment Form -->
                 </div><!-- Creative Slider  -->
             </div>
-        </div>      
+        </div>
     </div>
 </section>
 
@@ -103,14 +103,14 @@
                         </div>
                     </div><!-- Doctors Intro -->
                 </div>  --}}
-			<div class="col32 m24 s24 column">                
+			<div class="col32 m24 s24 column">
                     <div class="classic-title center-align">
                         <h2>Our Specialist Doctor</h2>
                     </div>
                     <div class="staff-carousel">
 					@foreach ($allDoctors->chunk(4) as $chunk)
 						<div class="staff-slide">
-                            <div class="row">   
+                            <div class="row">
 							@foreach ($chunk as $doctor)
 								<div class="col l4 m6 s6">
 										<div class="staff-member">
@@ -125,12 +125,12 @@
 						 </div>
                         </div><!-- Staff Slide -->
 					@endforeach
-                    </div><!-- Staff Carousel -->           
+                    </div><!-- Staff Carousel -->
 					</div>
                 </div>
             </div>
         </div>
-  
+
 </section>
 
 {{--  <section>
@@ -339,7 +339,7 @@
                         <h2>Latest Medical TIPS & NEWS</h2>
                         <span>Our Commitment Is To Provide Comprehensive Quality Care</span>
                     </div>
- 
+
                     <div class="blog-style">
                         <div class="row">
                             <div class="col l6 m6 s12">
@@ -349,7 +349,7 @@
                                             <img src="images/resource/post-author1.jpg" alt="" />
                                             By <a href="blog-detail.html" title="">Admin</a>
                                         </span>
-                                        <a class="tip-date" href="blog-detail.html" title="">Nov 30, 2015</a>   
+                                        <a class="tip-date" href="blog-detail.html" title="">Nov 30, 2015</a>
                                     </div>
                                     <div class="tip-detail">
                                         <a class="tip-img" href="blog-detail.html" title=""><img src="images/resource/blog-post1.jpg" alt="" /></a>
@@ -365,7 +365,7 @@
                                             <img src="images/resource/post-author2.jpg" alt="" />
                                             By <a href="blog-detail.html" title="">Admin</a>
                                         </span>
-                                        <a class="tip-date" href="blog-detail.html" title="">Nov 30, 2015</a>   
+                                        <a class="tip-date" href="blog-detail.html" title="">Nov 30, 2015</a>
                                     </div>
                                     <div class="tip-detail">
                                         <a class="tip-img" href="blog-detail.html" title=""><img src="images/resource/blog-post2.jpg" alt="" /></a>
@@ -411,7 +411,7 @@
     <script type="text/javascript" src="{{ asset('js/revolution/jquery.themepunch.tools.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/revolution/jquery.themepunch.revolution.min.js') }}"></script>
 
-      <!-- SLIDER REVOLUTION 5.0 EXTENSIONS -->   
+      <!-- SLIDER REVOLUTION 5.0 EXTENSIONS -->
     <script type="text/javascript" src="{{ asset('js/revolution/revolution.extension.actions.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/revolution/revolution.extension.carousel.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/revolution/revolution.extension.kenburn.min.js') }}"></script>
@@ -422,17 +422,17 @@
     <script type="text/javascript" src="{{ asset('js/revolution/revolution.extension.slideanims.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/revolution/revolution.extension.video.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/revolution/revolution.initialize2.js') }}"></script>
-  
+
     <script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
-    
+
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    
+
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <!--   City Autocomplete -->
     <script type="text/javascript" src="{{ asset('js/autocomplete.js') }}"></script>
-    
+
   <script type="text/javascript">
-	
+
         jQuery(document).ready(function() {
 
             /* ============  Carousel ================*/
@@ -450,7 +450,7 @@
                 items:2,
                 autoHeight:true
 
-            });     
+            });
 
         });
          jQuery(document).ready(function() {

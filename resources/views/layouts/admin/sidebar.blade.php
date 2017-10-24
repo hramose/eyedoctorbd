@@ -45,6 +45,17 @@
 
              <li class="bold {{ Request::is('admin/contact') ? 'active' : '' }}"><a href="{{ Route('viewContactMessage') }}" class="waves-effect waves-cyan"><i class="mdi-communication-forum"></i>Contact Message</a>
             </li>
+            <li class="li-hover"><div class="divider"></div></li>
+
+            <li class="bold {{ Request::is('admin/contact') ? 'active' : '' }}"><a href="{{ Route('viewContactMessage') }}" class="waves-effect waves-cyan"><i class="mdi-communication-forum"></i>Blog</a>
+            </li>
+            <li class="bold {{ Request::is('admin/blog/category','admin/blog/category/create') ? 'active' : '' }}"><a href="{{ Route('category.index') }}" class="waves-effect waves-cyan"><i class="mdi-communication-forum"></i>Category</a>
+            </li>
+
+            <li class="bold {{ Request::is('admin/blog/tag','admin/blog/tag/create') ? 'active' : '' }}"><a href="{{ Route('tag.index') }}" class="waves-effect waves-cyan"><i class="mdi-communication-forum"></i>Tag</a>
+            </li>
+            
+
         </ul>
         <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>
         </aside>

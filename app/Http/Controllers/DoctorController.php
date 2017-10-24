@@ -20,7 +20,7 @@ class DoctorController extends Controller
 		$doctor = User::find($getDoctor);
 		$doctor->status = $request->status;
 		$doctor->save();
-		return response(['message'=>'Your Status Successfully Update']);	
+		return response(['message'=>'Your Status Successfully Update']);
 	 }
  	public function profile()
  	{
@@ -53,9 +53,9 @@ class DoctorController extends Controller
 
  		}else{
  			$filename = Sentinel::getUser()->avatar;
- 			
+
  		}
- 		
+
 		$getDoctor = Sentinel::getUser()->id;
  		$doctor = User::find($getDoctor);
  		$doctor->name = $request->txt_FullName;
@@ -80,11 +80,11 @@ class DoctorController extends Controller
  		$doctor->save();
  		return redirect()->back()->with(['success' => 'Your profile has been successfully updated.']);
  	}
- 	
+
  	public function doctorDetail($username)
  	{
 		$allDoctors = User::where('role','doctor')->where('status','active')->inRandomOrder()->get();
-		
+
  		$doctor = User::where('username',$username)->first();
  		$chambers = User::find($doctor->id)->chambers;
  		return view('doctorDetail', compact('doctor','chambers','allDoctors'));

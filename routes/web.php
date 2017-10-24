@@ -58,6 +58,18 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
 	Route::get('/alldoctors', 'AdminController@alldoctors')->name('adminAllDoctors');
 	Route::get('/alldoctors-tableview', 'AdminController@alldoctorsTableview')->name('amdinAlldoctorsTableview');
 	Route::get('/contact', 'ContactController@viewMessage')->name('viewContactMessage');
+
+	/*
+	/Blog system route
+	*/
+	Route::group(['prefix' => 'blog','namespace' => 'Blog'], function () {
+		//Categories Routes
+		Route::resource('/category', 'CategoryController');		
+		//Tag Routes
+		Route::resource('/tag', 'TagController');
+		//Post Routes
+		Route::resource('/post', 'PostController');		
+	});
 });
 /*
 / Route For Only Doctor
