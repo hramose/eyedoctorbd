@@ -11,6 +11,8 @@
 
     <link href="{{asset('admin/js/plugins/chartist-js/chartist.min.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
     <script type="text/javascript" src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+
     
 @endsection
 
@@ -39,7 +41,7 @@
         </div>
         <!--breadcrumbs end-->
         @include('layouts.admin.include.errors')
-    <form  action="{{ route('post.store') }}" method="POST">
+    <form  action="{{ route('post.store') }}" method="POST" enctype="multipart/form-data">
                   {{ csrf_field() }}
         <!--start container-->
         <div class="container">
@@ -69,6 +71,13 @@
                             <input id="slug" type="text" name="slug">
                             <label for="slug">Post Slug</label>
                           </div>
+                        </div><br>
+
+                        <div class="row">
+                          <div class="col s12">
+                            <input type="checkbox" id="status" name="status" value="1" />
+                             <label for="status">Publish</label>
+                          </div>
                         </div>
                        
                       </div>
@@ -82,25 +91,24 @@
                     <div class="row">
                       <div class="col s12">
                         <div class="row">
-                          <div class="input-field col s12">
-                            <select multiple name="categories[]">
-                              <option value="" disabled selected>Choose Post Category</option>
-                              <option value="1">Option 1</option>
-                              <option value="2">Option 2</option>
-                              <option value="3">Option 3</option>
+                          <div class="col s12">
+                            <label>Select Categories:</label>
+                            <select class="browser-default js-example-basic-multiple" name="categories[]" id="" multiple="multiple">
+                              @foreach($categories as $category)
+                                  <option value="{{ $category->id }}">{{ $category->name }}</option>
+                              @endforeach
                             </select>
-                            <label>Select Categories: </label>
                           </div>  
                         </div>
-                        <div class="row">
-                          <div class="input-field col s12">
-                            <select multiple name="tags[]">
-                              <option value="" disabled selected>Choose Post Tags</option>
-                              <option value="1">Option 1</option>
-                              <option value="2">Option 2</option>
-                              <option value="3">Option 3</option>
+
+                         <div class="row">
+                          <div class="col s12">
+                            <label>Select Tags:</label>
+                            <select class="browser-default js-example-basic-multiple" name="tags[]" id="" multiple="multiple">
+                              @foreach($tags as $tag)
+                                  <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                              @endforeach
                             </select>
-                            <label>Select Tags: </label>
                           </div>  
                         </div>
 
@@ -109,7 +117,7 @@
                             <div class="file-field input-field">
                               <div class="btn">
                                 <span>File</span>
-                                <input type="file">
+                                <input type="file" name="image">
                               </div>
                               <div class="file-path-wrapper">
                                 <input class="file-path validate" placeholder="Choose Image" type="text">
@@ -131,16 +139,11 @@
                       <div class="input-field col s12">
                         <textarea id="body-ckeditor"  name="body"></textarea>
                       </div>
-                      </div><br>
-                      <div class="row">
-                          <div class="col s12">
-                            <input type="checkbox" id="test5" />
-                             <label for="test5">Publish</label>
-                          </div>
-                        </div>
+                      </div>
+                      
                       <div class="row">
                         <div class="input-field col s12">
-                          <button class="btn cyan waves-effect waves-light" type="submit" name="action">Submit
+                          <button class="btn cyan waves-effect waves-light" type="submit">Submit
                           </button>&nbsp;
                            <a href="{{ route('post.index') }}" class="btn red waves-effect waves-light">Back</a>
                         </div>
@@ -165,8 +168,13 @@
     <!-- data-tables -->
     <script type="text/javascript" src="{{asset('admin/js/plugins/data-tables/js/jquery.dataTables.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('admin/js/plugins/data-tables/data-tables-script.js')}}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+
 
     <script>
+    $(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+    });
     CKEDITOR.replace( 'body-ckeditor' );
 
     </script>

@@ -14,6 +14,8 @@
 /*
 /Route For Everyone
 */
+
+
 Route::get('/','MainController@welcome')->name('welcome');
 Route::get('alldoctors', 'DoctorController@alldoctors')->name('alldoctors');
 Route::get('profile/{username}', 'DoctorController@doctorDetail')->name('profile');
@@ -27,6 +29,14 @@ Route::post('contact','ContactController@addMessage')->name('post.contact');
 Route::group(['prefix' => 'search'], function(){
 	Route::post('/', 'SearchController@index')->name('search');
 	Route::get('/{city}/{sub}', 'SearchController@search');
+});
+
+/*
+/Blog Route
+*/
+Route::group(['prefix' => 'blog'], function(){
+	Route::get('/archives', 'BlogController@index')->name('blog');
+	Route::get('/archives/{post}', 'BlogController@post')->name('blog.post');
 });
 
 /*

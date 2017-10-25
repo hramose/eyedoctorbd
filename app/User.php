@@ -36,4 +36,8 @@ class User extends EloquentUser
     {
         return static::whereEmail($email)->first();
     }
-}
+    public function posts()
+    {
+        return $this->hasMany('App\Model\Blog\Post');
+    }
+}   
