@@ -1,7 +1,7 @@
 @extends('layouts.main.master')
 
 @section('title')
-	<title>All Doctors</title>
+Blog
 @endsection
 
 @section('csslink')
@@ -12,10 +12,10 @@
 	<div class="pagetop">
 	<div class="container">
 		{{--  <span>What We Actually Do?</span>  --}}
-		<h1>All <span>Verified</span> Doctors</h1>
+		<h1>All <span>Blog</span></h1>
 		<ul>
-			<li><a href="{{ route('welcome') }}" title="">Home</a></li>
-			<li>All Doctors</li>
+			<li><a href="{{ route('welcome') }}" title="">Blog</a></li>
+			<li>Archives</li>
 		</ul>
 	</div>
 </div>
@@ -36,14 +36,15 @@
 											<img src="" alt="" />
 											By <a href="blog-detail.html" title="">sd</a>
 										</span>  --}}
-										<a class="tip-date" href="blog-detail.html" title="">{{ $post->created_at->diffForHumans() }}</a>	
+										<a class="tip-date" href="{{ route('blog.post',$post->slug) }}" title="">{{ $post->created_at->diffForHumans() }}</a>	
 									</div>
 									<div class="tip-detail">
 										<a class="tip-img" href="{{ route('blog.post',$post->slug) }}" title=""><img src="/blog/thumb/{{ $post->image }}" alt="" /></a>
 										<div class="tip-desc">
-											<h3><a href="blog-detail.html" title="">{{ $post->title }}</a></h3>
+											<h3><a href="{{ route('blog.post',$post->slug) }}" title="">{{ $post->title }}</a></h3>
 											<p>{{ $post->subtitle }}</p>
-											<a class="see-detail" href="blog-detail.html" title="">See Detail <i class="fa fa-caret-right"></i></a>
+
+											<a class="see-detail" href="{{ route('blog.post',$post->slug) }}" title="">See Detail <i class="fa fa-caret-right"></i></a>
 										</div>
 									</div>
 								</div><!-- Tip -->

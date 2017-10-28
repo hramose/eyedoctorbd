@@ -1,7 +1,7 @@
 @extends ('layouts.main.master')
 
 @section('title')
-    <title>Eye Doctor | Error 404</title>
+Error 404
 @endsection
 
 @section ('content')

@@ -8,6 +8,11 @@ class Category extends Model
 {
     public function posts()
     {
-        return $this->belongsToMany('App\Model\Blog\Post','post__categories');
+        return $this->belongsToMany('App\Model\Blog\Post','post__categories')->paginate(10);
+    }
+
+    public function getRouteKeyName()
+    {
+    	return 'slug';
     }
 }

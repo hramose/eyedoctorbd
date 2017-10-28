@@ -37,6 +37,8 @@ Route::group(['prefix' => 'search'], function(){
 Route::group(['prefix' => 'blog'], function(){
 	Route::get('/archives', 'BlogController@index')->name('blog');
 	Route::get('/archives/{post}', 'BlogController@post')->name('blog.post');
+	Route::get('/tag/{tags}', 'BlogController@tagPosts')->name('tag.post');
+	Route::get('/category/{categories}', 'BlogController@categoryPosts')->name('category.post');
 });
 
 /*

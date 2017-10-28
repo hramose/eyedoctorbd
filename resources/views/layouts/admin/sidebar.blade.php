@@ -47,7 +47,7 @@
             </li>
             <li class="li-hover"><div class="divider"></div></li>
 
-            <li class="bold {{ Request::is('admin/contact') ? 'active' : '' }}"><a href="{{ Route('viewContactMessage') }}" class="waves-effect waves-cyan"><i class="mdi-communication-forum"></i>Blog</a>
+            <li class="bold {{ Request::is('admin/blog/post') ? 'active' : '' }}"><a href="{{ Route('post.index') }}" class="waves-effect waves-cyan"><i class="mdi-communication-forum"></i>Blog</a>
             </li>
             <li class="bold {{ Request::is('admin/blog/category','admin/blog/category/create') ? 'active' : '' }}"><a href="{{ Route('category.index') }}" class="waves-effect waves-cyan"><i class="mdi-communication-forum"></i>Category</a>
             </li>

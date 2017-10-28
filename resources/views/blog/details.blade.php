@@ -1,7 +1,7 @@
 @extends('layouts.main.master')
 
 @section('title')
-	<title>All Doctors</title>
+{{ $post->title }}
 @endsection
 
 @section('csslink')
@@ -21,7 +21,7 @@
 	<div class="pagetop">
 	<div class="container">
 		{{--  <span>What We Actually Do?</span>  --}}
-		<h1>All <span>Verified</span> Doctors</h1>
+		<h1><span>{{ $post->title }}</span></h1>
 		<ul>
 			<li><a href="{{ route('welcome') }}" title="">Home</a></li>
 			<li>All Doctors</li>
@@ -135,7 +135,7 @@
 							<div class="traditional-title"><h3>TAGS <i>CLOUDS</i></h3></div>
 							<div class="tagcloud">
 								@foreach($post->tags as $postTag)
-									<a href="#" title="">{{ $postTag->name }}</a>
+									<a href="{{ route('tag.post',$postTag->slug) }}" title="">{{ $postTag->name }}</a>
 								@endforeach
 							</div><!-- Tags -->
 						</div>
@@ -170,25 +170,25 @@
 					<div class="widget">
 						<div class="widget-title">
 							<h4>Recent <span>Posts</span></h4>
-							<span>Provide Comprehensive</span>
+							{{-- <span>Provide Comprehensive</span> --}}
 						</div>
 						<div class="recent-posts">
 							<div class="widget-post">
-								<div class="widget-post-img"><img src="images/resource/widget-post1.jpg" alt="" /></div>
+								<div class="widget-post-img"><img src="/images/resource/widget-post1.jpg" alt="" /></div>
 								<div class="widget-post-name">
 									<span>Nov 30, 2015</span>
 									<h5><a href="blog-detail.html" title="">Cuba The Accidental Eden Documentary</a></h5>
 								</div>
 							</div><!-- Widget Post -->
 							<div class="widget-post">
-								<div class="widget-post-img"><img src="images/resource/widget-post2.jpg" alt="" /></div>
+								<div class="widget-post-img"><img src="/images/resource/widget-post2.jpg" alt="" /></div>
 								<div class="widget-post-name">
 									<span>Nov 30, 2015</span>
 									<h5><a href="blog-detail.html" title="">Cuba The Accidental Eden Documentary</a></h5>
 								</div>
 							</div><!-- Widget Post -->
 							<div class="widget-post">
-								<div class="widget-post-img"><img src="images/resource/widget-post3.jpg" alt="" /></div>
+								<div class="widget-post-img"><img src="/images/resource/widget-post3.jpg" alt="" /></div>
 								<div class="widget-post-name">
 									<span>Nov 30, 2015</span>
 									<h5><a href="blog-detail.html" title="">Cuba The Accidental Eden Documentary</a></h5>
@@ -205,7 +205,7 @@
 						</div>
 						<ul class="style2">
 							@foreach($post->categories as $postCategory)
-								<li><a href="#" title="">{{ $postCategory->name }}</a><span>{{ $postCategory->count() }}</span></li>
+								<li><a href="{{ route('category.post',$postCategory->slug) }}" title="">{{ $postCategory->name }}</a><span>{{ $postCategory->posts()->count() }}</span></li>
 							@endforeach
 						</ul>						
 					</div><!-- Widget -->			

@@ -1,7 +1,7 @@
 @extends('layouts.main.master')
 
 @section('title')
-	<title>All Doctors</title>
+All Doctors
 @endsection
 
 @section('csslink')

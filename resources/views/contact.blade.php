@@ -1,7 +1,7 @@
 @extends('layouts.main.master')
 
 @section('title')
-	<title>Eye Doctor | Contact Us</title>
+Contact Us
 @endsection
 
 @section('content')

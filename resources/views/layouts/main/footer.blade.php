@@ -86,7 +86,7 @@
 	<div class="container">
 		<p>© 2017 Eye Doctor BD All rights reserved. <i class="fa fa-code" aria-hidden="true"></i> with  <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" title="">i-SOFT</a> </p>
 		<ul>
-			<li><a href="#" title="">Blog</a></li>
+			<li><a href="{{ route('blog') }}" title="">Blog</a></li>
 			<li><a href="#" title="">Privacy policy</a></li>
 			<li><a href="#" title="">FAQ</a></li>
 			<li><a href="{{ route('contactus') }}" title="Contact Us">Contact Us</a></li>

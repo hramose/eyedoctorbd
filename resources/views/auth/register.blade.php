@@ -1,7 +1,7 @@
 @extends('layouts.main.master')
 
 @section('title')
-    <title>Eye Doctor | Register</title>
+Register
 @endsection
 
 @section('content')

@@ -85,8 +85,8 @@
 				<ul>
 					<li><a href="{{ route('welcome') }}" title="Home">Home</a></li>
 					<li><a href="{{ route('alldoctors') }}" title="All Doctors">All Doctors</a></li>
-					{{--  <li><a href="#" title="Blog">Blog</a></li>					
-					<li><a href="#" title="Gallery">Gallery</a></li>  --}}
+					 <li><a href="{{ route('blog') }}" title="Blog">Blog</a></li>					
+					{{-- <li><a href="#" title="Gallery">Gallery</a></li>  --}}
 					<li><a href="{{ route('aboutus') }}" title="About Us">About Us</a></li>		
 					<li><a href="{{ route('contactus')  }}" title="Contact Us">Contact</a></li>
 					

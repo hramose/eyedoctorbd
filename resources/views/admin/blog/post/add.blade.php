@@ -68,7 +68,7 @@
                         </div>
                         <div class="row">
                           <div class="input-field col s12">
-                            <input id="slug" type="text" name="slug">
+                            <input id="slug" type="text" name="slug" onkeyup="slugReplace()">
                             <label for="slug">Post Slug</label>
                           </div>
                         </div><br>
@@ -176,6 +176,15 @@
     $('.js-example-basic-multiple').select2();
     });
     CKEDITOR.replace( 'body-ckeditor' );
+ 
+    //for slug replace
+    function slugReplace(){
+      var lower = $('input#slug').val().toLowerCase(); // to lower case
+      var hyp = lower.replace(/ /g,"-");                      // spaces to hyphens
+      $('input#slug').val(hyp);  
+     
+    };
+   
 
     </script>
 @endsection

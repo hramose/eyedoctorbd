@@ -1,7 +1,7 @@
 @extends('layouts.main.master')
 
 @section('title')
-    <title>Eye Doctor | Forgot Password</title>
+Forgot Password
 @endsection
 
 @section('content')

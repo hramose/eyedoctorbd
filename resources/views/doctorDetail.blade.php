@@ -1,7 +1,7 @@
 @extends('layouts.main.master')
 
 @section('title')
-	<title>{{ $doctor->name }}</title>
+{{ $doctor->name }}
 @endsection
 
 @section('csslink')

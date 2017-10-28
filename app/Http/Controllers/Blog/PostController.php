@@ -53,25 +53,31 @@ class PostController extends Controller
         ]);
         $file = $request->file('image');
         
-                 if (isset($file)) {
-                     $currentDate = Carbon::now()->toDateString();
-                     $filename = $currentDate . uniqid() . $file->getClientOriginalName();
-        
-                     if (!file_exists('blog/thumb')) {
-                         mkdir('blog/thumb',0777, true);
-                     }
-        
-                    $img = Image::make($file)->resize(285,215)->save('blog/thumb/'.$filename,50);
-        
-                     if (!file_exists('blog/image/')) {
-                         mkdir('blog/image/',0777, true);
-                     }
-                     $img = Image::make($file)->resize(782,403)->save('blog/image/'.$filename,50);                     
-        
-                 }else{
-                     $filename = "default.png";
-        
-                 }
+         if (isset($file)) {
+             $currentDate = Carbon::now()->toDateString();
+             $filename = $currentDate . uniqid() . $file->getClientOriginalName();
+
+             if (!file_exists('blog/thumb')) {
+                 mkdir('blog/thumb',0777, true);
+             }
+
+            $img = Image::make($file)->resize(285,215)->save('blog/thumb/'.$filename,50);
+
+            if (!file_exists('blog/mini-thumb')) {
+                 mkdir('blog/mini-thumb',0777, true);
+             }
+
+            $img = Image::make($file)->resize(90,82)->save('blog/mini-thumb/'.$filename,50);
+
+             if (!file_exists('blog/image/')) {
+                 mkdir('blog/image/',0777, true);
+             }
+             $img = Image::make($file)->resize(782,403)->save('blog/image/'.$filename,50);                     
+
+         }else{
+             $filename = "default.png";
+
+         }
         $post = new Post;
         $post->title = $request->title;
         $post->subtitle = $request->subtitle;
@@ -138,6 +144,11 @@ class PostController extends Controller
                      }
         
                     $img = Image::make($file)->resize(285,215)->save('blog/thumb/'.$filename,50);
+                    if (!file_exists('blog/mini-thumb')) {
+                         mkdir('blog/mini-thumb',0777, true);
+                     }
+
+                    $img = Image::make($file)->resize(90,82)->save('blog/mini-thumb/'.$filename,50);
         
                      if (!file_exists('blog/image/')) {
                          mkdir('blog/image/',0777, true);
