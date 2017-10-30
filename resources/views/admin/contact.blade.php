@@ -1,4 +1,4 @@
-@extends('layouts.admin.master')
+@extends('layouts.backend.app')
 
 @section('title')
     <title>Contact Message</title>

@@ -1,17 +1,17 @@
-@extends('layouts.doctor.master')
+@extends('layouts.backend.app')
 
 @section('title')
   <title>Profile</title>
 @endsection
 
 @section('csslink')
-  <link href="{{asset('admin/js/plugins/prism/prism.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="{{asset('admin/js/plugins/perfect-scrollbar/perfect-scrollbar.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="{{asset('admin/js/plugins/chartist-js/chartist.min.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="{{asset('backend/js/plugins/prism/prism.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="{{asset('backend/js/plugins/perfect-scrollbar/perfect-scrollbar.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="{{asset('backend/js/plugins/chartist-js/chartist.min.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
    {{--  animate css --}}
-  <link href="{{asset('admin/js/plugins/animate-css/animate.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="{{asset('backend/js/plugins/animate-css/animate.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
    {{--  dropify --}}
-  <link href="{{ asset('admin/js/plugins/dropify/css/dropify.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="{{ asset('backend/js/plugins/dropify/css/dropify.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection">
 
   <style type="text/css"> 
     .select-wrapper {
@@ -47,10 +47,10 @@
             <!-- profile-page-header -->
             <div id="profile-page-header" class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{asset('admin/images/user-profile-bg.jpg')}}" alt="user background">                    
+                    <img class="activator" src="{{asset('backend/images/user-profile-bg.jpg')}}" alt="user background">                    
                 </div>
                 <figure class="card-profile-image">
-          <img src="/doctors/avatar/{{$doctor->avatar}}" alt="profile image" class="circle z-depth-2 responsive-img activator"/>
+          <img src="/upload/doctors/avatar/{{$doctor->avatar}}" alt="profile image" class="circle z-depth-2 responsive-img activator"/>
                 </figure>
                 <div class="card-content">
                   <div class="row">                    
@@ -702,9 +702,9 @@
 @endsection
 
 @section('jslink')
-  <script type="text/javascript" src="{{asset('admin/js/plugins/prism/prism.js')}}"></script>
+  <script type="text/javascript" src="{{asset('backend/js/plugins/prism/prism.js')}}"></script>
      {{--  dropify --}}
-  <script type="text/javascript" src="{{ asset('admin/js/plugins/dropify/js/dropify.min.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('backend/js/plugins/dropify/js/dropify.min.js') }}"></script>
   <script>
       $('.datepicker').pickadate({
     format: 'yyyy/mm/dd',

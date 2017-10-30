@@ -57,22 +57,22 @@ class PostController extends Controller
              $currentDate = Carbon::now()->toDateString();
              $filename = $currentDate . uniqid() . $file->getClientOriginalName();
 
-             if (!file_exists('blog/thumb')) {
-                 mkdir('blog/thumb',0777, true);
+             if (!file_exists('upload/blog/thumb')) {
+                 mkdir('upload/blog/thumb',0777, true);
              }
 
-            $img = Image::make($file)->resize(285,215)->save('blog/thumb/'.$filename,50);
+            $img = Image::make($file)->resize(285,215)->save('upload/blog/thumb/'.$filename,50);
 
-            if (!file_exists('blog/mini-thumb')) {
-                 mkdir('blog/mini-thumb',0777, true);
+            if (!file_exists('upload/blog/mini-thumb')) {
+                 mkdir('upload/blog/mini-thumb',0777, true);
              }
 
-            $img = Image::make($file)->resize(90,82)->save('blog/mini-thumb/'.$filename,50);
+            $img = Image::make($file)->resize(90,82)->save('upload/blog/mini-thumb/'.$filename,50);
 
-             if (!file_exists('blog/image/')) {
-                 mkdir('blog/image/',0777, true);
+             if (!file_exists('upload/blog/image/')) {
+                 mkdir('upload/blog/image/',0777, true);
              }
-             $img = Image::make($file)->resize(782,403)->save('blog/image/'.$filename,50);                     
+             $img = Image::make($file)->resize(782,403)->save('upload/blog/image/'.$filename,50);                     
 
          }else{
              $filename = "default.png";
@@ -139,21 +139,21 @@ class PostController extends Controller
                      $currentDate = Carbon::now()->toDateString();
                      $filename = $currentDate . uniqid() . $file->getClientOriginalName();
         
-                     if (!file_exists('blog/thumb')) {
-                         mkdir('blog/thumb',0777, true);
+                     if (!file_exists('upload/blog/thumb')) {
+                         mkdir('upload/blog/thumb',0777, true);
                      }
         
-                    $img = Image::make($file)->resize(285,215)->save('blog/thumb/'.$filename,50);
-                    if (!file_exists('blog/mini-thumb')) {
-                         mkdir('blog/mini-thumb',0777, true);
+                    $img = Image::make($file)->resize(285,215)->save('upload/blog/thumb/'.$filename,50);
+                    if (!file_exists('upload/blog/mini-thumb')) {
+                         mkdir('upload/blog/mini-thumb',0777, true);
                      }
 
-                    $img = Image::make($file)->resize(90,82)->save('blog/mini-thumb/'.$filename,50);
+                    $img = Image::make($file)->resize(90,82)->save('upload/blog/mini-thumb/'.$filename,50);
         
-                     if (!file_exists('blog/image/')) {
-                         mkdir('blog/image/',0777, true);
+                     if (!file_exists('upload/blog/image/')) {
+                         mkdir('upload/blog/image/',0777, true);
                      }
-                     $img = Image::make($file)->resize(782,403)->save('blog/image/'.$filename,50);                     
+                     $img = Image::make($file)->resize(782,403)->save('upload/blog/image/'.$filename,50);                     
         
                  }else{
                      $filename = $post->image;
@@ -181,8 +181,8 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         if($post->image != 'default.png'){
-            unlink(public_path('blog/thumb/'. $post->image));
-            unlink(public_path('blog/image/'. $post->image));
+            unlink(public_path('upload/blog/thumb/'. $post->image));
+            unlink(public_path('upload/blog/image/'. $post->image));
         }
         $post->delete();
         return redirect(route('post.index'))->with('successMsg','Post Successfully Deleted');           

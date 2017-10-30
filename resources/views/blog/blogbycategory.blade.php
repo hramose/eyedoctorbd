@@ -1,4 +1,4 @@
-@extends('layouts.main.master')
+@extends('layouts.frontend.app')
 
 
 @section('title')
@@ -11,7 +11,7 @@ Tag
 		<span>What We Actually Do?</span>
 		<h1><span>MEDICALIST</span> BLOG</h1>
 		<ul>
-			<li><a href="index.html" title="">Home</a></li>
+			<li><a href="{{ route('welcome') }}" title="">Home</a></li>
 			<li>Blog</li>
 		</ul>
 	</div>
@@ -36,7 +36,7 @@ Tag
 										<a class="tip-date" href="{{ route('blog.post',$categoryPost->slug) }}" title="">{{ $categoryPost->created_at->diffForHumans() }}</a>	
 									</div>
 									<div class="tip-detail">
-										<a class="tip-img" href="{{ route('blog.post',$categoryPost->slug) }}" title=""><img src="/blog/thumb/{{ $categoryPost->image }}" alt="" /></a>
+										<a class="tip-img" href="{{ route('blog.post',$categoryPost->slug) }}" title=""><img src="/upload/blog/thumb/{{ $categoryPost->image }}" alt="" /></a>
 										<div class="tip-desc">
 											<h3><a href="{{ route('blog.post',$categoryPost->slug) }}" title="">{{ $categoryPost->title }}</a></h3>
 											<p>{{ $categoryPost->subtitle }}</p>

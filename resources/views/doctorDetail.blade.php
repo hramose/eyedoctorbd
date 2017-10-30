@@ -1,4 +1,4 @@
-@extends('layouts.main.master')
+@extends('layouts.frontend.app')
 
 @section('title')
 {{ $doctor->name }}
@@ -23,7 +23,7 @@
 					<div class="staff-detail">
 						<div class="member-introduction">
 							<div class="member-wrapper">
-								<div class="staff-img"><img src="/doctors/profile/{{ $doctor->avatar }}" alt="" /></div>
+								<div class="staff-img"><img src="/upload/doctors/profile/{{ $doctor->avatar }}" alt="" /></div>
 								<div class="member-detail">
 									<i>Hello</i>
 									<h2>I' m <strong>{{ $doctor->name }}</strong></h2>
@@ -180,12 +180,12 @@
 
 <section>
     <div class="block grayish">
-        <div class="parallax-container"><div class="parallax"><img src="{{ asset('images/resource/parallax2.jpg') }}" alt="" /></div></div>
+        <div class="parallax-container"><div class="parallax"><img src="{{ asset('/frontend/images/resource/parallax2.jpg') }}" alt="" /></div></div>
         <div class="container">
             <div class="row">
 			{{--  <div class="col l6 m12 s12 column">
                     <div class="doctors-intro overlap">
-                        <div class="doctors-img"><img src="{{ asset('images/resource/doctor-img.png') }}" alt="" /></div>
+                        <div class="doctors-img"><img src="{{ asset('fronend/images/resource/doctor-img.png') }}" alt="" /></div>
                         <div class="doctor-detail">
                             <div class="doctor-description">
                                 <span>Dr.</span>
@@ -208,9 +208,9 @@
 							@foreach ($chunk as $doctor)
 								<div class="col l4 m6 s6">
 										<div class="staff-member">
-											<div class="member-img"><img src="/doctors/profile/{{ $doctor->avatar }}" alt="" /></div>
+											<div class="member-img"><img src="/upload/doctors/profile/{{ $doctor->avatar }}" alt="" /></div>
 											<div class="doctor-intro">
-												<strong><a href="/profile/{{ $doctor->username }}" title="">{{ $doctor->name }}</a></strong>
+												<strong><a href="{{ route('profile',$doctor->username) }}" title="">{{ $doctor->name }}</a></strong>
 												<i>Orthopaedics</i>
 											</div>
 										</div><!-- Staff Member -->
@@ -267,7 +267,7 @@
     }
     </script>
 
-    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
 
   <script type="text/javascript">
 	

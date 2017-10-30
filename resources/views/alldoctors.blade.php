@@ -1,4 +1,4 @@
-@extends('layouts.main.master')
+@extends('layouts.frontend.app')
 
 @section('title')
 All Doctors
@@ -38,8 +38,8 @@ All Doctors
 							@foreach ($allDoctors as $allDoctor)
 								<div class="name col s12 m6 l3">
 									<div class="surgeon">
-										<a href="/profile/{{ $allDoctor->username }}" title="">
-											<img src="/doctors/thumb/{{ $allDoctor->avatar }}" alt="profile image"/>
+										<a href="{{ route('profile',$allDoctor->username) }}" title="">
+											<img src="/upload/doctors/thumb/{{ $allDoctor->avatar }}" alt="profile image"/>
 											<div class="surgeon-info">
 												<div class="surgeon-name">
 													<h3>{{ $allDoctor->name }}</h3>

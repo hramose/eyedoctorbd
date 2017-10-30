@@ -16,28 +16,50 @@
                     <ul class="left">                      
                       <li><h1 class="logo-wrapper" style="
     margin: -5px; 
-"> <a href="dashboard" class="brand-logo darken-1"><img src="{{asset('admin/images/materialize-logo.png')}}" alt="materialize logo"></a> <span class="logo-text">Eyedoctor</span></h1></li>
+"> <a href="dashboard" class="brand-logo darken-1"><img src="{{asset('backend/images/materialize-logo.png')}}" alt="materialize logo"></a> <span class="logo-text">Eyedoctor</span></h1></li>
                     </ul>
                     <div class="header-search-wrapper hide-on-med-and-down">
                         <i class="mdi-action-search"></i>
                         <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize"/>
                     </div>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light translation-button"  data-activates="translation-dropdown"><img src="{{asset('admin/images/flag-icons/United-States.png')}}" alt="USA" /></a>
+
+                          <li>
+                          <div id="divsta">
+                              <input type="hidden" id="sta" value="{{Sentinel::getUser()->status}}">
+                          </div>
+                            <div class="switch"> 
+                                @if(Sentinel::getUser()->status == "active" )
+                                   <label>
+                                      Offline
+                                      <input type="checkbox" checked  id="status" onClick="status()">
+                                      <span class="lever"></span>
+                                      <span>Online</span> 
+                                    </label>
+                                @else
+                                   <label>
+                                        Offline
+                                       <input type="checkbox" id="status" onClick="status()">
+                                      <span class="lever"></span>
+                                      <span>Online</span> 
+                                    </label>                                 
+                                @endif
+                            </div>
                         </li>
+                       
                         <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-fullscreen"><i class="mdi-action-settings-overscan"></i></a>
                         </li>
+                        
                         <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light notification-button" data-activates="notifications-dropdown"><i class="mdi-social-notifications"><small class="notification-badge">5</small></i>
                         
                         </a>
-                        </li>                        
-                        <li><a href="#" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse"><i class="mdi-communication-chat"></i></a>
-                        </li>
+                        </li> 
                     </ul>
+                    
                     <!-- translation-button -->
                     <ul id="translation-dropdown" class="dropdown-content">
                       <li>
-                        <a href="#!"><img src="{{asset('admin/images/flag-icons/United-States.png')}}" alt="English" />  <span class="language-select">English</span></a>
+                        <a href="#!"><img src="{{asset('backend/images/flag-icons/United-States.png')}}" alt="English" />  <span class="language-select">English</span></a>
                       </li>
                       
                     </ul>

@@ -1,4 +1,4 @@
-@extends('layouts.admin.master')
+@extends('layouts.backend.app')
 
 @section('title')
   <title>All Doctors Table view</title>
@@ -6,10 +6,10 @@
 
 @section('csslink')
 <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
-    <link href="{{asset('admin/js/plugins/perfect-scrollbar/perfect-scrollbar.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
-    <link href="{{asset('admin/js/plugins/prism/prism.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="{{asset('backend/js/plugins/perfect-scrollbar/perfect-scrollbar.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="{{asset('backend/js/plugins/prism/prism.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
 
-    <link href="{{asset('admin/js/plugins/chartist-js/chartist.min.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="{{asset('backend/js/plugins/chartist-js/chartist.min.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
 @endsection
 
 @section('content')
@@ -37,7 +37,7 @@
           </div>
         </div>
         <!--breadcrumbs end-->
-        @include('layouts.admin.include.errors')
+        @include('layouts.backend.include.errors')
 
         <!--start container-->
         <div class="container">
@@ -87,10 +87,10 @@
 
 @section('jslink')
       <!--prism-->
-    <script type="text/javascript" src="{{asset('admin/js/plugins/prism/prism.js')}}"></script>
+    <script type="text/javascript" src="{{asset('backend/js/plugins/prism/prism.js')}}"></script>
     <!-- data-tables -->
-    <script type="text/javascript" src="{{asset('admin/js/plugins/data-tables/js/jquery.dataTables.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('admin/js/plugins/data-tables/data-tables-script.js')}}"></script>
+    <script type="text/javascript" src="{{asset('backend/js/plugins/data-tables/js/jquery.dataTables.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('backend/js/plugins/data-tables/data-tables-script.js')}}"></script>
     <script>
     $('#data-table-simple').DataTable( {
   buttons: [

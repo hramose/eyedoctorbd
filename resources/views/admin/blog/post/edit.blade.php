@@ -1,4 +1,4 @@
-@extends('layouts.admin.master')
+@extends('layouts.backend.app')
 
 @section('title')
   <title>Create Post</title>
@@ -6,11 +6,11 @@
 
 @section('csslink')
 <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
-    <link href="{{asset('admin/js/plugins/perfect-scrollbar/perfect-scrollbar.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
-    <link href="{{asset('admin/js/plugins/prism/prism.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="{{asset('backend/js/plugins/perfect-scrollbar/perfect-scrollbar.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="{{asset('backend/js/plugins/prism/prism.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
 
-    <link href="{{asset('admin/js/plugins/chartist-js/chartist.min.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
-    <script type="text/javascript" src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
+    <link href="{{asset('backend/js/plugins/chartist-js/chartist.min.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
+    <script type="text/javascript" src="{{asset('backend/ckeditor/ckeditor.js')}}"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
 
     
@@ -40,7 +40,7 @@
           </div>
         </div>
         <!--breadcrumbs end-->
-        @include('layouts.admin.include.errors')
+        @include('layouts.backend.include.errors')
     <form  action="{{ route('post.update',$post->id) }}" method="POST" enctype="multipart/form-data">
                   {{ csrf_field() }}
                   {{ method_field('PUT') }}
@@ -178,10 +178,10 @@
 
 @section('jslink')
       <!--prism-->
-    <script type="text/javascript" src="{{asset('admin/js/plugins/prism/prism.js')}}"></script>
+    <script type="text/javascript" src="{{asset('backend/js/plugins/prism/prism.js')}}"></script>
     <!-- data-tables -->
-    <script type="text/javascript" src="{{asset('admin/js/plugins/data-tables/js/jquery.dataTables.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('admin/js/plugins/data-tables/data-tables-script.js')}}"></script>
+    <script type="text/javascript" src="{{asset('backend/js/plugins/data-tables/js/jquery.dataTables.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('backend/js/plugins/data-tables/data-tables-script.js')}}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
 
 

@@ -1,4 +1,4 @@
-@extends('layouts.admin.master')
+@extends('layouts.backend.app')
 
 @section('title')
  <title>All Doctors</title>
@@ -33,10 +33,10 @@
 			<div class="col s12 m4 l4">
 			<div id="profile-card" class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                      <img class="activator" src="{{ asset('admin/images/user-bg.jpg') }}" alt="user bg">
+                      <img class="activator" src="{{ asset('backend/images/user-bg.jpg') }}" alt="user bg">
                     </div>
                     <div class="card-content">
-                      <img src="/doctors/avatar/{{$alldoctor->avatar}}" alt="" class="circle responsive-img activator card-profile-image">
+                      <img src="/upload/doctors/avatar/{{$alldoctor->avatar}}" alt="" class="circle responsive-img activator card-profile-image">
 
                       <div class="fixed-action-btn " style="position: absolute; display: inline-block; right: 19px;">
 					  <a class="btn-floating btn-large red">

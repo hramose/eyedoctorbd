@@ -1,4 +1,4 @@
-@extends('layouts.main.master')
+@extends('layouts.frontend.app')
 
 @section('title')
 Blog
@@ -39,12 +39,12 @@ Blog
 										<a class="tip-date" href="{{ route('blog.post',$post->slug) }}" title="">{{ $post->created_at->diffForHumans() }}</a>	
 									</div>
 									<div class="tip-detail">
-										<a class="tip-img" href="{{ route('blog.post',$post->slug) }}" title=""><img src="/blog/thumb/{{ $post->image }}" alt="" /></a>
+										<a class="tip-img" href="{{ route('blog.post',$post->slug) }}" title=""><img src="/upload/blog/thumb/{{ $post->image }}" alt="" /></a>
 										<div class="tip-desc">
 											<h3><a href="{{ route('blog.post',$post->slug) }}" title="">{{ $post->title }}</a></h3>
 											<p>{{ $post->subtitle }}</p>
 
-											<a class="see-detail" href="{{ route('blog.post',$post->slug) }}" title="">See Detail <i class="fa fa-caret-right"></i></a>
+											<a class="coloured-btn" href="{{ route('blog.post',$post->slug) }}" title="">See Detail <i class="fa fa-caret-right"></i></a>
 										</div>
 									</div>
 								</div><!-- Tip -->

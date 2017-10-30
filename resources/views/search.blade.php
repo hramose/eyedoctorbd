@@ -1,4 +1,4 @@
-@extends('layouts.main.master')
+@extends('layouts.frontend.app')
 
 @section('title')
 Search Result
@@ -62,7 +62,7 @@ Search Result
 							@foreach ($Doctors as $Doctor)
 								<div class="name col s12 m6 l3">
 									<div class="surgeon">
-										<a href="/profile/{{ $Doctor->username }}" title="">
+										<a href="{{ route('profile',$allDoctor->username) }}" title="">
 											<img src="/doctors/thumb/{{ $Doctor->avatar }}" alt="profile image"/>
 											<div class="surgeon-info">
 												<div class="surgeon-name">

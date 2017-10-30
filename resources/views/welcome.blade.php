@@ -1,4 +1,4 @@
-@extends('layouts.main.master')
+@extends('layouts.frontend.app')
 
 @section('title')
 Home
@@ -6,9 +6,9 @@ Home
 
 @section('csslink')
 <!-- REVOLUTION STYLE SHEETS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/revolution/settings.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/revolution/navigation.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/revolution/pe-icon-7-stroke/css/pe-icon-7-stroke.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/revolution/settings.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/revolution/navigation.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/revolution/pe-icon-7-stroke/css/pe-icon-7-stroke.css') }}">
 
     <!-- AutoComplete -->
      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -25,17 +25,17 @@ Home
                             <ul>
                                 <li data-index="rs-1" data-transition="fade" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000" data-title="Slide 1">
                                     <!-- MAIN IMAGE -->
-                                    <img   src="images/resource/slider1.jpg"  alt=""  data-bgposition="center center"  data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                                    <img   src="frontend/images/resource/slider1.jpg"  alt=""  data-bgposition="center center"  data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                                 </li>
 
                                 <li data-index="rs-2" data-transition="fade" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000" data-title="Slide 2">
                                     <!-- MAIN IMAGE -->
-                                    <img   src="images/resource/slider2.jpg"  alt=""  data-bgposition="center center"  data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                                    <img   src="frontend/images/resource/slider2.jpg"  alt=""  data-bgposition="center center"  data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                                 </li>
 
                                 <li data-index="rs-3" data-transition="fade" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000" data-title="Slide 2">
                                     <!-- MAIN IMAGE -->
-                                    <img   src="images/resource/slider3.jpg"  alt=""  data-bgposition="center center"  data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                                    <img   src="/frontend/images/resource/slider3.jpg"  alt=""  data-bgposition="center center"  data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                                 </li>
                             </ul>
                         </div>
@@ -86,12 +86,12 @@ Home
 
 <section>
     <div class="block grayish">
-        <div class="parallax-container"><div class="parallax"><img src="{{ asset('images/resource/parallax2.jpg') }}" alt="" /></div></div>
+        <div class="parallax-container"><div class="parallax"><img src="{{ asset('frontend/images/resource/parallax2.jpg') }}" alt="" /></div></div>
         <div class="container">
             <div class="row">
-			{{--  <div class="col l6 m12 s12 column">
+			 <div class="col l6 m12 s12 column">
                     <div class="doctors-intro overlap">
-                        <div class="doctors-img"><img src="{{ asset('images/resource/doctor-img.png') }}" alt="" /></div>
+                        <div class="doctors-img"><img src="{{ asset('frontend/images/resource/doctor-img.png') }}" alt="" /></div>
                         <div class="doctor-detail">
                             <div class="doctor-description">
                                 <span>Dr.</span>
@@ -102,8 +102,8 @@ Home
                             </div>
                         </div>
                     </div><!-- Doctors Intro -->
-                </div>  --}}
-			<div class="col32 m24 s24 column">
+                </div> 
+			<div class="col l6 m12 s12 column">
                     <div class="classic-title center-align">
                         <h2>Our Specialist Doctor</h2>
                     </div>
@@ -112,11 +112,11 @@ Home
 						<div class="staff-slide">
                             <div class="row">
 							@foreach ($chunk as $doctor)
-								<div class="col l4 m6 s6">
+								<div class="col l6 m6 s6">
 										<div class="staff-member">
-											<div class="member-img"><img src="/doctors/profile/{{ $doctor->avatar }}" alt="" /></div>
+											<div class="member-img"><img src="/upload/doctors/profile/{{ $doctor->avatar }}" alt="" /></div>
 											<div class="doctor-intro">
-												<strong><a href="/profile/{{ $doctor->username }}" title="">{{ $doctor->name }}</a></strong>
+												<strong><a href="/frontend/profile/{{ $doctor->username }}" title="">{{ $doctor->name }}</a></strong>
 												<i>Orthopaedics</i>
 											</div>
 										</div><!-- Staff Member -->
@@ -408,28 +408,28 @@ Home
 
 @section('jslink')
 <!-- REVOLUTION JS FILES -->
-    <script type="text/javascript" src="{{ asset('js/revolution/jquery.themepunch.tools.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/revolution/jquery.themepunch.revolution.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/js/revolution/jquery.themepunch.tools.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/js/revolution/jquery.themepunch.revolution.min.js') }}"></script>
 
       <!-- SLIDER REVOLUTION 5.0 EXTENSIONS -->
-    <script type="text/javascript" src="{{ asset('js/revolution/revolution.extension.actions.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/revolution/revolution.extension.carousel.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/revolution/revolution.extension.kenburn.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/revolution/revolution.extension.layeranimation.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/revolution/revolution.extension.migration.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/revolution/revolution.extension.navigation.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/revolution/revolution.extension.parallax.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/revolution/revolution.extension.slideanims.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/revolution/revolution.extension.video.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/revolution/revolution.initialize2.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/js/revolution/revolution.extension.actions.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/js/revolution/revolution.extension.carousel.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/js/revolution/revolution.extension.kenburn.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/js/revolution/revolution.extension.layeranimation.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/js/revolution/revolution.extension.migration.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/js/revolution/revolution.extension.navigation.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/js/revolution/revolution.extension.parallax.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/js/revolution/revolution.extension.slideanims.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/js/revolution/revolution.extension.video.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/js/revolution/revolution.initialize2.js') }}"></script>
 
-    <script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/jquery.counterup.min.js') }}"></script>
 
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
     <!--   City Autocomplete -->
-    <script type="text/javascript" src="{{ asset('js/autocomplete.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/js/autocomplete.js') }}"></script>
 
   <script type="text/javascript">
 

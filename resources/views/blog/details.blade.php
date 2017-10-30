@@ -1,4 +1,4 @@
-@extends('layouts.main.master')
+@extends('layouts.frontend.app')
 
 @section('title')
 {{ $post->title }}
@@ -41,7 +41,7 @@
 						<div class="blog-detail-img">
 							<div class="tip-meta">
 								<span>
-									<img alt="" src="/doctors/profile/{{ $post->user->avatar }}" style="height: 41px;width: 41px;">
+									<img alt="" src="/upload/doctors/profile/{{ $post->user->avatar }}" style="height: 41px;width: 41px;">
 									By <a title="" href="#">{{ $post->user->name }}</a>
 								</span>
 								<a title="" href="#" class="tip-date">{{ $post->created_at->diffForHumans() }}</a>	
@@ -51,7 +51,7 @@
 								<a href="#" title=""><i class="fa fa-google-plus"></i></a>
 								<a href="#" title=""><i class="fa fa-twitter"></i></a>
 							</div>				
-							<img src="/blog/image/{{ $post->image }}" alt="" />
+							<img src="/upload/blog/image/{{ $post->image }}" alt="" />
 						</div><!-- Event Detail Image -->
 						<div class="blog-description">
 							{{--  <span class="post-subtitle">Provide Comprehensive Quality Care</span>  --}}
@@ -174,21 +174,21 @@
 						</div>
 						<div class="recent-posts">
 							<div class="widget-post">
-								<div class="widget-post-img"><img src="/images/resource/widget-post1.jpg" alt="" /></div>
+								<div class="widget-post-img"><img src="/frontend/images/resource/widget-post1.jpg" alt="" /></div>
 								<div class="widget-post-name">
 									<span>Nov 30, 2015</span>
 									<h5><a href="blog-detail.html" title="">Cuba The Accidental Eden Documentary</a></h5>
 								</div>
 							</div><!-- Widget Post -->
 							<div class="widget-post">
-								<div class="widget-post-img"><img src="/images/resource/widget-post2.jpg" alt="" /></div>
+								<div class="widget-post-img"><img src="/frontend/images/resource/widget-post2.jpg" alt="" /></div>
 								<div class="widget-post-name">
 									<span>Nov 30, 2015</span>
 									<h5><a href="blog-detail.html" title="">Cuba The Accidental Eden Documentary</a></h5>
 								</div>
 							</div><!-- Widget Post -->
 							<div class="widget-post">
-								<div class="widget-post-img"><img src="/images/resource/widget-post3.jpg" alt="" /></div>
+								<div class="widget-post-img"><img src="/frontend/images/resource/widget-post3.jpg" alt="" /></div>
 								<div class="widget-post-name">
 									<span>Nov 30, 2015</span>
 									<h5><a href="blog-detail.html" title="">Cuba The Accidental Eden Documentary</a></h5>

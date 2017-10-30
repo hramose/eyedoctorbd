@@ -1,4 +1,4 @@
-@extends('layouts.doctor.master')
+@extends('layouts.backend.app')
 
 @section('title')
   <title>All Chambers</title>

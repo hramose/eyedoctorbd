@@ -35,21 +35,21 @@ class DoctorController extends Controller
  			$currentDate = Carbon::now()->toDateString();
 	 		$filename = Sentinel::getUser()->username . $currentDate . uniqid() . $file->getClientOriginalName();
 
-	 		if (!file_exists('doctors/avatar')) {
-	 			mkdir('doctors/avatar',0777, true);
+	 		if (!file_exists('upload/doctors/avatar')) {
+	 			mkdir('upload/doctors/avatar',0777, true);
 	 		}
 
-	 		$file->move('doctors/avatar',$filename);
+	 		$file->move('upload/doctors/avatar',$filename);
 
-	 		if (!file_exists('doctors/profile')) {
-	 			mkdir('doctors/profile',0777, true);
+	 		if (!file_exists('upload/doctors/profile')) {
+	 			mkdir('upload/doctors/profile',0777, true);
 	 		}
-	 		$profile = Image::make('doctors/avatar/'. $filename)->resize(362, 459)->save('doctors/profile/'. $filename, 50);
+	 		$profile = Image::make('upload/doctors/avatar/'. $filename)->resize(362, 459)->save('upload/doctors/profile/'. $filename, 50);
 
-	 		if (!file_exists('doctors/thumb')) {
-	 			mkdir('doctors/thumb', 0777, true);
+	 		if (!file_exists('upload/doctors/thumb')) {
+	 			mkdir('upload/doctors/thumb', 0777, true);
 	 		}
-	 		$thumb = Image::make('doctors/avatar/'. $filename)->resize(270, 366)->save('doctors/thumb/'. $filename, 50);
+	 		$thumb = Image::make('upload/doctors/avatar/'. $filename)->resize(270, 366)->save('upload/doctors/thumb/'. $filename, 50);
 
  		}else{
  			$filename = Sentinel::getUser()->avatar;

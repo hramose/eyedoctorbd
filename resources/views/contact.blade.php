@@ -1,4 +1,4 @@
-@extends('layouts.main.master')
+@extends('layouts.frontend.app')
 
 @section('title')
 Contact Us
@@ -12,7 +12,7 @@ Contact Us
 		<span>What We Actually Do?</span>
 		<h1>CONTACT <span>MEDICALIST</span></h1>
 		<ul>
-			<li><a href="index.html" title="">Home</a></li>
+			<li><a href="{{ route('welcome') }}" title="">Home</a></li>
 			<li>Contact</li>
 		</ul>
 	</div>
@@ -48,7 +48,7 @@ Contact Us
 				</div>
 				<div class="col column s12 m12 l8">
 					<div class="contact-boxes">
-						<div class="parallax-container"><div  class="parallax"><img src="images/resource/parallax3.jpg" alt="" /></div></div>
+						<div class="parallax-container"><div  class="parallax"><img src="/frontend/images/resource/parallax3.jpg" alt="" /></div></div>
 						<div class="row">
 							<div class="col s12 m4 l4">
 								<div class="contact-box">
@@ -167,7 +167,7 @@ Contact Us
 			  };
 			  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-			  var image = '{{ asset("/images/pointer.png") }}';
+			  var image = '{{ asset("/frontend/images/pointer.png") }}';
 			  var myLatLng = new google.maps.LatLng(23.7546279, 90.38864269999999);
 			  var beachMarker = new google.maps.Marker({
 			      position: myLatLng,

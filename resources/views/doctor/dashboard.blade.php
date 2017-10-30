@@ -1,4 +1,4 @@
-@extends('layouts.doctor.master')
+@extends('layouts.backend.app')
 
 @section('title')
     <title>Dashboard</title>
@@ -6,9 +6,9 @@
 
 @section('csslink')
 <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
-    <link href="{{asset('admin/js/plugins/perfect-scrollbar/perfect-scrollbar.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="{{asset('backend/js/plugins/perfect-scrollbar/perfect-scrollbar.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
    
-    <link href="{{asset('admin/js/plugins/chartist-js/chartist.min.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="{{asset('backend/js/plugins/chartist-js/chartist.min.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
 @endsection
 
 @section('content')
@@ -168,10 +168,10 @@
                 <div class="col s12 m6 l4">
                     <div id="profile-card" class="card">
                         <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" src="{{asset('admin/images/user-bg.jpg')}}" alt="user background">
+                            <img class="activator" src="{{asset('backend/images/user-bg.jpg')}}" alt="user background">
                         </div>
                         <div class="card-content">
-                            <img src="{{asset('admin/images/avatar.jpg')}}" alt="" class="circle responsive-img activator card-profile-image">
+                            <img src="{{asset('backend/images/avatar.jpg')}}" alt="" class="circle responsive-img activator card-profile-image">
                             <a class="btn-floating activator btn-move-up waves-effect waves-light darken-2 right">
                                 <i class="mdi-action-account-circle"></i>
                             </a>
@@ -202,7 +202,7 @@
                     <div class="blog-card" >
                     <div class="card">
                         <div class="card-image waves-effect waves-block waves-light">
-                            <img src="{{asset('admin/images/gallary/30.jpg')}}" alt="blog-img">
+                            <img src="{{asset('backend/images/gallary/30.jpg')}}" alt="blog-img">
                         </div>
                         <ul class="card-action-buttons">
                             <li><a class="btn-floating waves-effect waves-light green accent-4"><i class="mdi-social-share"></i></a>
@@ -219,7 +219,7 @@
                             </h4>                                        
                             <div class="row">
                               <div class="col s2">
-                                <img src="{{asset('admin/images/avatar.jpg')}}" alt="" class="circle responsive-img valign profile-image">
+                                <img src="{{asset('backend/images/avatar.jpg')}}" alt="" class="circle responsive-img valign profile-image">
                               </div>
                               <div class="col s9"> By <a href="#">John Doe</a></div>
                             </div>
@@ -238,7 +238,7 @@
                         <div class="card">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <a href="#" class="btn-floating btn-large btn-price waves-effect waves-light  pink accent-2">$189</a>
-                                <img src="{{asset('admin/images/gallary/33.jpg')}}" alt="product-img">
+                                <img src="{{asset('backend/images/gallary/33.jpg')}}" alt="product-img">
                             </div>
                             <ul class="card-action-buttons">
                                 <li><a class="btn-floating waves-effect waves-light green accent-4"><i class="mdi-av-repeat"></i></a>
@@ -256,7 +256,7 @@
                                         </p>
                                     </div>
                                     <div class="col s4 no-padding">
-                                        <a href="#"></a><img src="{{asset('admin/images/amazon.jpg')}}" alt="amazon" class="responsive-img">
+                                        <a href="#"></a><img src="{{asset('backend/images/amazon.jpg')}}" alt="amazon" class="responsive-img">
                                         
                                     </div>
                                 </div>
@@ -472,6 +472,6 @@
 
 @section('jslink')
     {{--  <!-- chartjs -->
-    <script type="text/javascript" src="{{asset('admin/js/plugins/chartjs/chart.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('admin/js/plugins/chartjs/chart-script.js')}}"></script>  --}}
+    <script type="text/javascript" src="{{asset('backend/js/plugins/chartjs/chart.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('backend/js/plugins/chartjs/chart-script.js')}}"></script>  --}}
 @endsection

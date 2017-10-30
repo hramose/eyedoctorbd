@@ -35,7 +35,7 @@
 		</div>
 	</div><!-- Responsive Topbar -->
 	<div class="responsive-menu">
-		<div class="logo"><a href="{{ route('welcome') }}" title=""><img src="{{ asset('/images/logo.png') }}" alt="" /></a></div>		
+		<div class="logo"><a href="{{ route('welcome') }}" title=""><img src="{{ asset('/frontend/images/logo.png') }}" alt="" /></a></div>		
 		<div class="responsive-menu-btns">
 			{{--  <a class="call-popup popup1" href="#" title=""><i class="fa fa-user-md"></i> Get Free Consultation</a>  --}}
 			<a class="open-menu" href="#" title=""><i class="fa fa-list"></i></a>
@@ -80,7 +80,7 @@
 	<div class="menu-bar-height" style="{{ (Request::is('profile/*')? 'height: 0px;' : '') }}"></div>
 	<div class="menu-bar">
 		<div class="container">
-			<div class="logo"><a href="{{ route('welcome') }}" title=""><img src="{{ asset('/images/logo.png') }}" alt="" /></a></div>
+			<div class="logo"><a href="{{ route('welcome') }}" title=""><img src="{{ asset('/frontend/images/logo.png') }}" alt="" /></a></div>
 			<nav class="menu">
 				<ul>
 					<li><a href="{{ route('welcome') }}" title="Home">Home</a></li>

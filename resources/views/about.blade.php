@@ -1,4 +1,4 @@
-@extends('layouts.main.master')
+@extends('layouts.frontend.app')
 
 @section('title')
 About Us
@@ -12,7 +12,7 @@ About Us
 		<span>What We Actually Do?</span>
 		<h1>ABOUT <span>MEDICALIST</span></h1>
 		<ul>
-			<li><a href="index.html" title="">Home</a></li>
+			<li><a href="{{ route('welcome') }}" title="">Home</a></li>
 			<li>About</li>
 		</ul>
 	</div>
@@ -32,7 +32,7 @@ About Us
 					</div><!-- information -->
 				</div>
 				<div class="col column s12 m12 l4">
-					<div class="mockup overlap2"><img alt="" src="images/mockup2.png"></div>
+					<div class="mockup overlap2"><img alt="" src="/frontend/images/mockup2.png"></div>
 				</div>
 				<div class="col column s12 m12 l4">
 					<div class="traditional-title">
