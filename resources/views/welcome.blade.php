@@ -12,6 +12,10 @@ Home
 
     <!-- AutoComplete -->
      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+     {{--  Slider js  --}}
+     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/slider/slick.css') }} ">
+     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/slider/slick-theme.css') }} ">
 @endsection
 
 @section('content')
@@ -107,25 +111,19 @@ Home
                     <div class="classic-title center-align">
                         <h2>Our Specialist Doctor</h2>
                     </div>
-                    <div class="staff-carousel">
-					@foreach ($allDoctors->chunk(4) as $chunk)
-						<div class="staff-slide">
                             <div class="row">
-							@foreach ($chunk as $doctor)
-								<div class="col l6 m6 s6">
-										<div class="staff-member">
-											<div class="member-img"><img src="/upload/doctors/profile/{{ $doctor->avatar }}" alt="" /></div>
+                              <section class="regular slider">
+							@foreach ($allDoctors as $doctor)
+                            <div>
+                                <div class="member-img"><img src="/upload/doctors/profile/{{ $doctor->avatar }}" alt="" /></div>
 											<div class="doctor-intro">
 												<strong><a href="/frontend/profile/{{ $doctor->username }}" title="">{{ $doctor->name }}</a></strong>
 												<i>Orthopaedics</i>
-											</div>
-										</div><!-- Staff Member -->
-									</div>
+										</div>
+                                </div>
 							@endforeach
+                            </section>
 						 </div>
-                        </div><!-- Staff Slide -->
-					@endforeach
-                    </div><!-- Staff Carousel -->
 					</div>
                 </div>
             </div>
@@ -427,12 +425,24 @@ Home
 
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+
     <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
     <!--   City Autocomplete -->
     <script type="text/javascript" src="{{ asset('frontend/js/autocomplete.js') }}"></script>
 
-  <script type="text/javascript">
+    <script type="text/javascript" src="{{ asset('frontend/js/slider/slick.js') }}"></script>
 
+  <script type="text/javascript">
+$(document).on('ready', function() {
+     
+      $(".regular").slick({
+        dots: true,
+        infinite: true,
+        slidesToShow: 2,
+        slidesToScroll: 1
+      });
+      
+    });
         jQuery(document).ready(function() {
 
             /* ============  Carousel ================*/
