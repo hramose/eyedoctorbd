@@ -38,11 +38,11 @@ All Doctors
 							@foreach ($allDoctors as $allDoctor)
 								<div class="name col s12 m6 l3">
 									<div class="surgeon">
-										<a href="{{ route('profile',$allDoctor->username) }}" title="">
+										<a href="{{ route('profile',$allDoctor->slug) }}" title="">
 											<img src="/upload/doctors/thumb/{{ $allDoctor->avatar }}" alt="profile image"/>
 											<div class="surgeon-info">
 												<div class="surgeon-name">
-													<h3>{{ $allDoctor->name }}</h3>
+													<h3>{{ $allDoctor->first_name }} {{ $allDoctor->last_name }}</h3>
 												<span>{{ $allDoctor->designation }}</span>
 											</div>
 										  </div>

@@ -18,7 +18,7 @@
 
 Route::get('/','MainController@welcome')->name('welcome');
 Route::get('alldoctors', 'DoctorController@alldoctors')->name('alldoctors');
-Route::get('profile/{username}', 'DoctorController@doctorDetail')->name('profile');
+Route::get('profile/{slug}', 'DoctorController@doctorDetail')->name('profile');
 Route::get('about','PageController@about')->name('aboutus');
 Route::get('contact','PageController@contact')->name('contactus');
 Route::post('contact','ContactController@addMessage')->name('post.contact');

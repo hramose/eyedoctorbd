@@ -5,7 +5,8 @@ Search Result
 @endsection
 
 @section('csslink')
- 
+ <!-- AutoComplete -->
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 @endsection
 
 @section('content')
@@ -18,20 +19,20 @@ Search Result
 			{{ csrf_field() }}
 			<div class="input-field col s3">
 				<input type="text" 
-                       id="City" 
-                       name="city" 
-                       placeholder="City" 
-                       value="{{ $city }}" 
-                       required>
-			</div>
+		                       id="City" 
+		                       name="city" 
+		                       placeholder="City" 
+		                       value="{{ $city }}" 
+		                       required>
+					</div>
 
 			<div class="input-field col s3">
 				<input type="text" 
-                       id="Subarea" 
-                       name="subarea" 
-                       placeholder="Subarea" 
-                       value="{{ $subarea }}" 
-                       required>
+			                       id="Subarea" 
+			                       name="subarea" 
+			                       placeholder="Subarea" 
+			                       value="{{ $subarea }}" 
+			                       required>
 			</div>
 			<div class="input-field col s4">
 				<input type="text" 
@@ -46,9 +47,6 @@ Search Result
 		</div>
 	</div>
 	</div>
-
-
-
 <section>
 	<div class="block">
 		<div class="container">
@@ -59,15 +57,15 @@ Search Result
 						<div id="test-list"> 
 							<div class="list">
 
-							@foreach ($Doctors as $Doctor)
+							@foreach ($doctors as $doctor)
 								<div class="name col s12 m6 l3">
 									<div class="surgeon">
-										<a href="{{ route('profile',$allDoctor->username) }}" title="">
-											<img src="/doctors/thumb/{{ $Doctor->avatar }}" alt="profile image"/>
+										<a href="{{ route('profile',$doctor->slug) }}" title="">
+											<img src="/upload/doctors/thumb/{{ $doctor->avatar }}" alt="profile image"/>
 											<div class="surgeon-info">
 												<div class="surgeon-name">
-													<h3>{{ $Doctor->name }}</h3>
-												<span>{{ $Doctor->designation }}</span>
+													<h3>{{ $doctor->first_name }} {{ $doctor->last_name }}</h3>
+												<span>{{ $doctor->designation }}</span>
 											</div>
 										  </div>
 										</a>
@@ -78,7 +76,7 @@ Search Result
 
 							 </div>
 								<ul class="pagination theme-pagi">
-									{{ $Doctors->links() }}
+									{{ $doctors->links() }}
 								</ul><!-- Pagination -->	
 						 </div>
 
@@ -93,5 +91,28 @@ Search Result
 @endsection
 
 @section('jslink')
-  
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type="text/javascript">
+  	 $( function() {
+        var allCity = [
+        @foreach ($cities as $city)
+          "{{ $city->city_name }}",
+        @endforeach
+        ];
+        $( "#City" ).autocomplete({
+          source: allCity
+        });
+    } );
+
+ $( function() {
+    var allSubarea = [
+    @foreach ($sub_areas as $subarea)
+      "{{ $subarea->name }}",
+    @endforeach
+    ];
+    $( "#Subarea" ).autocomplete({
+      source: allSubarea
+    });
+  } );
+  </script>
 @endsection

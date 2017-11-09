@@ -1,10 +1,13 @@
 @extends('layouts.frontend.app')
 
 @section('title')
-{{ $doctor->name }}
+{{ $doctor->first_name }}
 @endsection
 
 @section('csslink')
+{{--  Slider js  --}}
+     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/slider/slick.css') }} ">
+     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/slider/slick-theme.css') }} ">
 <style>
        #map {
         height: 400px;
@@ -23,23 +26,23 @@
 					<div class="staff-detail">
 						<div class="member-introduction">
 							<div class="member-wrapper">
-								<div class="staff-img"><img src="/upload/doctors/profile/{{ $doctor->avatar }}" alt="" /></div>
-								<div class="member-detail">
-									<i>Hello</i>
-									<h2>I' m <strong>{{ $doctor->name }}</strong></h2>
-									<h6>{{ $doctor->designation }}, Dept. of {{ $doctor->department }}, {{ $doctor->hospital_name }}</h6>
-									<span>{{ $doctor->speciality }}</span>
-									<ul class="info-list">
-										{{--  <li><strong>Address:</strong>24058, Belgium, Brussels, Liutte 27, BE</li>
-										<li><strong>E-mail:</strong>ericasmile@company.com</li>
-										<li><strong>Phone:</strong>+1 256 254 84 56</li>  --}}
-									</ul>
-									<div class="social-icons">
-										<a title="" href="#"><i class="fa fa-facebook"></i></a>
-										<a title="" href="#"><i class="fa fa-linkedin"></i></a>
-										<a title="" href="#"><i class="fa fa-twitter"></i></a>
-										<a title="" href="#"><i class="fa fa-skype"></i></a>
-									</div>
+							   <div class="staff-img"><img src="/upload/doctors/profile/{{ $doctor->avatar }}" alt="" /></div>
+							       <div class="member-detail">
+								<i>Hello</i>
+								<h2>I' m <strong>{{ $doctor->first_name }} {{ $doctor->last_name }}</strong></h2>
+								<h6>{{ $doctor->designation }}, Dept. of {{ $doctor->department }}, {{ $doctor->hospital_name }}</h6>
+								<span>{{ $doctor->speciality }}</span>
+								<ul class="info-list">
+									{{--  <li><strong>Address:</strong>24058, Belgium, Brussels, Liutte 27, BE</li>
+									<li><strong>E-mail:</strong>ericasmile@company.com</li>
+									<li><strong>Phone:</strong>+1 256 254 84 56</li>  --}}
+								</ul>
+								<div class="social-icons">
+									<a title="" href="#"><i class="fa fa-facebook"></i></a>
+									<a title="" href="#"><i class="fa fa-linkedin"></i></a>
+									<a title="" href="#"><i class="fa fa-twitter"></i></a>
+									<a title="" href="#"><i class="fa fa-skype"></i></a>
+								</div>
 								</div><!-- Member Detail -->
 							</div>
 						</div><!-- Member Introduction -->
@@ -182,45 +185,21 @@
     <div class="block grayish">
         <div class="parallax-container"><div class="parallax"><img src="{{ asset('/frontend/images/resource/parallax2.jpg') }}" alt="" /></div></div>
         <div class="container">
-            <div class="row">
-			{{--  <div class="col l6 m12 s12 column">
-                    <div class="doctors-intro overlap">
-                        <div class="doctors-img"><img src="{{ asset('fronend/images/resource/doctor-img.png') }}" alt="" /></div>
-                        <div class="doctor-detail">
-                            <div class="doctor-description">
-                                <span>Dr.</span>
-                                <h5>SMILE JOHN</h5>
-                                <i>Neurologiest / CEO</i>
-                                <p>Suspendisse potenti. Maecenas dapibus ac tellus sed pulvinar. Vestibulum bib volutpat accumsan non laoreet.  Quaerat, iste, architecto ullam tenetur quia nemo ratione tempora consectetur...</p>
-                                <a class="coloured-btn" href="staff-detail.html" title="">Read More <i class="fa fa-caret-right"></i></a>
-                            </div>
-                        </div>
-                    </div><!-- Doctors Intro -->
-                </div>  --}}
-			<div class="col32 m24 s24 column">                
-                    <div class="classic-title center-align">
+        	 <div class="classic-title center-align">
                         <h2>Our Specialist Doctor</h2>
                     </div>
-                    <div class="staff-carousel">
-					@foreach ($allDoctors->chunk(4) as $chunk)
-						<div class="staff-slide">
-                            <div class="row">   
-							@foreach ($chunk as $doctor)
-								<div class="col l4 m6 s6">
-										<div class="staff-member">
-											<div class="member-img"><img src="/upload/doctors/profile/{{ $doctor->avatar }}" alt="" /></div>
-											<div class="doctor-intro">
-												<strong><a href="{{ route('profile',$doctor->username) }}" title="">{{ $doctor->name }}</a></strong>
-												<i>Orthopaedics</i>
-											</div>
-										</div><!-- Staff Member -->
-									</div>
-							@endforeach
-						 </div>
-                        </div><!-- Staff Slide -->
-					@endforeach
-                    </div><!-- Staff Carousel -->           
-					</div>
+            <div class="row">
+            	<section class="regular slider">
+			@foreach ($allDoctors as $doctor)
+                            <div>
+                                <div class="member-img"><img src="/upload/doctors/profile/{{ $doctor->avatar }}" alt="" /></div>
+			<div class="doctor-intro">
+    			     <strong><a href= "{{ route('profile',$doctor->slug) }}" target="_blank" title="">{{ $doctor->first_name }} {{ $doctor->last_name }}</a></strong>
+    			     <i>Orthopaedics</i>
+			</div>
+                             </div>
+			@endforeach
+                            </section>
                 </div>
             </div>
         </div>
@@ -235,6 +214,8 @@
 @section('jslink')
 <script src="http://maps.google.com/maps/api/js?key=AIzaSyAsBE16CUMhihku7nqBldifkvXBO26ksDQ&sensor=false" 
           type="text/javascript"></script>
+    <script type="text/javascript" src="{{ asset('frontend/js/slider/slick.js') }}"></script>
+
 
 	<script>
       
@@ -270,7 +251,16 @@
     <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
 
   <script type="text/javascript">
-	
+	$(document).on('ready', function() {
+	      $(".regular").slick({
+	        dots: true,
+	        infinite: true,
+	        slidesToShow: 8,
+	        slidesToScroll: 2,
+	        autoplay: true,
+	        autoplaySpeed: 2000
+	      });
+	  });
         jQuery(document).ready(function() {
 
             /* ============  Carousel ================*/

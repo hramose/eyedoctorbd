@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Sentinel;
+use App\Model\City;
+use App\Model\Sub_area;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use Sentinel;
 
 class DoctorController extends Controller
 {
@@ -25,7 +27,9 @@ class DoctorController extends Controller
  	public function profile()
  	{
  		$doctor  = Sentinel::getUser();
- 		return view('doctor.profile',compact('doctor'));
+ 		$cities = City::all();
+ 		$sub_areas = Sub_area::all();
+ 		return view('doctor.profile',compact('doctor','cities','sub_areas'));
  	}
  	public function profileUpdate(Request $request)
  	{
@@ -88,11 +92,10 @@ class DoctorController extends Controller
  		return redirect()->back()->with(['success' => 'Your profile has been successfully updated.']);
  	}
 
- 	public function doctorDetail($username)
+ 	public function doctorDetail($slug)
  	{
 		$allDoctors = User::where('role','doctor')->where('status','active')->inRandomOrder()->get();
-
- 		$doctor = User::where('username',$username)->first();
+ 		$doctor = User::where('slug',$slug)->first();
  		$chambers = User::find($doctor->id)->chambers;
  		return view('doctorDetail', compact('doctor','chambers','allDoctors'));
  	}

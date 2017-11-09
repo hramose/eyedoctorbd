@@ -223,63 +223,19 @@
                                 </div>
                               </div> --}}
 
+
                               <div class="row">
                                 <div class="input-field col s12">
                                    <i class="mdi-maps-place prefix"></i>
                                       <select name="opt_City">
-                                        <option value="City">City</option>
-                                        <option  
-                                        {{ $doctor->city===('Dhaka') ? 'selected' : '' }}
-                                        value="Dhaka">Dhaka</option>
+                                        <option value="City" disabled >City</option>
 
-                                        <option  
-                                        {{ $doctor->city===('Narayanganj') ? 'selected' : '' }}
-                                        value="Narayanganj">Narayanganj</option>
-
-                                        <option  
-                                        {{ $doctor->city===('Chittaogng') ? 'selected' : '' }}
-                                        value="Chittaogng">Chittaogng</option>
-
-                                        <option  
-                                        {{ $doctor->city===('Khulna') ? 'selected' : '' }}
-                                        value="Khulna">Khulna</option>
-
-                                        <option  
-                                        {{ $doctor->city===('Bogra') ? 'selected' : '' }}
-                                        value="Bogra">Bogra</option>
-
-                                        <option  
-                                        {{ $doctor->city===('Mymensingh') ? 'selected' : '' }}
-                                        value="Mymensingh">Mymensingh</option>
-
-                                        <option  
-                                        {{ $doctor->city===('Rajshahi') ? 'selected' : '' }}
-                                        value="Rajshahi">Rajshahi</option>
-
-                                        <option  
-                                        {{ $doctor->city===('Sylhet') ? 'selected' : '' }}
-                                        value="Sylhet">Sylhet</option>
-
-                                        <option  
-                                        {{ $doctor->city===('Comilla') ? 'selected' : '' }}
-                                        value="Comilla">Comilla</option>
-
-                                        <option  
-                                        {{ $doctor->city===('Kishorganj') ? 'selected' : '' }}
-                                        value="Kishorganj">Kishorganj</option>
-
-                                        <option  
-                                        {{ $doctor->city===('Natore') ? 'selected' : '' }}
-                                        value="Natore">Natore</option>
-
-                                        <option  
-                                        {{ $doctor->city===('Tangail') ? 'selected' : '' }}
-                                        value="Tangail">Tangail</option>
-
-                                        <option  
-                                        {{ $doctor->city===('Barisal') ? 'selected' : '' }}
-                                        value="Barisal">Barisal</option>
-
+                                        @foreach ($cities as $city)
+                                           <option  
+                                          {{ $doctor->city===($city->city_name) ? 'selected' : '' }}
+                                          value="{{ $city->city_name }}">{{ $city->city_name }}</option>
+                                        @endforeach
+                                       
                                       </select>
                                      <label>City</label>
                                 </div>
@@ -289,20 +245,15 @@
                                 <div class="input-field col s12">
                                    <i class="mdi-maps-pin-drop prefix"></i>
                                       <select name="opt_SubArea">
-                                        <option  value="SubArea">Sub Area</option>
+                                        <option  value="SubArea" disabled>Sub Area</option>
 
-                                        <option
-                                        {{ $doctor->subarea===('Uttra') ? 'selected' : '' }} 
-                                         value="Uttra">Uttra</option>
+                                        @foreach ($sub_areas as $subarea)
+                                          <option
+                                          {{ $doctor->subarea===($subarea->name) ? 'selected' : '' }} 
+                                           value="{{ $subarea->name }}">{{ $subarea->name }}</option>
+                                        @endforeach
 
-                                         <option
-                                        {{ $doctor->subarea===('Demra') ? 'selected' : '' }} 
-                                         value="Demra">Demra</option>
-
-                                         <option
-                                        {{ $doctor->subarea===('Badda') ? 'selected' : '' }} 
-                                         value="Badda">Badda</option>
-
+                                        
                                       </select>
                                      <label>Sub Area</label>
                                 </div>

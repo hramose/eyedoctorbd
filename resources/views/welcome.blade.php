@@ -13,7 +13,7 @@ Home
     <!-- AutoComplete -->
      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-     {{--  Slider js  --}}
+     {{--  Slider css  --}}
      <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/slider/slick.css') }} ">
      <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/slider/slick-theme.css') }} ">
 @endsection
@@ -113,18 +113,18 @@ Home
                     </div>
                             <div class="row">
                               <section class="regular slider">
-							@foreach ($allDoctors as $doctor)
+			@foreach ($allDoctors as $doctor)
                             <div>
                                 <div class="member-img"><img src="/upload/doctors/profile/{{ $doctor->avatar }}" alt="" /></div>
-											<div class="doctor-intro">
-												<strong><a href= "{{ route('profile',$doctor->username) }}" title="">{{ $doctor->name }}</a></strong>
-												<i>Orthopaedics</i>
-										</div>
-                                </div>
-							@endforeach
+			<div class="doctor-intro">
+    			     <strong><a href= "{{ route('profile',$doctor->slug) }}" target="_blank" title="">{{ $doctor->first_name }} {{ $doctor->last_name }}</a></strong>
+    			     <i>Orthopaedics</i>
+			</div>
+                             </div>
+			@endforeach
                             </section>
-						 </div>
-					</div>
+		 </div>
+	        </div>
                 </div>
             </div>
         </div>
@@ -428,13 +428,34 @@ Home
 
     <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
     <!--   City Autocomplete -->
-    <script type="text/javascript" src="{{ asset('frontend/js/autocomplete.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ asset('frontend/js/autocomplete.js') }}"></script> --}}
 
     <script type="text/javascript" src="{{ asset('frontend/js/slider/slick.js') }}"></script>
 
   <script type="text/javascript">
-$(document).on('ready', function() {
-     
+    $( function() {
+        var allCity = [
+        @foreach ($cities as $city)
+          "{{ $city->city_name }}",
+        @endforeach
+        ];
+        $( "#City" ).autocomplete({
+          source: allCity
+        });
+    } );
+
+ $( function() {
+    var allSubarea = [
+    @foreach ($sub_areas as $subarea)
+      "{{ $subarea->name }}",
+    @endforeach
+    ];
+    $( "#Subarea" ).autocomplete({
+      source: allSubarea
+    });
+  } );
+
+    $(document).on('ready', function() {
       $(".regular").slick({
         dots: true,
         infinite: true,
@@ -443,33 +464,31 @@ $(document).on('ready', function() {
         autoplay: true,
         autoplaySpeed: 2000
       });
-      
     });
-        jQuery(document).ready(function() {
+    jQuery(document).ready(function() {
 
-            /* ============  Carousel ================*/
-            $('.staff-carousel').owlCarousel({
-                autoplay:true,
-                autoplayTimeout:2500,
-                smartSpeed:2000,
-                autoplayHoverPause:true,
-                loop:true,
-                dots:false,
-                nav:true,
-                margin:0,
-                mouseDrag:true,
-                singleItem:false,
-                items:2,
-                autoHeight:true
-
-            });
+        /* ============  Carousel ================*/
+        $('.staff-carousel').owlCarousel({
+            autoplay:true,
+            autoplayTimeout:2500,
+            smartSpeed:2000,
+            autoplayHoverPause:true,
+            loop:true,
+            dots:false,
+            nav:true,
+            margin:0,
+            mouseDrag:true,
+            singleItem:false,
+            items:2,
+            autoHeight:true
 
         });
-         jQuery(document).ready(function() {
-            $('.count').counterUp({
-                delay:10,
-                time:1800
-            });
+    });
+     jQuery(document).ready(function() {
+        $('.count').counterUp({
+            delay:10,
+            time:1800
         });
+    });
     </script>
 @endsection
