@@ -55,7 +55,7 @@
                 <div class="card-content">
                   <div class="row">                    
                     <div class="col s9 offset-s2">                        
-                        <h4 class="card-title grey-text text-darken-4">{{$doctor->name}}</h4>
+                        <h4 class="card-title grey-text text-darken-4">{{$doctor->first_name}} {{$doctor->last_name}}</h4>
                         <p class="medium-small grey-text">{{$doctor->designation}},&nbsp;Dept. of {{$doctor->department}},&nbsp;{{$doctor->hospital_name}}</p> 
                                     
                     </div>
@@ -69,7 +69,7 @@
                 </div>
                 <div class="card-reveal">
                     <p>
-                      <span class="card-title grey-text text-darken-4">{{$doctor->name}}<i class="mdi-navigation-close right"></i></span>
+                      <span class="card-title grey-text text-darken-4">{{$doctor->first_name}} {{$doctor->last_name}}<i class="mdi-navigation-close right"></i></span>
                     </p>
 
                     <p>
@@ -103,6 +103,7 @@
                     </ul>
                     <form method="POST" enctype="multipart/form-data" action="{{ Route('profileUpdate') }}" >
                      {{ csrf_field() }}
+                      <input type="hidden" name="txt_slug" id="slug" value="{{ $doctor->slug  }}"/>
                       <div class="card-panel">
                        <div class="row">
                         <div class="col s12">
@@ -114,22 +115,25 @@
                                 <div class="input-field col s12">
                                   <i class="mdi-action-account-circle prefix"></i>
                                   <input type="text" 
-                                         name="txt_FullName" 
-                                         value="{{ $doctor->name }}" 
+                                         name="txt_First_name" 
+                                         id="first_name"
+                                        onkeyup="slugReplace()"
+                                         value="{{ $doctor->first_name }}" 
                                          class="validate">
-                                  <label>Full Name</label>
+                                  <label>First Name</label>
                                 </div>
                               </div>
 
                               <div class="row">
                                 <div class="input-field col s12">
-                                  <i class="mdi-maps-local-hospital prefix"></i>
+                                  <i class="mdi-action-account-circle prefix"></i>
                                   <input type="text" 
-                                         name="txt_Username" 
-                                         value="{{ $doctor->username  }}" 
-                                         class="validate"
-                                         disabled />
-                                  <label>Username ( Username is not changeable. )</label>
+                                         name="txt_Last_Name" 
+                                         id="last_name"
+                                          onkeyup="slugReplace()"
+                                         value="{{ $doctor->last_name }}" 
+                                         class="validate">
+                                  <label>Last Name</label>
                                 </div>
                               </div>
 
@@ -717,5 +721,13 @@
         $(document).ready(function(){
             $('.dropify').dropify();
         });
+
+          function slugReplace(){
+            var first_name = $('input#first_name').val();
+            var last_name = $('input#last_name').val();
+            var slug = first_name + "-" + last_name;   
+             var hyp = slug.replace(/ /g,"-");
+            $('input#slug').val(hyp);
+        };
     </script>
 @endsection

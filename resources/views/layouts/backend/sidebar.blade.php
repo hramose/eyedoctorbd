@@ -29,7 +29,7 @@
                             </form>
                         </li>
                     </ul>
-                    <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">{{ Sentinel::getUser()->username }}<i class="mdi-navigation-arrow-drop-down right"></i></a>
+                    <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">Dr.{{ Sentinel::getUser()->last_name }}<i class="mdi-navigation-arrow-drop-down right"></i></a>
                     <p class="user-roal">Doctor</p>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                                         </form>
                         </li>
                     </ul>
-                    <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">{{Sentinel::getUser()->name}}{{-- admin --}}<i class="mdi-navigation-arrow-drop-down right"></i></a>
+                    <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">{{Sentinel::getUser()->last_name}}{{-- admin --}}<i class="mdi-navigation-arrow-drop-down right"></i></a>
                     <p class="user-roal">Administrator</p>
                 </div>
             </div>
@@ -95,14 +95,20 @@
 
              <li class="bold {{ Request::is('admin/contact') ? 'active' : '' }}"><a href="{{ Route('viewContactMessage') }}" class="waves-effect waves-cyan"><i class="mdi-communication-forum"></i>Contact Message</a>
             </li>
+
+            <li class="li-hover"><div class="divider"></div></li>
+
+             <li class="bold {{ Request::is('admin/city*') ? 'active' : '' }}"><a href="{{ Route('city.index') }}" class="waves-effect waves-cyan"><i class="mdi-communication-business"></i>City</a>
+            </li>
+
             <li class="li-hover"><div class="divider"></div></li>
 
             <li class="bold {{ Request::is('admin/blog/post') ? 'active' : '' }}"><a href="{{ Route('post.index') }}" class="waves-effect waves-cyan"><i class="mdi-communication-forum"></i>Blog</a>
             </li>
-            <li class="bold {{ Request::is('admin/blog/category','admin/blog/category/create') ? 'active' : '' }}"><a href="{{ Route('category.index') }}" class="waves-effect waves-cyan"><i class="mdi-communication-forum"></i>Category</a>
+            <li class="bold {{ Request::is('admin/blog/category*') ? 'active' : '' }}"><a href="{{ Route('category.index') }}" class="waves-effect waves-cyan"><i class="mdi-communication-forum"></i>Category</a>
             </li>
 
-            <li class="bold {{ Request::is('admin/blog/tag','admin/blog/tag/create') ? 'active' : '' }}"><a href="{{ Route('tag.index') }}" class="waves-effect waves-cyan"><i class="mdi-communication-forum"></i>Tag</a>
+            <li class="bold {{ Request::is('admin/blog/tag*') ? 'active' : '' }}"><a href="{{ Route('tag.index') }}" class="waves-effect waves-cyan"><i class="mdi-communication-forum"></i>Tag</a>
             </li>
             
 

@@ -39,7 +39,7 @@ class ForgotPasswordController extends Controller
     			'code' => $code
     		], function ($message) use ($user){
     			$message->to($user->email);
-    			$message->subject("Hello $user->name , reset your password");
+    			$message->subject("Hello $user->first_name , reset your password");
     		});
     }
 

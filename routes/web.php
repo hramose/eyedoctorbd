@@ -42,7 +42,7 @@ Route::group(['prefix' => 'blog'], function(){
 });
 
 /*
-/Route For Only Visitors//
+/ Auth Route  Only For Visitors//
 */
 Route::group(['middleware' => 'visitors'], function(){
 	Route::get('/register', 'RegistrationController@register')->name('register');
@@ -82,6 +82,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
 		//Post Routes
 		Route::resource('/post', 'PostController');		
 	});
+
+	Route::resource('/city', 'CityController');
+
 });
 /*
 / Route For Only Doctor

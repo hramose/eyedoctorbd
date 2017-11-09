@@ -19,7 +19,14 @@ class VisitorsMiddleware
         if (!Sentinel::check()) {
             return $next($request);
         } else {
-            return redirect('/');
+             if (Sentinel::check() && Sentinel::getUser()->roles()->first()->slug == 'admin'){
+                 return redirect()->route('adminDashboard');
+             }elseif (Sentinel::check() && Sentinel::getUser()->roles()->first()->slug == 'doctor') {
+                 return redirect()->route('doctorDashboard');                 
+             }else {
+                 return redirect('/');
+             }
+            
         }
         
     }

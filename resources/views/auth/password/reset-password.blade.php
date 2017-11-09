@@ -1,4 +1,4 @@
-@extends('layouts.main.master')
+@extends('layouts.frontend.app')
 
 @section('title')
 Password Reset

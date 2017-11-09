@@ -19,8 +19,9 @@ class RegistrationController extends Controller
     public function createDoctor(Request $request)
     {
       $this->validate($request,[
-                'name' => 'required',
-                'username' => 'required|unique:users|min:3',
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'slug' => 'required',
                 'email' => 'required|email|unique:users',
                 'password' => 'required|min:5|max:20|confirmed',
                 'password_confirmation' => 'required|min:5|max:20',
@@ -45,7 +46,7 @@ class RegistrationController extends Controller
                 'code' => $code
             ],function($message) use ($user){
                 $message->to($user->email);
-                $message->subject("Hello $user->name , Activate your account.");
+                $message->subject("Hello $user->first_name , Activate your account.");
             });
     }
 }

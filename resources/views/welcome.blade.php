@@ -117,7 +117,7 @@ Home
                             <div>
                                 <div class="member-img"><img src="/upload/doctors/profile/{{ $doctor->avatar }}" alt="" /></div>
 											<div class="doctor-intro">
-												<strong><a href="/frontend/profile/{{ $doctor->username }}" title="">{{ $doctor->name }}</a></strong>
+												<strong><a href= "{{ route('profile',$doctor->username) }}" title="">{{ $doctor->name }}</a></strong>
 												<i>Orthopaedics</i>
 										</div>
                                 </div>
@@ -439,7 +439,9 @@ $(document).on('ready', function() {
         dots: true,
         infinite: true,
         slidesToShow: 2,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000
       });
       
     });

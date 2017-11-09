@@ -35,21 +35,26 @@ class DoctorController extends Controller
  			$currentDate = Carbon::now()->toDateString();
 	 		$filename = Sentinel::getUser()->username . $currentDate . uniqid() . $file->getClientOriginalName();
 
-	 		if (!file_exists('upload/doctors/avatar')) {
-	 			mkdir('upload/doctors/avatar',0777, true);
+	 		if (!file_exists('upload/doctors/original')) {
+	 			mkdir('upload/doctors/original',0777, true);
 	 		}
 
-	 		$file->move('upload/doctors/avatar',$filename);
-
+			 $file->move('upload/doctors/original',$filename);
+			 
+			 if (!file_exists('upload/doctors/avatar')) {
+				 mkdir('upload/doctors/avatar',0777, true);
+			 }
+			 $avatar = Image::make('upload/doctors/original/' . $filename)->resize(500,500)->save('upload/doctors/avatar/'. $filename, 50);
+			 
 	 		if (!file_exists('upload/doctors/profile')) {
 	 			mkdir('upload/doctors/profile',0777, true);
 	 		}
-	 		$profile = Image::make('upload/doctors/avatar/'. $filename)->resize(362, 459)->save('upload/doctors/profile/'. $filename, 50);
+	 		$profile = Image::make('upload/doctors/original/'. $filename)->resize(362, 459)->save('upload/doctors/profile/'. $filename, 50);
 
 	 		if (!file_exists('upload/doctors/thumb')) {
 	 			mkdir('upload/doctors/thumb', 0777, true);
 	 		}
-	 		$thumb = Image::make('upload/doctors/avatar/'. $filename)->resize(270, 366)->save('upload/doctors/thumb/'. $filename, 50);
+	 		$thumb = Image::make('upload/doctors/original/'. $filename)->resize(270, 366)->save('upload/doctors/thumb/'. $filename, 50);
 
  		}else{
  			$filename = Sentinel::getUser()->avatar;
@@ -58,7 +63,9 @@ class DoctorController extends Controller
 
 		$getDoctor = Sentinel::getUser()->id;
  		$doctor = User::find($getDoctor);
- 		$doctor->name = $request->txt_FullName;
+ 		$doctor->first_name = $request->txt_First_name;
+		$doctor->last_name = $request->txt_Last_Name;
+		$doctor->slug = $request->txt_slug; 
  		$doctor->mobile_number = $request->txt_MobileNumber;
  		$doctor->avatar = $filename;
  		$doctor->designation = $request->txt_Designation;
