@@ -1,7 +1,7 @@
 @extends('layouts.backend.app')
 
 @section('title')
-  <title>All Cities</title>
+  <title>All Sub Area</title>
 @endsection
 
 @section('csslink')
@@ -29,10 +29,10 @@
           <div class="container">
             <div class="row">
               <div class="col s12 m12 l12">
-                <h5 class="breadcrumbs-title">All Cities</h5>
+                <h5 class="breadcrumbs-title">All Sub Area</h5>
                 <ol class="breadcrumbs">
                     <li><a href="{{ route('adminDashboard') }}">Dashboard</a></li>
-                    <li class="active">City</li>
+                    <li class="active">Sub Area</li>
                 </ol>
               </div>
             </div>
@@ -48,7 +48,7 @@
 
             <!--DataTables example-->
             <div id="table-datatables">
-              <a href="{{ route('city.create') }}" class="btn teal waves-effect waves-light">Add New</a>
+              <a href="{{ route('sub-area.create') }}" class="btn teal waves-effect waves-light">Add New</a>
               <div class="row">
                 <div class="col s12">
                  <div class="container">
@@ -56,7 +56,7 @@
                     <thead>
                         <tr>
                             <th>Sl No</th>
-                            <th>City Name</th>
+                            <th>Sub Area Name</th>
                             <th>Created At</th>
                             <th>Updated At</th>
                             <th class="center">Action</th>
@@ -66,7 +66,7 @@
                     <tfoot>
                         <tr>
                             <th>Sl No</th>                        
-                            <th>City Name</th>
+                            <th>Sub Area Name</th>
                             <th>Created At</th>
                             <th>Updated At</th>
                             <th class="center">Action</th>
@@ -74,21 +74,21 @@
                     </tfoot>
 
                     <tbody>
-                      @foreach ($cities as $city)
+                      @foreach ($sub_areas as $sub_area)
                         <tr>                                                
                             <td>{{ $loop->index + 1 }}</td>
-                            <td>{{$city->city_name}}</td>
-                            <td>{{$city->created_at}}</td>
-                            <td>{{$city->updated_at}}</td>
-                            <td class="center"><a href="{{ route('city.edit',$city->id) }}" class="btn-floating waves-effect waves-light purple"><i class="mdi-editor-mode-edit"></i></a>||
-                              <form id="delete-form-{{ $city->id }}" method="POST" action="{{ route('city.destroy',$city->id) }}" style="display:none;">
+                            <td>{{$sub_area->name}}</td>
+                            <td>{{$sub_area->created_at}}</td>
+                            <td>{{$sub_area->updated_at}}</td>
+                            <td class="center"><a href="{{ route('sub-area.edit',$sub_area->id) }}" class="btn-floating waves-effect waves-light purple"><i class="mdi-editor-mode-edit"></i></a>||
+                              <form id="delete-form-{{ $sub_area->id }}" method="POST" action="{{ route('sub-area.destroy',$sub_area->id) }}" style="display:none;">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
                                                 
                                                 </form>
                             <button onClick="if(confirm('Are you sure, You Want to delete this?')) {
                                                         event.preventDefault(); 
-                                                        document.getElementById('delete-form-{{ $city->id }}').submit();
+                                                        document.getElementById('delete-form-{{ $sub_area->id }}').submit();
                                                     }else{
                                                         event.preventDefault();
                                                     }" class="btn-floating waves-effect waves-light red"><i class="mdi-content-clear"></i></button>

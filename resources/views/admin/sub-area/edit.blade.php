@@ -1,7 +1,7 @@
 @extends('layouts.backend.app')
 
 @section('title')
-  <title>Add New City</title>
+  <title>Edit City</title>
 @endsection
 
 @section('csslink')
@@ -26,11 +26,11 @@
           <div class="container">
             <div class="row">
               <div class="col s12 m12 l12">
-                <h5 class="breadcrumbs-title">Add City</h5>
+                <h5 class="breadcrumbs-title">Update Sub Area</h5>
                 <ol class="breadcrumbs">
                     <li><a href="{{ route('adminDashboard') }}">Dashboard</a></li>
-                    <li><a href="{{ route('city.index') }}">City</a></li>
-                    <li class="active">Add City</li>
+                    <li><a href="{{ route('sub-area.index') }}">Sub Area</a></li>
+                    <li class="active">Update Sub Area </li>
                 </ol>
               </div>
             </div>
@@ -46,14 +46,15 @@
           <div class="row">
             <div class="col s12 m12 l12">
               <div class="card-panel">
-                <h4 class="header2">Add New City</h4>
+                <h4 class="header2">Edit City</h4>
                 <div class="row">
-                  <form class="col s12" action="{{ route('city.store') }}" method="POST">
+                  <form class="col s12" action="{{ route('sub-area.update',$sub_area->id) }}" method="POST">
                   {{ csrf_field() }}
+                  {{ method_field('PUT') }}
                     <div class="row">
                       <div class="input-field col s12">
-                        <input id="city" name="name" type="text">
-                        <label for="City">City</label>
+                        <input id="name" name="name" value="{{ $sub_area->name }}" type="text">
+                        <label for="Name">Name</label>
                       </div>
                     </div>
 
@@ -61,7 +62,7 @@
                         <div class="input-field col s12">
                           <button class="btn cyan waves-effect waves-light" type="submit">Submit</button>&nbsp;
 
-                          <a href="{{ route('city.index') }}" class="btn red waves-effect waves-light">Back</a>
+                          <a href="{{ route('sub-area.index') }}" class="btn red waves-effect waves-light">Back</a>
                         </div>
                         
                       </div>

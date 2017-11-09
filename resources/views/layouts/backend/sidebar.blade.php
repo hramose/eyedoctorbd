@@ -101,6 +101,9 @@
              <li class="bold {{ Request::is('admin/city*') ? 'active' : '' }}"><a href="{{ Route('city.index') }}" class="waves-effect waves-cyan"><i class="mdi-communication-business"></i>City</a>
             </li>
 
+            <li class="bold {{ Request::is('admin/sub-area*') ? 'active' : '' }}"><a href="{{ Route('sub-area.index') }}" class="waves-effect waves-cyan"><i class="mdi-social-location-city"></i>Sub Area</a>
+            </li>
+
             <li class="li-hover"><div class="divider"></div></li>
 
             <li class="bold {{ Request::is('admin/blog/post') ? 'active' : '' }}"><a href="{{ Route('post.index') }}" class="waves-effect waves-cyan"><i class="mdi-communication-forum"></i>Blog</a>
