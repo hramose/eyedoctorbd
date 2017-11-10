@@ -50,6 +50,7 @@ Home
                             <span>Find your nearest eye specialists</span>
                         </div>
                         <form action="{{ route('search') }}" method="POST">
+                        
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="input-field col s12 m3 3">
