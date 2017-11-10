@@ -79,7 +79,7 @@
 									
 									<div class="all-skills">
 										<div class="row">
-											<div class="col s6 m6 16">
+											<div class="col s12 m6 16">
 												<div class="staff-tab-content" style="box-shadow: -1px 2px 24px 0px rgba(127,127,127,1);color: #7F8080;">
 
 												<div class="panel-header" style="text-align: center; color: cornflowerblue;">
@@ -111,7 +111,7 @@
 												{{-- Stop map --}}
 												
 											</div>
-											<div class="col s6 m6 16">
+											<div class="col s12 m6 16">
 												<div class="staff-tab-content" style="box-shadow: -1px 2px 24px 0px rgba(127,127,127,1);color: #7F8080;">
 
 												<div class="panel-header" style="text-align: center; color: cornflowerblue;">

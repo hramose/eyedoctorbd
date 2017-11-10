@@ -1328,15 +1328,18 @@ nav > ul ul.mega li:nth-child(2n):hover ul {
 }
 .creative-slider .appointment-form {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 418px;
+    /* bottom: 0; */
+    bottom: 40%;
+    /* left: 50%; */
+    left: 20%;
+    /* width: 418px; */
+    width: 1230px;
     margin-left: -209px;
 }
 .appointment-form:before{
     content:"";
     height:100%;
-    opacity:0.95;
+    opacity:0.70;
     width:100%;
     position:absolute;
     left:0;

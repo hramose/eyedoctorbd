@@ -17,7 +17,7 @@ Search Result
 		<div class="row">
 		<form action="{{ route('search') }}" method="POST">
 			{{ csrf_field() }}
-			<div class="input-field col s3">
+			<div class="input-field col s12 m3 3">
 				<input type="text" 
 		                       id="City" 
 		                       name="city" 
@@ -26,7 +26,7 @@ Search Result
 		                       required>
 					</div>
 
-			<div class="input-field col s3">
+			<div class="input-field col s12 m3 3">
 				<input type="text" 
 			                       id="Subarea" 
 			                       name="subarea" 
@@ -34,12 +34,12 @@ Search Result
 			                       value="{{ $subarea }}" 
 			                       required>
 			</div>
-			<div class="input-field col s4">
+			<div class="input-field col s12 m4 4">
 				<input type="text" 
 					   name="txt_DocORHosName" 
 					   placeholder="Doctor Name or Email">
 			</div>
-			<div class="input-field col s2">
+			<div class="input-field col s12 m2 2">
 					<button type="submit" name="btn_submit" style="margin-top: auto;"><i class="fa fa-recycle"></i> Check Now</button>
 			</div>
 			</form>

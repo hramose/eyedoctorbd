@@ -48,7 +48,7 @@
     <script type="text/javascript" src="{{ asset('frontend/js/jquery.poptrox.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('frontend/js/smoothscroll.js') }}"></script>
     <script type="text/javascript" src="{{ asset('frontend/js/script.js') }}"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    {{--  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>  --}}
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 

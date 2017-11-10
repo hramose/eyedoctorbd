@@ -46,38 +46,38 @@ Home
                     </div>
                     <div class="appointment-form">
                         <div class="simple-title">
-                            <h4>Make An Appointment</h4>
+                            <h4>Find your nearest eye specialists</h4>
                             <span>Find your nearest eye specialists</span>
                         </div>
                         <form action="{{ route('search') }}" method="POST">
                             {{ csrf_field() }}
                             <div class="row">
-                                <div class="input-field col s12">
+                                <div class="input-field col s12 m3 3">
                                     <input type="text"
                                            id="City"
                                            name="city"
                                            placeholder="City"
                                            required="City">
                                 </div>
-                                <div class="input-field col s12">
+                                <div class="input-field col s12 m3 3">
                                     <input type="text"
                                            id="Subarea"
                                            name="subarea"
                                            placeholder="Subarea"
                                            required="Subarea">
                                 </div>
-                                <div class="input-field col s12">
+                                <div class="input-field col s12 m4 4">
                                     <input type="text"
                                            name="txt_DocORHosName"
                                            placeholder="Doctor Name or Email">
                                 </div>
 
 
-                                <div class="col s12">
+                                {{--  <div class="col s12">
                                     <p>Search with Place or Doctor name</p>
-                                </div>
-                                <div class="input-field col s12">
-                                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></i> Search</button>
+                                </div>  --}}
+                                <div class="input-field col s12 m2 2">
+                                    <button type="submit" style="float: none; margin-top: auto;"><i class="fa fa-search" aria-hidden="true"></i></i> Search</button>
                                 </div>
                             </div>
                         </form>
