@@ -85,6 +85,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
 
 	Route::resource('/city', 'CityController');
 	Route::resource('/sub-area', 'Sub_areaController');
+	Route::resource('/hospital', 'HospitalController');
 
 });
 /*

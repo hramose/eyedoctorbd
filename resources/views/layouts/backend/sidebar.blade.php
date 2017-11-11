@@ -106,6 +106,11 @@
 
             <li class="li-hover"><div class="divider"></div></li>
 
+             <li class="bold {{ Request::is('admin/hospital*') ? 'active' : '' }}"><a href="{{ Route('hospital.index') }}" class="waves-effect waves-cyan"><i class="mdi-maps-local-hospital"></i>Hospital</a>
+            </li>
+
+            <li class="li-hover"><div class="divider"></div></li>
+
             <li class="bold {{ Request::is('admin/blog/post') ? 'active' : '' }}"><a href="{{ Route('post.index') }}" class="waves-effect waves-cyan"><i class="mdi-communication-forum"></i>Blog</a>
             </li>
             <li class="bold {{ Request::is('admin/blog/category*') ? 'active' : '' }}"><a href="{{ Route('category.index') }}" class="waves-effect waves-cyan"><i class="mdi-communication-forum"></i>Category</a>

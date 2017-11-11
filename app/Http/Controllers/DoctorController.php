@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use Sentinel;
+use App\Hospital;
+use Carbon\Carbon;
 use App\Model\City;
 use App\Model\Sub_area;
-use App\User;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
-use Sentinel;
 
 class DoctorController extends Controller
 {
@@ -26,10 +27,12 @@ class DoctorController extends Controller
 	 }
  	public function profile()
  	{
- 		$doctor  = Sentinel::getUser();
- 		$cities = City::all();
- 		$sub_areas = Sub_area::all();
- 		return view('doctor.profile',compact('doctor','cities','sub_areas'));
+		 $doctor  = Sentinel::getUser();
+		 $cities = City::all();		 
+		 $sub_areas = Sub_area::all();
+		 $hospitals = Hospital::all();
+
+ 		return view('doctor.profile',compact('doctor','cities','sub_areas','hospitals'));
  	}
  	public function profileUpdate(Request $request)
  	{
@@ -79,10 +82,10 @@ class DoctorController extends Controller
  		$doctor->department = $request->txt_Department;
  		$doctor->speciality = $request->txt_Specialty;
  		// $doctor->specialty_details = $request->txt_SpecialtyDetails;
- 		$doctor->city = $request->opt_City;
- 		$doctor->subarea = $request->opt_SubArea;
+ 		$doctor->city_id = $request->opt_City;
+ 		$doctor->sub_area_id = $request->opt_SubArea;
  		// $doctor->working_address = $request->txt_WorkingAddress;
- 		$doctor->hospital_name = $request->txt_HospitalName;
+ 		$doctor->hospital_id = $request->opt_Hospital;
  		$doctor->association = $request->txt_Association;
  		$doctor->gender = $request->opt_Gender;
  		$doctor->date_of_birth = $request->dat_DateofBirth;

@@ -232,8 +232,8 @@
 
                                         @foreach ($cities as $city)
                                            <option  
-                                          {{ $doctor->city===($city->city_name) ? 'selected' : '' }}
-                                          value="{{ $city->city_name }}">{{ $city->city_name }}</option>
+                                          {{ $doctor->city_id===($city->id) ? 'selected' : '' }}
+                                          value="{{ $city->id }}">{{ $city->city_name }}</option>
                                         @endforeach
                                        
                                       </select>
@@ -249,13 +249,31 @@
 
                                         @foreach ($sub_areas as $subarea)
                                           <option
-                                          {{ $doctor->subarea===($subarea->name) ? 'selected' : '' }} 
-                                           value="{{ $subarea->name }}">{{ $subarea->name }}</option>
+                                          {{ $doctor->sub_area_id == ($subarea->id) ? 'selected' : '' }} 
+                                           value="{{ $subarea->id }}">{{ $subarea->name }}</option>
                                         @endforeach
 
                                         
                                       </select>
                                      <label>Sub Area</label>
+                                </div>
+                              </div>
+
+                              <div class="row">
+                                <div class="input-field col s12">
+                                   <i class="mdi-maps-local-hospital prefix"></i>
+                                      <select name="opt_Hospital">
+                                        <option  disabled >Hospital</option>
+
+                                        @foreach ($hospitals as $hospital)
+                                          <option
+                                          {{ $doctor->hospital_id===($hospital->id) ? 'selected' : '' }} 
+                                           value="{{ $hospital->id }}">{{ $hospital->hospital_name }}</option>
+                                        @endforeach
+
+                                        
+                                      </select>
+                                     <label>Hospital Name</label>
                                 </div>
                               </div>
                               
@@ -268,16 +286,16 @@
                                 </div>
                               </div>  --}}
 
-                              <div class="row">
+                              {{--  <div class="row">
                                 <div class="input-field col s12">
                                   <i class="mdi-maps-local-hospital prefix"></i>
                                   <input type="text" 
-                                         name="txt_HospitalName" 
+                                         name="txt_Hospital" 
                                          value="{{ $doctor->hospital_name  }}" 
                                          class="validate">
                                   <label>Hospital Name</label>
                                 </div>
-                              </div>
+                              </div>  --}}
                               
                               <div class="row">
                                 <div class="input-field col s12">

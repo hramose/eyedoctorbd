@@ -110,10 +110,10 @@ class MigrationCartalystSentinel extends Migration
             $table->string('department')->nullable();
             $table->string('speciality')->nullable();
             // $table->string('specialty_details')->nullable();
-            $table->string('city')->nullable();
-            $table->string('subarea')->nullable();
+            $table->integer('city_id')->nullable();
+            $table->integer('sub_area_id')->nullable();
             // $table->string('working_address')->nullable();
-            $table->string('hospital_name')->nullable();
+            $table->integer('hospital_id')->nullable();
             $table->string('association')->nullable();
             $table->string('gender')->nullable();
             $table->date('date_of_birth')->nullable();

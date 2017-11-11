@@ -40,4 +40,19 @@ class User extends EloquentUser
     {
         return $this->hasMany('App\Model\Blog\Post');
     }
+
+    public function hospital()
+    {
+        return $this->belongsTo('App\Hospital');
+    }
+
+    public function city()
+    {
+        return $this->belongsTo('App\Model\City');
+    }
+
+    public function sub_area()
+    {
+        return $this->belongsTo('App\Model\Sub_area');
+    }
 }   
