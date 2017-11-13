@@ -98,6 +98,7 @@ Route::group(['prefix' => 'doctor', 'middleware' => 'doctor'], function(){
 	Route::post('/profile/update', 'DoctorController@profileUpdate')->name('profileUpdate');
 	Route::post('/status', 'DoctorController@status')->name('status');
 	// Chamber CURD
+	Route::resource('chamber', 'ChamberController');
 	Route::get('/chambers', 'ChambersController@chambers')->name('chambers');
 	Route::post('/chambers/api', 'ChambersController@api')->name('capi');
 	Route::post('/chamber/add', 'ChambersController@addChamber')->name('addChamber');

@@ -225,7 +225,7 @@
             }
         }
 
-        var button = document.getElementById('btn');
+        var button = document.getElementById('btn_submit');
 
         button.addEventListener("click", function () {
             var address = document.getElementById('address').value;
