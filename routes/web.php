@@ -28,7 +28,8 @@ Route::post('contact','ContactController@addMessage')->name('post.contact');
 */
 Route::group(['prefix' => 'search'], function(){
 	Route::post('/', 'SearchController@index')->name('search');
-	Route::get('/{city}/{sub}', 'SearchController@search');
+	Route::get('/{city}','SearchController@searchByCity')->name('search.city');
+	Route::get('/{city}/{sub}', 'SearchController@searchByCityandSub')->name('search.city.subarea');
 });
 
 /*

@@ -47,29 +47,29 @@ Home
                     <div class="appointment-form">
                         <div class="simple-title">
                             <h4>Find your nearest eye specialists</h4>
-                            <span>Find your nearest eye specialists</span>
+                            {{--  <span>Find your nearest eye specialists</span>  --}}
                         </div>
-                        <form action="{{ route('search') }}" method="POST">
+
+                        <form id="search_form" action="{{ route('search') }}" method="POST">
                         
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="input-field col s12 m3 3">
                                     <input type="text"
-                                           id="City"
+                                           id="txt_city"
                                            name="city"
-                                           placeholder="City"
-                                           required="City">
+                                           placeholder="City">
                                 </div>
                                 <div class="input-field col s12 m3 3">
                                     <input type="text"
-                                           id="Subarea"
+                                           id="txt_subarea"
                                            name="subarea"
-                                           placeholder="Subarea"
-                                           required="Subarea">
+                                           placeholder="Subarea">
                                 </div>
                                 <div class="input-field col s12 m4 4">
                                     <input type="text"
-                                           name="txt_DocORHosName"
+                                            id="txt_hospital"
+                                           name="DocORHosName"
                                            placeholder="Doctor Name or Email">
                                 </div>
 
@@ -78,7 +78,7 @@ Home
                                     <p>Search with Place or Doctor name</p>
                                 </div>  --}}
                                 <div class="input-field col s12 m2 2">
-                                    <button type="submit" style="float: none; margin-top: auto;"><i class="fa fa-search" aria-hidden="true"></i></i> Search</button>
+                                    <button type="button" onclick="route();" style="float: none; margin-top: auto;"><i class="fa fa-search" aria-hidden="true"></i></i> Search</button>
                                 </div>
                             </div>
                         </form>
@@ -433,14 +433,35 @@ Home
 
     <script type="text/javascript" src="{{ asset('frontend/js/slider/slick.js') }}"></script>
 
+    <script src="{{ asset('backend/js/sweetalert-dev.js') }}"></script>
+
   <script type="text/javascript">
+  function route (){
+       event.preventDefault();       
+      if ($.trim($("#txt_city").val()) == "" && $.trim($("#txt_subarea").val()) == "" && $.trim($("#txt_hospital").val()) == "") {
+          console.log('all empty');
+          swal(
+                'Oops...One condition required.',
+                'Search with one condition City and Sub Area Or Doctor Name and Hospital Name',
+                'error'
+                );
+    }else if($.trim($("#txt_city").val()) == "" && $.trim($("#txt_hospital").val()) == "" && $.trim($("#txt_subarea").val()) !== ""){
+         swal(
+                'Oops...',
+                'You can not search only with sub area :(',
+                'error'
+                );
+    }else{
+        document.getElementById('search_form').submit();
+    }
+  }
     $( function() {
         var allCity = [
         @foreach ($cities as $city)
           "{{ $city->city_name }}",
         @endforeach
         ];
-        $( "#City" ).autocomplete({
+        $( "#txt_city" ).autocomplete({
           source: allCity
         });
     } );
@@ -451,7 +472,7 @@ Home
       "{{ $subarea->name }}",
     @endforeach
     ];
-    $( "#Subarea" ).autocomplete({
+    $( "#txt_subarea" ).autocomplete({
       source: allSubarea
     });
   } );

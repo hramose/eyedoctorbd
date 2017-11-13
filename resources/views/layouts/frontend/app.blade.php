@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/color.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/alert.css') }}" />
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+     <link rel="stylesheet" href="{{ asset('backend/css/sweetalert.css') }}">
     {{-- <link rel="stylesheet" type="text/css" href="{{ mix('/frontend/css/app.css') }}"> --}}
 
     {{-- Page defind css links --}}
@@ -50,6 +51,7 @@
     <script type="text/javascript" src="{{ asset('frontend/js/script.js') }}"></script>
     {{--  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>  --}}
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+     <script src="{{ asset('backend/js/sweetalert-dev.js') }}"></script>
 
 
     
