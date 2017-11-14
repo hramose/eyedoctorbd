@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Illuminate\Http\Request;
 use Sentinel;
+use App\Chamber;
+use Illuminate\Http\Request;
 
 class ChamberController extends Controller
 {
@@ -39,7 +40,30 @@ class ChamberController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $this->validate($request,[
+        'chamberName' => 'required',
+        'chamberAddress' => 'required',
+        'chamberPhone' => 'required'
+        ]);
+       
+   		$chamberUserId = Sentinel::getUser()->id;
+
+        $chamber = new Chamber;
+   		$chamber->user_id = $chamberUserId;
+   		$chamber->chamber_name = $request->chamberName;
+   		$chamber->chamber_address = $request->chamberAddress;
+   		$chamber->chamber_phone = $request->chamberPhone;
+   		$chamber->app_day_start = $request->dayStart;
+   		$chamber->app_day_end = $request->dayEnd;
+   		$chamber->app_time_start = $request->timeStart;
+   		$chamber->app_time_end = $request->timeEnd;
+         $chamber->new_patient = $request->newPatient;
+        $chamber->returning_patient = $request->returningPatient;
+        $chamber->followup_report = $request->followupReport;
+        $chamber->lat = $request->lat;
+        $chamber->lng = $request->lng;
+        $chamber->save();
+        return redirect(route('chamber.index'))->with('successMsg','New Chamber Successfully Added');
     }
 
     /**
@@ -84,6 +108,7 @@ class ChamberController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Chamber::find($id)->delete();
+        return redirect(route('chamber.index'))->with('successMsg','Chamber Successfully Deleted');   
     }
 }

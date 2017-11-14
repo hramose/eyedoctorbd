@@ -139,11 +139,11 @@
 														<p>
 															<strong>
 																<i class="fa fa-calendar" aria-hidden="true"></i>
-																{{ $chamber->app_day }}
+																{{ $chamber->app_day_start }} TO {{ $chamber->app_day_end }}
 															</strong><br>
 															<strong>
 																<i class="fa fa-clock-o" aria-hidden="true"></i> 
-																{{ $chamber->app_time }}
+																{{ $chamber->app_time_start }} TO {{ $chamber->app_time_end }}
 															</strong><br>
 															<strong>
 																<i class="fa fa-phone" aria-hidden="true"></i>

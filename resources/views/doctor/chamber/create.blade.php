@@ -48,14 +48,17 @@
               <div class="card-panel">
                 <h4 class="header2">New Chamber</h4>
                 <div class="row">
-                  <form class="col s12" action="{{ route('chamber.store') }}" method="POST">
+                  <form class="col s12" id="addChamber" action="{{ route('chamber.store') }}" method="POST">
                   {{ csrf_field() }}
+                  <input type="hidden" name="lat" id="lat">
+                  <input type="hidden" name="lng" id="lng">
                      <div class="row">
                         <div class="input-field col s12">
                           <i class="mdi-maps-my-location prefix"></i>
                           <input type="text" 
                                  class="validate"
                                  id="chamberName"
+                                 name="chamberName"
                                  required autofocus>
                           <label for="chamber_name">Chamber Name</label>
                         </div>
@@ -177,7 +180,7 @@
 
                       <div class="row">
                         <div class="input-field col s12">
-                          <button id="btn_submit" class="btn cyan waves-effect waves-light" type="submit">Submit</button>&nbsp;
+                          <button id="btn_submit" class="btn cyan waves-effect waves-light" type="button">Submit</button>&nbsp;
 
                           <a href="{{ route('chamber.index') }}" class="btn red waves-effect waves-light">Back</a>
                         </div>
@@ -227,6 +230,7 @@
         var button = document.getElementById('btn_submit');
 
         button.addEventListener("click", function () {
+            event.preventDefault(); 
             var address = document.getElementById('address').value;
             getLatitudeLongitude(createChamber, address)
             
@@ -235,8 +239,9 @@
         function createChamber(result){
             let lat = result.geometry.location.lat();
             let lng = result.geometry.location.lng();
-            console.log(lat);
-            console.log(lng);
+            $('#lat').val(lat);
+            $('#lng').val(lng);
+            document.getElementById('addChamber').submit();
       }
     </script>
 @endsection

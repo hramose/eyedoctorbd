@@ -40,7 +40,7 @@
 
              <li class="bold {{ (Request::is('doctor/profile')? 'active' : '') }}"><a href="{{ route('doctorProfile') }}" class="waves-effect waves-cyan"><i class="mdi-action-account-circle"></i>Profile</a>
             </li>
-            <li class="bold {{ (Request::is('doctor/chambers')? 'active' : '') }}"><a href="{{ route('chambers') }}" class="waves-effect waves-cyan"><i class="mdi-maps-place"></i>Chambers</a>
+            <li class="bold {{ (Request::is('doctor/chamber*')? 'active' : '') }}"><a href="{{ route('chamber.index') }}" class="waves-effect waves-cyan"><i class="mdi-maps-place"></i>Chamber</a>
             </li>
         </ul>
         <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>
