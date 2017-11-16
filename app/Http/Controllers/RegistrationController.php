@@ -33,6 +33,7 @@ class RegistrationController extends Controller
             'slug' => title_case(str_slug($request->name)),
             'email'    => $request->email,
             'password' => $request->password,
+            'role' => "doctor",
         ];
         
 		$user = Sentinel::register($credentials);

@@ -53,7 +53,6 @@ Register
                             <form role="form" method="POST" action="{{ route('doRegister') }}">
 
                                 {{ csrf_field() }}
-
                                 <div class="input-field col s12">
                                     <input id="name" 
                                            type="text" 

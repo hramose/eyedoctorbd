@@ -70,9 +70,9 @@ class DoctorController extends Controller
 
 		$getDoctor = Sentinel::getUser()->id;
  		$doctor = User::find($getDoctor);
- 		$doctor->first_name = $request->txt_First_name;
-		$doctor->last_name = $request->txt_Last_Name;
-		$doctor->slug = $request->txt_slug; 
+ 		$doctor->name = $request->name;
+		$doctor->username = $request->username;
+		$doctor->slug = title_case(str_slug($request->name)); 
  		$doctor->mobile_number = $request->txt_MobileNumber;
  		$doctor->avatar = $filename;
  		$doctor->designation = $request->txt_Designation;
@@ -105,7 +105,6 @@ class DoctorController extends Controller
 
  	public function allDoctors()
  	{
-
 		 $allDoctors = User::where('role','doctor')->where('status','active')->inRandomOrder()->paginate(10);
 		 $allDoctorsCount= $allDoctors->count();
 

@@ -55,7 +55,7 @@
                 <div class="card-content">
                   <div class="row">                    
                     <div class="col s9 offset-s2">                        
-                        <h4 class="card-title grey-text text-darken-4">{{$doctor->first_name}} {{$doctor->last_name}}</h4>
+                        <h4 class="card-title grey-text text-darken-4">{{$doctor->name}}</h4>
                         <p class="medium-small grey-text">{{$doctor->designation}},&nbsp;Dept. of {{$doctor->department}},&nbsp;{{$doctor->hospital_name}}</p> 
                                     
                     </div>
@@ -69,7 +69,7 @@
                 </div>
                 <div class="card-reveal">
                     <p>
-                      <span class="card-title grey-text text-darken-4">{{$doctor->first_name}} {{$doctor->last_name}}<i class="mdi-navigation-close right"></i></span>
+                      <span class="card-title grey-text text-darken-4">{{$doctor->name}}<i class="mdi-navigation-close right"></i></span>
                     </p>
 
                     <p>
@@ -115,12 +115,10 @@
                                 <div class="input-field col s12">
                                   <i class="mdi-action-account-circle prefix"></i>
                                   <input type="text" 
-                                         name="txt_First_name" 
-                                         id="first_name"
-                                        onkeyup="slugReplace()"
-                                         value="{{ $doctor->first_name }}" 
+                                         name="name" 
+                                         value="{{ $doctor->name }}" 
                                          class="validate">
-                                  <label>First Name</label>
+                                  <label>Name</label>
                                 </div>
                               </div>
 
@@ -128,12 +126,10 @@
                                 <div class="input-field col s12">
                                   <i class="mdi-action-account-circle prefix"></i>
                                   <input type="text" 
-                                         name="txt_Last_Name" 
-                                         id="last_name"
-                                          onkeyup="slugReplace()"
-                                         value="{{ $doctor->last_name }}" 
+                                         name="username" 
+                                         value="{{ $doctor->username }}" 
                                          class="validate">
-                                  <label>Last Name</label>
+                                  <label>Username</label>
                                 </div>
                               </div>
 
@@ -311,7 +307,7 @@
                                 <div class="input-field col s12">
                                    <i class="mdi-action-accessibility prefix"></i>
                                    <select name="opt_Gender">
-                                        <option  value="Gender">Gender</option>
+                                        <option  value="Gender" disabled>Gender</option>
                                         <option
                                         {{ $doctor->gender===('Male') ? 'selected' : '' }}
                                          value="Male">Male</option>
@@ -339,7 +335,7 @@
                                    <i class="mdi-maps-local-florist prefix"></i>
                                       
                                       <select name="opt_Religion">
-                                        <option  value="Religion">Religion</option>
+                                        <option  value="Religion" disabled>Religion</option>
                                         <option
                                         {{ $doctor->religion===('Islam') ? 'selected' : '' }}
                                          value="Islam">Islam</option>
@@ -690,13 +686,5 @@
         $(document).ready(function(){
             $('.dropify').dropify();
         });
-
-          function slugReplace(){
-            var first_name = $('input#first_name').val();
-            var last_name = $('input#last_name').val();
-            var slug = first_name + "-" + last_name;   
-             var hyp = slug.replace(/ /g,"-");
-            $('input#slug').val(hyp);
-        };
     </script>
 @endsection
