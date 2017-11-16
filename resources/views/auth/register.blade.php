@@ -54,36 +54,23 @@ Register
 
                                 {{ csrf_field() }}
 
-                                <input type="hidden" id="slug" name="slug" value="{{ old('slug') }}">
+                                <div class="input-field col s12">
+                                    <input id="name" 
+                                           type="text" 
+                                           name="name" 
+                                           placeholder="Enter Full Name" 
+                                           value="{{ old('name') }}" 
+                                           required autofocus/>
+                                 </div>
 
                                 <div class="input-field col s12">
-                                    <input id="first_name" 
-                                           type="text" 
-                                           name="first_name" 
-                                           placeholder="Enter First Name" 
-                                           value="{{ old('first_name') }}" 
-                                           onkeyup="slugReplace()"
-                                           required autofocus/>
-                                 </div>
-
-                                 <div class="input-field col s12">
-                                    <input id="last_name" 
-                                           type="text" 
-                                           name="last_name" 
-                                           placeholder="Enter Last Name" 
-                                           value="{{ old('last_name') }}" 
-                                           onkeyup="slugReplace()"
-                                           required autofocus/>
-                                 </div>
-
-                                {{--  <div class="input-field col s12">
                                     <input type="text" 
                                            name="username" 
                                            id="username" 
                                            placeholder="Choose Your Username"
                                            value="{{ old('username') }}" 
                                            required/>
-                                </div>  --}}
+                                </div>
 
                                 <div class="input-field col s12">
                                     <input id="email" 
@@ -109,9 +96,9 @@ Register
                                            placeholder="Confirm Password" 
                                            required/>
                                 </div>
+
                                 <input type="hidden" value="doctor" name="role">
                                 
-
                                 <div class="input-field col s12">
                                     
                                     <button type="submit"><i class="fa fa-user-md"></i> Register</button>
@@ -129,13 +116,5 @@ Register
 @endsection
 
 @section('jslink')
-    <script type="text/javascript">
-        function slugReplace(){
-            var first_name = $('input#first_name').val();
-            var last_name = $('input#last_name').val();
-            var slug = first_name + "-" + last_name;   
-             var hyp = slug.replace(/ /g,"-");
-            $('input#slug').val(hyp);
-        };
-    </script>
+
 @endsection

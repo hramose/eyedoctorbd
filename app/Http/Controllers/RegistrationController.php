@@ -19,16 +19,23 @@ class RegistrationController extends Controller
     public function createDoctor(Request $request)
     {
       $this->validate($request,[
-                'first_name' => 'required',
-                'last_name' => 'required',
-                'slug' => 'required',
+                'name' => 'required',
+                'username' => 'required',
                 'email' => 'required|email|unique:users',
                 'password' => 'required|min:5|max:20|confirmed',
                 'password_confirmation' => 'required|min:5|max:20',
                 'role' => 'required',
             ]);
+
+        $credentials = [
+            'name' => $request->name,
+            'username' => $request->username,
+            'slug' => title_case(str_slug($request->name)),
+            'email'    => $request->email,
+            'password' => $request->password,
+        ];
         
-		$user = Sentinel::register($request->all());
+		$user = Sentinel::register($credentials);
         $activation = Activation::create($user);
 		$role = Sentinel::findRoleBySlug('doctor');
 		$role->users()->attach($user);
@@ -46,7 +53,7 @@ class RegistrationController extends Controller
                 'code' => $code
             ],function($message) use ($user){
                 $message->to($user->email);
-                $message->subject("Hello $user->first_name , Activate your account.");
+                $message->subject("Hello $user->name , Activate your account.");
             });
     }
 }

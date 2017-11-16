@@ -95,11 +95,12 @@ class MigrationCartalystSentinel extends Migration
 
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('first_name');
-            $table->string('last_name');
+            $table->string('name');
+            $table->string('username');
+            // $table->string('first_name');
+            // $table->string('last_name');
             $table->string('email');
             $table->string('password');
-            // $table->string('name');
             $table->string('slug')->unique();
             $table->string('mobile_number')->nullable();
             $table->string('avatar')->default('default.jpg');
@@ -121,6 +122,8 @@ class MigrationCartalystSentinel extends Migration
             $table->text('doctor_short_summery')->nullable();
             $table->string('status')->nullable();
             $table->string('role')->nullable();
+            $table->boolean('slider1')->nullable();
+            $table->boolean('slider2')->nullable();
             $table->text('permissions')->nullable();
             $table->timestamp('last_login')->nullable();
             $table->timestamps();

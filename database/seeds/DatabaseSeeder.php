@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
         	'name' => 'blood_donor',
         	]);
         DB::table('users')->insert([
-            'first_name' => "admin",
-            'last_name' => "admin",
+            'name' => "admin",
+            'username' => "root",
             'slug' => "root",
             'email' => "root@admin.io",
             'password' => bcrypt("rootfahim"),
