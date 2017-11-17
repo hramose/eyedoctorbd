@@ -1,7 +1,7 @@
 @extends('layouts.backend.app')
 
 @section('title')
-  <title>All Doctors Table view</title>
+  <title>Doctors In Slider</title>
 @endsection
 
 @section('csslink')
@@ -20,18 +20,19 @@
       <section id="content">
 
         <!--breadcrumbs start-->
-        <div id="breadcrumbs-wrapper">
-           {{--  <!-- Search for small screen -->
+      <div id="breadcrumbs-wrapper">
+            <!-- Search for small screen -->
             <div class="header-search-wrapper grey hide-on-large-only">
                 <i class="mdi-action-search active"></i>
                 <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
-            </div> --}}
+            </div>
           <div class="container">
             <div class="row">
               <div class="col s12 m12 l12">
-                <h5 class="breadcrumbs-title">All Doctors Table View</h5>
+                <h5 class="breadcrumbs-title">Doctors in Slider</h5>
                 <ol class="breadcrumbs">
-                   <a class="waves-effect waves-light btn" href="{{ Route('adminAllDoctors') }}"><i class="mdi-action-3d-rotation left"></i>Switch to Card View</a>
+                    <li><a href="{{ route('adminDashboard') }}">Dashboard</a></li>
+                    <li class="active">Slider</li>
                 </ol>
               </div>
             </div>
@@ -39,6 +40,8 @@
         </div>
         <!--breadcrumbs end-->
 
+       @include('layouts.backend.include.successmsg')
+       @include('layouts.backend.include.errormsg')
 
         <!--start container-->
         <div class="container">
@@ -47,7 +50,6 @@
 
             <!--DataTables example-->
             <div id="table-datatables">
-              <h4 class="header">ALL DOCTORS</h4>
               <div class="row">
                 <div class="col s12">
                  <div class="container">
@@ -56,12 +58,10 @@
                         <tr>
                             <th>Id</th>
                             <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Status</th>
-                            <th>Last Login</th>
-                            <th>Promotion</th>
-                            <th>Action</th>
+                            <th class="center-align">Status</th>
+                            <th class="center-align">Promotion</th>
+                            <th class="center-align">Slider 1</th>
+                            <th class="center-align">Slider 2</th>
                             
                         </tr>
                     </thead>
@@ -70,12 +70,10 @@
                         <tr>
                             <th>Id</th>
                             <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Status</th>
-                            <th>Last Login</th>
-                            <th>Promotion</th>
-                            <th>Action</th>
+                            <th class="center-align">Status</th>
+                            <th class="center-align">Promotion</th>
+                            <th class="center-align">Slider 1</th>
+                            <th class="center-align">Slider 2</th>
                             
                         </tr>
                     </tfoot>
@@ -85,26 +83,11 @@
                         <tr>
                             <td>{{ $loop->index+1 }}</td>
                             <td>{{$doctor->name}}</td>
-                            <td>{{$doctor->email}}</td>
-                            <td>
-                              @if($doctor->mobile_number == "")
-                                  ask to update
-                              @else
-                                  {{ $doctor->mobile_number }}
-                              @endif
-                            </td>
                             <td class="center-align">
                               @if($doctor->status == "active")
                                   <span class="task-cat cyan">Active</span>
                               @else
                                   <span class="task-cat pink">Deactive</span>
-                              @endif
-                            </td>
-                            <td>
-                              @if($doctor->last_login == "")
-                                  not login yet
-                              @else
-                                  {{ $doctor->last_login }}
                               @endif
                             </td>
                             <td class="center-align">
@@ -119,7 +102,20 @@
                                   not promoted yet
                               @endif
                             </td>
-                            <td>action</td>
+                            <td class="center-align">
+                              @if($doctor->slider1 == 1)
+                                  <a class="btn-floating waves-effect waves-light red" href="{{ route('slider.slider1',$doctor->id) }}"><i class="mdi-content-remove"></i></a>
+                              @else
+                                  <a class="btn-floating waves-effect waves-light blue" href="{{ route('slider.slider1',$doctor->id) }}"><i class="mdi-content-add"></i></a>
+                              @endif
+                            </td>
+                            <td class="center-align">
+                              @if($doctor->slider2 == 1)
+                                  <a class="btn-floating waves-effect waves-light red" href="{{ route('slider.slider2',$doctor->id) }}"><i class="mdi-content-remove"></i></a>
+                              @else
+                                  <a class="btn-floating waves-effect waves-light blue" href="{{ route('slider.slider2',$doctor->id) }}"><i class="mdi-content-add"></i></a>
+                              @endif
+                            </td>
                         </tr>
                       @endforeach
 

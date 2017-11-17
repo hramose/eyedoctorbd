@@ -46,6 +46,7 @@ Route::group(['prefix' => 'blog'], function(){
 / Auth Route  Only For Visitors//
 */
 Route::group(['middleware' => 'visitors'], function(){
+	
 	Route::get('/register', 'RegistrationController@register')->name('register');
 	Route::post('/register', 'RegistrationController@createDoctor')->name('doRegister');
 
@@ -71,6 +72,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
 	Route::get('/alldoctors', 'AdminController@alldoctors')->name('adminAllDoctors');
 	Route::get('/alldoctors-tableview', 'AdminController@alldoctorsTableview')->name('amdinAlldoctorsTableview');
 	Route::get('/contact', 'ContactController@viewMessage')->name('viewContactMessage');
+
+	Route::get('/slider','SliderController@index')->name('slider');
+	Route::get('/slider/{id}/slider1','SliderController@actionSlider1')->name('slider.slider1');
+	Route::get('/slider/{id}/slider2','SliderController@actionSlider2')->name('slider.slider2');
 
 	/*
 	/Blog system route

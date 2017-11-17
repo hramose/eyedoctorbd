@@ -97,7 +97,7 @@ class DoctorController extends Controller
 
  	public function doctorDetail($slug)
  	{
-		$allDoctors = User::where('role','doctor')->where('status','active')->inRandomOrder()->get();
+		$allDoctors = User::where('role','doctor')->where('slider2',1)->inRandomOrder()->get();
  		$doctor = User::where('slug',$slug)->first();
  		$chambers = User::find($doctor->id)->chambers;
  		return view('doctorDetail', compact('doctor','chambers','allDoctors'));

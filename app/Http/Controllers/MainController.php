@@ -12,9 +12,9 @@ class MainController extends Controller
     public function welcome()
     {
     	$cities = City::all();
- 	$sub_areas = Sub_area::all();
-       	$allDoctors = User::where('role','doctor')->where('status','active')->inRandomOrder()->get();        
+ 		$sub_areas = Sub_area::all();
+       	$allDoctors = User::where('role','doctor')->where('slider1',1)->inRandomOrder()->get();        
 
-        	return view('welcome', compact('allDoctors','cities','sub_areas'));
+        return view('welcome', compact('allDoctors','cities','sub_areas'));
     }
 }

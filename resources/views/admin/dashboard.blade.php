@@ -29,7 +29,7 @@
                         <div class="card-content  green white-text">
                             <p class="card-stats-title"><i class="mdi-social-group-add"></i>Total Doctor</p>
                             <h4 class="card-stats-number">{{ $TDoctor }}</h4>
-                            <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> {{ $ActDoctor }} <span class="green-text text-lighten-5">Active &#38; {{$InActDoctor}} Inactive</span>
+                            <p class="card-stats-compare"> {{ $ActDoctor }} <span class="green-text text-lighten-5">Active &#38; {{$InActDoctor}} Inactive</span>
                             </p>
                         </div>
                         <div class="card-action  green darken-2">

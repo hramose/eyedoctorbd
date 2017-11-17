@@ -122,8 +122,8 @@ class MigrationCartalystSentinel extends Migration
             $table->text('doctor_short_summery')->nullable();
             $table->string('status')->nullable();
             $table->string('role')->nullable();
-            $table->boolean('slider1')->nullable();
-            $table->boolean('slider2')->nullable();
+            $table->boolean('slider1')->nullable()->nullable();
+            $table->boolean('slider2')->nullable()->nullable();
             $table->text('permissions')->nullable();
             $table->timestamp('last_login')->nullable();
             $table->timestamps();
