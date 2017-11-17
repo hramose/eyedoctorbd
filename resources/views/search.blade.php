@@ -70,7 +70,7 @@ Search Result
 											<img src="/upload/doctors/thumb/{{ $doctor->avatar }}" alt="profile image"/>
 											<div class="surgeon-info">
 												<div class="surgeon-name">
-													<h3>{{ $doctor->first_name }} {{ $doctor->last_name }}</h3>
+													<h3>{{ $doctor->name }}</h3>
 												<span>{{ $doctor->designation }}</span>
 											</div>
 										  </div>
