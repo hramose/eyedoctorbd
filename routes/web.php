@@ -30,8 +30,8 @@ Route::group(['prefix' => 'search'], function(){
 	Route::post('/', 'SearchController@index')->name('search');
 	Route::get('/{city}','SearchController@searchByCity')->name('search.city');
 	Route::get('/{city}/{sub}', 'SearchController@searchByCityandSub')->name('search.city.subarea');
-	Route::get('hospital/{hospitalName}', 'SearchController@searchByHospital')->name('search.hospital');
 });
+Route::get('/hospital_search/{slug}', 'SearchController@searchByHospital')->name('search.hospital');
 
 /*
 /Blog Route

@@ -42,6 +42,7 @@ class CityController extends Controller
 
         $city = new City;
         $city->city_name = $request->name;
+        $city->slug = str_slug($request->name);
         $city->save();
         return redirect(route('city.index'))->with('successMsg','City Successfully Added');
     }
@@ -84,6 +85,7 @@ class CityController extends Controller
 
         $city = City::find($id);
         $city->city_name = $request->name;
+        $city->slug = str_slug($request->name);
         $city->save();
         return redirect(route('city.index'))->with('successMsg','City Successfully Update');
     }

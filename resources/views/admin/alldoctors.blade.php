@@ -54,22 +54,18 @@
 					</div>
 
                       <span class="card-title activator grey-text text-darken-4">{{ $alldoctor->name }}</span>
-                      <p><i class="mdi-action-perm-identity"></i> Project Manager</p>
+                      <p><i class="mdi-action-perm-identity"></i> {{ $alldoctor->designation }}</p>
                       <p><i class="mdi-action-perm-phone-msg"></i>{{ $alldoctor->mobile_number }}</p>
                       <p><i class="mdi-communication-email"></i>{{ $alldoctor->email }}</p>
 
                     </div>
                     <div class="card-reveal" style="display: none; transform: translateY(0px);">
                       <span class="card-title grey-text text-darken-4">{{ $alldoctor->name }}<i class="mdi-navigation-close right"></i></span>
-                      <p>Here is some more information about this card.</p>
-                      <p><i class="mdi-action-perm-identity"></i> Project Manager</p>
+                      <p><i class="mdi-action-perm-identity"></i> {{ $alldoctor->designation }}</p>
                       <p><i class="mdi-action-perm-phone-msg"></i>{{ $alldoctor->mobile_number }}</p>
                       <p><i class="mdi-communication-email"></i>{{ $alldoctor->email }}</p>
-                      <p><i class="mdi-social-cake"></i> 18th June 1990
-                        </p><p>
-                          </p><p><i class="mdi-device-airplanemode-on"></i> BAR - AUS
-                            </p><p>
-                 </p></div>
+                      <p><i class="mdi-social-cake"></i> {{ $alldoctor->date_of_birth }}</p>
+                      </div>
             </div>
 		</div>
 		@endforeach

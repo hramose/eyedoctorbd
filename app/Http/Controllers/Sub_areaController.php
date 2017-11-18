@@ -41,6 +41,7 @@ class Sub_areaController extends Controller
         ]);
         $sub_area = new Sub_area;
         $sub_area->name = $request->name;
+        $sub_area->slug = str_slug($request->name);
         $sub_area->save();
         return redirect(route('sub-area.index'))->with('successMsg','Sub Area Successfully Added');
     }
@@ -82,6 +83,7 @@ class Sub_areaController extends Controller
         ]);
         $sub_area = Sub_area::find($id);
         $sub_area->name = $request->name;
+        $sub_area->slug = str_slug($request->name);        
         $sub_area->save();
         return redirect(route('sub-area.index'))->with('successMsg','Sub Area Successfully Update');
     }

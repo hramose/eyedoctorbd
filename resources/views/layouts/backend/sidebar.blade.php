@@ -47,7 +47,7 @@
             <li class="bold {{ Request::is('admin/slider') ? 'active' : '' }}"><a href="{{ Route('slider') }}" class="waves-effect waves-cyan"><i class="mdi-action-view-carousel"></i>Promotion Slider</a>
             </li>
 
-            <li class="bold {{ Request::is('admin/activation') ? 'active' : '' }}"><a href="{{ Route('slider') }}" class="waves-effect waves-cyan"><i class="mdi-action-done"></i>Activation</a>
+            <li class="bold {{ Request::is('admin/activation') ? 'active' : '' }}"><a href="{{ Route('activation') }}" class="waves-effect waves-cyan"><i class="mdi-action-done"></i>Activation</a>
             </li>
 
              <li class="bold {{ Request::is('admin/contact') ? 'active' : '' }}"><a href="{{ Route('viewContactMessage') }}" class="waves-effect waves-cyan"><i class="mdi-communication-forum"></i>Contact Message</a>

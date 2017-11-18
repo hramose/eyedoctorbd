@@ -93,16 +93,15 @@ Home
 									<select name="city" id="city">
 										<option value="" disabled selected>Select Your City</option>
 										@foreach ($cities as $city)
-											<option value="{{ $city->city_name }}">{{ $city->city_name }}</option>
-										{{ $city->city_name }}
+											<option value="{{ $city->slug }}">{{ $city->city_name }}</option>
 										@endforeach
 									</select>
 								</div>
 								<div class="input-field col s12 m3 3">
 									<select name="subarea" id="subarea">
-										<option value="" disabled selected>Select Your City</option>
+										<option value="" disabled selected>Select Your Sub-area</option>
 										@foreach ($sub_areas as $subarea)
-											<option value="{{ $subarea->name }}">{{ $subarea->name }}</option>
+											<option value="{{ $subarea->slug }}">{{ $subarea->name }}</option>
 										@endforeach
 									</select>
 								</div>
@@ -110,7 +109,7 @@ Home
 									<select name="hospital" id="hospital">
 										<option value="" disabled selected>Search by Hospital</option>
 										@foreach ($hospitals as $hospital)
-											<option value="{{ $hospital->hospital_name }}">{{ $hospital->hospital_name }}</option>
+											<option value="{{ $hospital->slug }}">{{ $hospital->hospital_name }}</option>
 										@endforeach
 									</select>
 								</div>
@@ -612,28 +611,6 @@ Home
         document.getElementById('search_form').submit();
     }
   }
-    $( function() {
-        var allCity = [
-        @foreach ($cities as $city)
-          "{{ $city->city_name }}",
-        @endforeach
-        ];
-        $( "#txt_city" ).autocomplete({
-          source: allCity
-        });
-    } );
-
- $( function() {
-    var allSubarea = [
-    @foreach ($sub_areas as $subarea)
-      "{{ $subarea->name }}",
-    @endforeach
-    ];
-    $( "#txt_subarea" ).autocomplete({
-      source: allSubarea
-    });
-  } );
-
     jQuery(document).ready(function() {
 
         /* ============  Carousel ================*/

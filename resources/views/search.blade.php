@@ -21,26 +21,31 @@ Search Result
                             <div class="row">
                                 <div class="input-field col s12 m3 3">
                                    <select name="city" id="city">
+                                  <option value="" disabled selected>Select Your City</option>
                                     @foreach ($cities as $city)
-                                      <option value="{{ $city->city_name }}" 
-                                        {{ $city === ($city->city_name) ? 'selected' : '' }}>{{ $city->city_name }}</option>
+                                      <option value="{{ $city->slug }}" 
+                                        {{ $citySlug === ($city->slug) ? 'selected' : '' }}>{{ $city->city_name }}</option>
                                     {{ $city->city_name }}
                                     @endforeach
                                   </select>
                                 </div>
                                 <div class="input-field col s12 m3 3">
                                     <select name="subarea" id="subarea">
+                                    	<option value="" disabled selected>Select Your Sub-area</option>
                                       @foreach ($sub_areas as $subarea)
-                                        <option value="{{ $subarea->name }}"   
-                                        {{ $subarea === ($subarea->name) ? 'selected' : '' }} >{{ $subarea->name }}</option>
+                                        <option value="{{ $subarea->slug }}"   
+                                        {{ $subareaSlug === ($subarea->slug) ? 'selected' : '' }} >{{ $subarea->name }}</option>
                                       @endforeach
                                     </select>
                                 </div>
                                 <div class="input-field col s12 m4 4">
-                                    <input type="text"
-                                            id="txt_hospital"
-                                           name="DocORHosName"
-                                           placeholder="Doctor Name or Email">
+                                  <select name="hospital" id="hospital">
+                                    <option value="" disabled selected>Search by Hospital</option>
+                                    @foreach ($hospitals as $hospital)
+                                      <option value="{{ $hospital->slug }}"    
+                                      {{ $hospitalSlug === ($hospital->slug) ? 'selected' : '' }} >{{ $hospital->hospital_name }}</option>
+                                    @endforeach
+                                  </select>
                                 </div>
 
 
@@ -104,14 +109,14 @@ Search Result
   <script type="text/javascript">
 	 function route (){
        event.preventDefault();       
-      if ($.trim($("#city").val()) == "" && $.trim($("#subarea").val()) == "" && $.trim($("#txt_hospital").val()) == "") {
+      if ($.trim($("#city").val()) == "" && $.trim($("#subarea").val()) == "" && $.trim($("#hospital").val()) == "") {
           console.log('all empty');
           swal(
                 'Oops...One condition required.',
                 'Search with one condition City and Sub Area Or Doctor Name and Hospital Name',
                 'error'
                 );
-    }else if($.trim($("#city").val()) == "" && $.trim($("#txt_hospital").val()) == "" && $.trim($("#subarea").val()) !== ""){
+    }else if($.trim($("#city").val()) == "" && $.trim($("#hospital").val()) == "" && $.trim($("#subarea").val()) !== ""){
          swal(
                 'Oops...',
                 'You can not search only with sub area :(',
@@ -121,26 +126,5 @@ Search Result
         document.getElementById('search_form').submit();
     }
   }
-  	  $( function() {
-        var allCity = [
-        @foreach ($cities as $city)
-          "{{ $city->city_name }}",
-        @endforeach
-        ];
-        $( "#txt_city" ).autocomplete({
-          source: allCity
-        });
-    } );
-
- $( function() {
-    var allSubarea = [
-    @foreach ($sub_areas as $subarea)
-      "{{ $subarea->name }}",
-    @endforeach
-    ];
-    $( "#txt_subarea" ).autocomplete({
-      source: allSubarea
-    });
-  } );
   </script>
 @endsection

@@ -42,6 +42,7 @@ class HospitalController extends Controller
         ]);
         $hospital = new Hospital;
         $hospital->hospital_name  = $request->name;
+        $hospital->slug  = str_slug($request->name);
         $hospital->address = $request->address;
         $hospital->save();
         
@@ -86,6 +87,7 @@ class HospitalController extends Controller
         ]);
         $hospital = Hospital::find($id);
         $hospital->hospital_name  = $request->name;
+        $hospital->slug  = str_slug($request->name);        
         $hospital->address = $request->address;
         $hospital->save();
         
