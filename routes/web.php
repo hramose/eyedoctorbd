@@ -30,6 +30,7 @@ Route::group(['prefix' => 'search'], function(){
 	Route::post('/', 'SearchController@index')->name('search');
 	Route::get('/{city}','SearchController@searchByCity')->name('search.city');
 	Route::get('/{city}/{sub}', 'SearchController@searchByCityandSub')->name('search.city.subarea');
+	Route::get('hospital/{hospitalName}', 'SearchController@searchByHospital')->name('search.hospital');
 });
 
 /*
@@ -76,6 +77,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
 	Route::get('/slider','SliderController@index')->name('slider');
 	Route::get('/slider/{id}/slider1','SliderController@actionSlider1')->name('slider.slider1');
 	Route::get('/slider/{id}/slider2','SliderController@actionSlider2')->name('slider.slider2');
+
+	Route::get('/activation','ActivationController@index')->name('activation');
+	Route::get('/activation/{id}/{code}','ActivationController@activatedByAdmin')->name('activation.Byadmin');
 
 	/*
 	/Blog system route

@@ -13,14 +13,15 @@ class SearchController extends Controller
     {
     	$City = $request->city;
         $Subarea = $request->subarea;
-        $HospitalAndDoctor = $request->DocORHosName;
+        $Hospital = $request->hospital;
         
-        if (isset($City) && empty($Subarea) && empty($HospitalAndDoctor)) {
+        if (isset($City) && empty($Subarea) && empty($Hospital)) {
             return Redirect::to('search/'.$City);
-        } elseif (isset($City) && isset($Subarea) && empty($HospitalAndDoctor)) {
+        } elseif (isset($City) && isset($Subarea) && empty($Hospital)) {
             return Redirect::to('search/'.$City.'/'.$Subarea);
-        } elseif (isset($HospitalAndDoctor)) {
-            return "Hosptial search";
+        } elseif (isset($Hospital)) {
+            // return Redirect::to('search/hospital/'.$Hospital);
+            return $Hospital;
         } else {
             return "something Worng";
         }
@@ -54,6 +55,17 @@ class SearchController extends Controller
                     ->paginate(10);
         $doctorCount = $doctors->count();
         return view('search',compact('doctors','doctorCount','city','subarea','cities','sub_areas'));
+
+    }
+
+     public function searchByHospital($hospitalName)
+    {
+        $cities = City::all();
+        $sub_areas = Sub_area::all();
+        $doctors = Hospital::where('hospital_name', $hospitalName)->get();
+        return $doctors;
+        $doctorCount = $doctors->count();
+        return view('search',compact('doctors','doctorCount','hospitalName','cities','sub_areas'));
 
     }
 }

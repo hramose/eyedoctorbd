@@ -20,18 +20,21 @@ Search Result
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="input-field col s12 m3 3">
-                                    <input type="text"
-                                           id="txt_city"
-                                           name="city"
-																					 value="{{ $city }}"
-                                           placeholder="City">
+                                   <select name="city" id="city">
+                                    @foreach ($cities as $city)
+                                      <option value="{{ $city->city_name }}" 
+                                        {{ $city === ($city->city_name) ? 'selected' : '' }}>{{ $city->city_name }}</option>
+                                    {{ $city->city_name }}
+                                    @endforeach
+                                  </select>
                                 </div>
                                 <div class="input-field col s12 m3 3">
-                                    <input type="text"
-                                           id="txt_subarea"
-                                           name="subarea"
-																					 value="{{ $subarea }}"
-                                           placeholder="Subarea">
+                                    <select name="subarea" id="subarea">
+                                      @foreach ($sub_areas as $subarea)
+                                        <option value="{{ $subarea->name }}"   
+                                        {{ $subarea === ($subarea->name) ? 'selected' : '' }} >{{ $subarea->name }}</option>
+                                      @endforeach
+                                    </select>
                                 </div>
                                 <div class="input-field col s12 m4 4">
                                     <input type="text"
@@ -101,14 +104,14 @@ Search Result
   <script type="text/javascript">
 	 function route (){
        event.preventDefault();       
-      if ($.trim($("#txt_city").val()) == "" && $.trim($("#txt_subarea").val()) == "" && $.trim($("#txt_hospital").val()) == "") {
+      if ($.trim($("#city").val()) == "" && $.trim($("#subarea").val()) == "" && $.trim($("#txt_hospital").val()) == "") {
           console.log('all empty');
           swal(
                 'Oops...One condition required.',
                 'Search with one condition City and Sub Area Or Doctor Name and Hospital Name',
                 'error'
                 );
-    }else if($.trim($("#txt_city").val()) == "" && $.trim($("#txt_hospital").val()) == "" && $.trim($("#txt_subarea").val()) !== ""){
+    }else if($.trim($("#city").val()) == "" && $.trim($("#txt_hospital").val()) == "" && $.trim($("#subarea").val()) !== ""){
          swal(
                 'Oops...',
                 'You can not search only with sub area :(',

@@ -90,13 +90,29 @@ Home
 							{{ csrf_field() }}
 							<div class="row">
 								<div class="input-field col s12 m3 3">
-									<input type="text" id="txt_city" name="city" placeholder="City">
+									<select name="city" id="city">
+										<option value="" disabled selected>Select Your City</option>
+										@foreach ($cities as $city)
+											<option value="{{ $city->city_name }}">{{ $city->city_name }}</option>
+										{{ $city->city_name }}
+										@endforeach
+									</select>
 								</div>
 								<div class="input-field col s12 m3 3">
-									<input type="text" id="txt_subarea" name="subarea" placeholder="Subarea">
+									<select name="subarea" id="subarea">
+										<option value="" disabled selected>Select Your City</option>
+										@foreach ($sub_areas as $subarea)
+											<option value="{{ $subarea->name }}">{{ $subarea->name }}</option>
+										@endforeach
+									</select>
 								</div>
 								<div class="input-field col s12 m4 4">
-									<input type="text" id="txt_hospital" name="DocORHosName" placeholder="Doctor Name or Email">
+									<select name="hospital" id="hospital">
+										<option value="" disabled selected>Search by Hospital</option>
+										@foreach ($hospitals as $hospital)
+											<option value="{{ $hospital->hospital_name }}">{{ $hospital->hospital_name }}</option>
+										@endforeach
+									</select>
 								</div>
 
 
@@ -136,12 +152,9 @@ Home
 						</div>
 						<div class="doctor-detail">
 							<div class="doctor-description">
-								<span>Dr.</span>
-								<h5>SMILE JOHN</h5>
-								<i>Neurologiest / CEO</i>
-								<p>Suspendisse potenti. Maecenas dapibus ac tellus sed pulvinar. Vestibulum bib volutpat accumsan non laoreet. Quaerat,
-									iste, architecto ullam tenetur quia nemo ratione tempora consectetur...</p>
-								<a class="coloured-btn" href="staff-detail.html" title="">Read More
+								<h5>Eyedoctor BD</h5><br><br>
+								<p>একটি সেবামূলক অনলাইন প্রতিষ্ঠান।যেখানে আপনি পাবেন চক্ষু বিশেষজ্ঞ ডাক্তারের সকল তথ্য। বিস্তারিত জানতে - 01629230506, 01906066233</p>
+								<a class="coloured-btn" href="{{ route('alldoctors') }}" title="">All Doctors
 									<i class="fa fa-caret-right"></i>
 								</a>
 							</div>
@@ -582,14 +595,14 @@ Home
     });
 	function route (){
        event.preventDefault();       
-      if ($.trim($("#txt_city").val()) == "" && $.trim($("#txt_subarea").val()) == "" && $.trim($("#txt_hospital").val()) == "") {
+      if ($.trim($("#city").val()) == "" && $.trim($("#subarea").val()) == "" && $.trim($("#hospital").val()) == "") {
           console.log('all empty');
           swal(
                 'Oops...One condition required.',
                 'Search with one condition City and Sub Area Or Doctor Name and Hospital Name',
                 'error'
                 );
-    }else if($.trim($("#txt_city").val()) == "" && $.trim($("#txt_hospital").val()) == "" && $.trim($("#txt_subarea").val()) !== ""){
+    }else if($.trim($("#city").val()) == "" && $.trim($("#hospital").val()) == "" && $.trim($("#subarea").val()) !== ""){
          swal(
                 'Oops...',
                 'You can not search only with sub area :(',

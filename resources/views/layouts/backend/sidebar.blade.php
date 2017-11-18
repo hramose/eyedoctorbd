@@ -12,7 +12,7 @@
                 </div> 
                 <div class="col col s8 m8 l8">
                     <ul id="profile-dropdown" class="dropdown-content">
-                        <li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
+                        {{--  <li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
                         </li>
                         <li><a href="#"><i class="mdi-action-settings"></i> Settings</a>
                         </li>
@@ -20,7 +20,7 @@
                         </li>
                         <li class="divider"></li>
                         <li><a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
-                        </li>
+                        </li>  --}}
                         <li><a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -45,6 +45,9 @@
             </li>
 
             <li class="bold {{ Request::is('admin/slider') ? 'active' : '' }}"><a href="{{ Route('slider') }}" class="waves-effect waves-cyan"><i class="mdi-action-view-carousel"></i>Promotion Slider</a>
+            </li>
+
+            <li class="bold {{ Request::is('admin/activation') ? 'active' : '' }}"><a href="{{ Route('slider') }}" class="waves-effect waves-cyan"><i class="mdi-action-done"></i>Activation</a>
             </li>
 
              <li class="bold {{ Request::is('admin/contact') ? 'active' : '' }}"><a href="{{ Route('viewContactMessage') }}" class="waves-effect waves-cyan"><i class="mdi-communication-forum"></i>Contact Message</a>
@@ -91,15 +94,15 @@
                 </div>
                 <div class="col col s8 m8 l8">
                     <ul id="profile-dropdown" class="dropdown-content">
-                        <li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
+                        <li><a href="{{ route('doctorProfile') }}"><i class="mdi-action-face-unlock"></i> Profile</a>
                         </li>
-                        <li><a href="#"><i class="mdi-action-settings"></i> Settings</a>
+                        {{--  <li><a href="#"><i class="mdi-action-settings"></i> Settings</a>
                         </li>
                         <li><a href="#"><i class="mdi-communication-live-help"></i> Help</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
-                        </li>
+                        </li>  --}}
                         <li><a href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                document.getElementById('logout-form').submit();">
